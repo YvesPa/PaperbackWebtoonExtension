@@ -1,0 +1,37 @@
+import {
+    SourceInfo
+} from '@paperback/types'
+
+import {
+    BASE_URL_XX,
+    MOBILE_URL_XX,
+    getExportVersion,
+    Webtoon,
+    WebtoonBaseInfo
+} from '../Webtoon'
+
+import { CheerioAPI } from 'cheerio/lib/load'
+[[ImportLanguage]]
+const LOCALE = '[[Locale]]'
+const DATE_FORMAT = '[[DateFormat]]'
+const LANGUAGE = '[[Language]]'
+const BASE_URL = `${BASE_URL_XX}/${LOCALE}`
+const MOBILE_URL = `${MOBILE_URL_XX}/${LOCALE}`
+const VERSION = '[[Version]]'
+const LANGUAGE_INFO = [[LanguageInfo]]
+const SOURCE_NAME = '[[SourceName]]'
+
+export const [[SourceName]]Info: SourceInfo = {
+    ...WebtoonBaseInfo,
+    name: SOURCE_NAME,
+    version: getExportVersion(VERSION),
+    description: `Extension that pulls manga from ${BASE_URL}`,
+    websiteBaseURL: BASE_URL,
+    language: LANGUAGE_INFO
+}
+
+export class [[SourceName]] extends Webtoon {
+    constructor (cheerio: CheerioAPI){
+        super(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL)
+    }
+}
