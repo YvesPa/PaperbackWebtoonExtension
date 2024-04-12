@@ -63,11 +63,8 @@ export class WebtoonParser {
 
     parseChaptersList($: CheerioAPI): Chapter[] {
         const chapters: Chapter[] = []
-
-        const chapterElement = $('ul#_episodeList > li[id*=episode]') as CheerioElement
-        console.log(chapterElement.length)
       
-        chapterElement.each((_ : number, elem: Element) => {
+        $('ul#_episodeList > li[id*=episode]').each((_ : number, elem: Element) => {
             chapters.push(this.parseChapter($(elem)))})
 
         return chapters

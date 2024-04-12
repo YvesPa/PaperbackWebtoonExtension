@@ -29,8 +29,16 @@ export class WebtoonConfiguration
     }
 }
 
+const IndonesianWebtoon = new WebtoonConfiguration('WebtoonID', 'id', 'YYYY MMM D', '0.0.0', 'Indonesian')
+IndonesianWebtoon.ImportLanguage = '\nimport \'../../src/customLocale/id\'\n'
+
 export const WebtoonFactory : WebtoonConfiguration[] = 
 [
     new WebtoonConfiguration(),
-    new WebtoonConfiguration('WebtoonFR', 'fr', 'D MMM YYYY', '0.0.0', 'French')
+    new WebtoonConfiguration('WebtoonFR', 'fr', 'D MMM YYYY', '0.0.0', 'French'),
+    IndonesianWebtoon,
+    new WebtoonConfiguration('WebtoonES', 'es', 'DD-MMM-YYYY', '0.0.0', 'Spanish'),
+    new WebtoonConfiguration('WebtoonDE', 'de', 'DD.MM.YYYY', '0.0.0', 'German'),
+    new WebtoonConfiguration('WebtoonZH', 'zh-hant', 'l', '0.0.0', 'Chinese (Traditional)', 'zh-tw'),
+    new WebtoonConfiguration('WebtoonTH', 'th', 'D MMM YYYY', '0.0.0', 'Thai')
 ]
