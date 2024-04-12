@@ -6155,7 +6155,7 @@ const types_1 = require("@paperback/types");
 const WebtoonParser_1 = require("./WebtoonParser");
 exports.BASE_URL_XX = 'https://www.webtoons.com';
 exports.MOBILE_URL_XX = 'https://m.webtoons.com';
-const BASE_VERSION = '1.0.0';
+const BASE_VERSION = '1.1.0';
 const getExportVersion = (EXTENSION_VERSION) => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.');
 };
@@ -6173,12 +6173,13 @@ exports.WebtoonBaseInfo = {
     intents: types_1.SourceIntents.MANGA_CHAPTERS | types_1.SourceIntents.HOMEPAGE_SECTIONS | types_1.SourceIntents.CLOUDFLARE_BYPASS_REQUIRED | types_1.SourceIntents.SETTINGS_UI
 };
 class Webtoon {
-    constructor(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL) {
+    constructor(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING) {
         this.cheerio = cheerio;
         this.LOCALE = LOCALE;
         this.BASE_URL = BASE_URL;
         this.MOBILE_URL = MOBILE_URL;
-        // stateManager = App.createSourceStateManager()
+        this.HAVE_TRENDING = HAVE_TRENDING;
+        this.stateManager = App.createSourceStateManager();
         this.requestManager = App.createRequestManager({
             requestsPerSecond: 10,
             requestTimeout: 20000,
@@ -6224,30 +6225,100 @@ class Webtoon {
     getChapterDetails(mangaId, chapterId) {
         return this.ExecRequest({ url: `${this.BASE_URL}/${chapterId}` }, $ => this.parser.parseChapterDetails($, mangaId, chapterId));
     }
-    getPopularTitles() {
-        return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, this.parser.parsePopularTitles);
+    getPopularTitles(allTitles) {
+        return this.ExecRequest({ url: `${this.BASE_URL}/popular` }, $ => this.parser.parsePopularTitles($, allTitles));
+    }
+    getTodayTitles(allTitles) {
+        return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseTodayTitles($, allTitles));
+    }
+    getOngoingTitles(allTitles) {
+        return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseOngoingTitles($, allTitles));
+    }
+    getCompletedTitles(allTitles) {
+        return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseCompletedTitles($, allTitles));
     }
     getSearchResults(query, metadata) {
-        return this.ExecRequest({
-            url: `${this.BASE_URL}/search`,
-            param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
-        }, this.parser.parseSearchResults);
+        if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
+            return this.ExecRequest({
+                url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
+                param: this.paramsToString({ sortOrder: 'READ_COUNT#' })
+            }, $ => this.parser.parseTagResults($, false));
+        else
+            return this.ExecRequest({
+                url: `${this.BASE_URL}/search`,
+                param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
+            }, this.parser.parseSearchResults);
     }
     async getHomePageSections(sectionCallback) {
-        const popularSection = App.createHomeSection({
-            id: 'popular',
-            title: 'Popular',
-            containsMoreItems: true,
-            type: types_1.HomeSectionType.singleRowNormal,
-            items: await this.getPopularTitles()
-        });
-        sectionCallback(popularSection);
+        const sections = [];
+        if (this.HAVE_TRENDING)
+            sections.push({
+                request: this.getPopularTitles(false),
+                section: App.createHomeSection({
+                    id: 'popular',
+                    title: 'New & Trending',
+                    containsMoreItems: false,
+                    type: types_1.HomeSectionType.singleRowNormal
+                })
+            });
+        sections.push(...[
+            {
+                request: this.getTodayTitles(false),
+                section: App.createHomeSection({
+                    id: 'today',
+                    title: 'Today release',
+                    containsMoreItems: true,
+                    type: types_1.HomeSectionType.singleRowNormal
+                })
+            },
+            {
+                request: this.getOngoingTitles(false),
+                section: App.createHomeSection({
+                    id: 'ongoing',
+                    title: 'Ongoing',
+                    containsMoreItems: true,
+                    type: types_1.HomeSectionType.singleRowNormal
+                })
+            },
+            {
+                request: this.getCompletedTitles(false),
+                section: App.createHomeSection({
+                    id: 'completed',
+                    title: 'Completed',
+                    containsMoreItems: true,
+                    type: types_1.HomeSectionType.singleRowNormal
+                })
+            }
+        ]);
+        const promises = [];
+        for (const section of sections) {
+            promises.push(section.request.then(items => {
+                section.section.items = items;
+                sectionCallback(section.section);
+            }));
+        }
+    }
+    async getSearchTags() {
+        const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($));
+        return [
+            App.createTagSection({
+                id: '0',
+                label: 'genres',
+                tags: tags
+            })
+        ];
     }
     async getViewMoreItems(homepageSectionId, metadata) {
         let items = [];
         switch (homepageSectionId) {
-            case 'popular':
-                items = await this.getPopularTitles();
+            case 'today':
+                items = await this.getTodayTitles(true);
+                break;
+            case 'ongoing':
+                items = await this.getOngoingTitles(true);
+                break;
+            case 'completed':
+                items = await this.getCompletedTitles(true);
                 break;
             default:
                 throw new Error(`Invalid homeSectionId | ${homepageSectionId}`);
@@ -6273,6 +6344,7 @@ const MOBILE_URL = `${Webtoon_1.MOBILE_URL_XX}/${LOCALE}`;
 const VERSION = '0.0.0';
 const LANGUAGE_INFO = undefined;
 const SOURCE_NAME = 'WebtoonEN';
+const HAVE_TRENDING = true;
 exports.WebtoonENInfo = {
     ...Webtoon_1.WebtoonBaseInfo,
     name: SOURCE_NAME,
@@ -6283,7 +6355,7 @@ exports.WebtoonENInfo = {
 };
 class WebtoonEN extends Webtoon_1.Webtoon {
     constructor(cheerio) {
-        super(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL);
+        super(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING);
     }
 }
 exports.WebtoonEN = WebtoonEN;
@@ -6363,7 +6435,25 @@ class WebtoonParser {
             pages: pages
         });
     }
-    parsePopularTitles($) {
+    parsePopularTitles($, allTitles) {
+        const mangas = [];
+        $('div#content div.NE\\=a\\:tnt li a').each((_, elem) => {
+            if ($(elem).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(elem)));
+        });
+        return mangas;
+    }
+    parseTodayTitles($, allTitles) {
+        const mangas = [];
+        const date = (0, moment_1.default)().locale('en').format('dddd').toUpperCase();
+        const list = $(`div#dailyList div.daily_section._list_${date} li a.daily_card_item`);
+        for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
+            if ($(list[i]).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(list[i])));
+        }
+        return mangas;
+    }
+    parseOngoingTitles($, allTitles) {
         const mangas = [];
         let maxChild = 0;
         $('div#dailyList > div').each((_, elem) => {
@@ -6371,14 +6461,22 @@ class WebtoonParser {
                 maxChild = $(elem).find('li').length;
         });
         for (let i = 1; i <= maxChild; i++) {
+            if (!allTitles && mangas.length >= 14)
+                return mangas;
             $('div#dailyList > div li:nth-child(' + i + ') a.daily_card_item').each((_, elem) => {
                 if ($(elem).find('p.subj'))
                     mangas.push(this.parseMangaFromElement($(elem)));
             });
         }
-        $('div.daily_lst.comp li a').each((_, elem) => {
-            mangas.push(this.parseMangaFromElement($(elem)));
-        });
+        return mangas;
+    }
+    parseCompletedTitles($, allTitles) {
+        const mangas = [];
+        const list = $('div.daily_lst.comp li a');
+        for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
+            if ($(list[i]).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(list[i])));
+        }
         return mangas;
     }
     parseMangaFromElement(elem) {
@@ -6391,6 +6489,28 @@ class WebtoonParser {
     parseSearchResults($) {
         const items = [];
         $('#content > div.card_wrap.search li a.card_item').each((_, elem) => {
+            items.push(this.parseMangaFromElement($(elem)));
+        });
+        return App.createPagedResults({
+            results: items
+        });
+    }
+    parseGenres($) {
+        const tags = [];
+        $('#content ul._genre li').each((_, elem) => {
+            tags.push(this.parseTagFromElement($(elem)));
+        });
+        return tags;
+    }
+    parseTagFromElement(elem) {
+        return App.createTag({
+            id: elem.attr('data-genre') ?? '',
+            label: elem.find('a').text().trim()
+        });
+    }
+    parseTagResults($, allTitles) {
+        const items = [];
+        $('#content > div.card_wrap ul.card_lst li a').each((_, elem) => {
             items.push(this.parseMangaFromElement($(elem)));
         });
         return App.createPagedResults({
