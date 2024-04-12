@@ -3,7 +3,8 @@ import {
     Chapter,
     ChapterDetails,
     PagedResults,
-    PartialSourceManga
+    PartialSourceManga,
+    Tag
 } from '@paperback/types'
 
 import moment from 'moment'
@@ -98,7 +99,31 @@ export class WebtoonParser {
         })
     }
 
-    parsePopularTitles($: CheerioAPI): PartialSourceManga[] {
+    parsePopularTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
+        const mangas: PartialSourceManga[] = []
+        
+        $('div#content div.NE\\=a\\:tnt li a').each((_ : number, elem: AnyNode) => {
+            if ($(elem).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(elem as Element)))
+        })
+
+        return mangas
+    }
+
+    parseTodayTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
+        const mangas: PartialSourceManga[] = []
+
+        const date = moment().locale('en').format('dddd').toUpperCase()
+        const list = $(`div#dailyList div.daily_section._list_${date} li a.daily_card_item`)
+        for(let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++){
+            if($(list[i]).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(list[i])))
+        }
+
+        return mangas
+    }
+
+    parseOngoingTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
         const mangas: PartialSourceManga[] = []
         let maxChild = 0
 
@@ -107,15 +132,24 @@ export class WebtoonParser {
         })
 
         for (let i = 1; i <= maxChild; i++) {
+            if(!allTitles && mangas.length >= 14) return mangas
             $('div#dailyList > div li:nth-child(' + i + ') a.daily_card_item').each((_ : number, elem: AnyNode) => {
                 if ($(elem).find('p.subj'))
                     mangas.push(this.parseMangaFromElement($(elem as Element)))
             })
         }
 
-        $('div.daily_lst.comp li a').each((_ : number, elem: Element) => {
-            mangas.push(this.parseMangaFromElement($(elem)))
-        })
+        return mangas
+    }
+
+    parseCompletedTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
+        const mangas: PartialSourceManga[] = []
+
+        const list = $('div.daily_lst.comp li a')
+        for(let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++){
+            if($(list[i]).find('p.subj'))
+                mangas.push(this.parseMangaFromElement($(list[i])))
+        }
 
         return mangas
     }
@@ -139,4 +173,35 @@ export class WebtoonParser {
             results: items
         })
     }
+    
+    parseGenres($: CheerioAPI): Tag[]{
+        const tags: Tag[] = []
+
+        $('#content ul._genre li').each((_ : number, elem: Element) => {
+            tags.push(this.parseTagFromElement($(elem)))
+        })
+
+        return tags
+    }
+
+    parseTagFromElement(elem: CheerioElement): Tag {
+        return App.createTag({
+            id: elem.attr('data-genre') ?? '',
+            label: elem.find('a').text().trim()
+        })
+    }
+    
+    parseTagResults($: CheerioAPI, allTitles: boolean): PagedResults {
+        const items: PartialSourceManga[] = []
+
+        $('#content > div.card_wrap ul.card_lst li a').each((_ : number, elem: Element) => {
+            items.push(this.parseMangaFromElement($(elem)))
+        })
+
+        return App.createPagedResults({
+            results: items
+        })
+    }
+
+
 }

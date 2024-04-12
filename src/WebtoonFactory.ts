@@ -10,6 +10,7 @@ export class WebtoonConfiguration
     public Version: string
     public LanguageInfo: string | undefined
     public ImportLanguage: string
+    public HaveTrending: boolean
 
     constructor(
         sourceName = 'WebtoonEN',
@@ -26,6 +27,7 @@ export class WebtoonConfiguration
         this.LanguageInfo = languageInfo ? `'${languageInfo}'` : undefined 
         this.Language = language ?? locale
         this.ImportLanguage = this.Language === 'en' ? '' : `\nimport 'moment/locale/${this.Language}'\n`
+        this.HaveTrending = locale !== 'es' && locale !== 'de'
     }
 }
 

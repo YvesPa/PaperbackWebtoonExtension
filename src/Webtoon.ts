@@ -15,7 +15,8 @@ import {
     MangaProviding,
     HomePageSectionsProviding,
     HomeSectionType,
-    PartialSourceManga
+    PartialSourceManga,
+    TagSection
 } from '@paperback/types'
 
 import { WebtoonParser } from './WebtoonParser'
@@ -24,7 +25,7 @@ import { CheerioAPI } from 'cheerio/lib/load'
 export const BASE_URL_XX = 'https://www.webtoons.com'
 export const MOBILE_URL_XX = 'https://m.webtoons.com'
 
-const BASE_VERSION = '1.0.0'
+const BASE_VERSION = '1.1.0'
 export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
@@ -52,12 +53,13 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
         DATE_FORMAT: string,
         LANGUAGE: string,
         private BASE_URL: string,
-        private MOBILE_URL: string) 
+        private MOBILE_URL: string,
+        private HAVE_TRENDING: boolean) 
     { 
         this.parser = new WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL)  
     }
 
-    // stateManager = App.createSourceStateManager()
+    stateManager = App.createSourceStateManager()
 
     requestManager = App.createRequestManager({
         requestsPerSecond: 10,
@@ -115,38 +117,125 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             $ => this.parser.parseChapterDetails($, mangaId, chapterId))
     }
 
-    getPopularTitles(): Promise<PartialSourceManga[]> {
+    getPopularTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/popular` }, 
+            $ => this.parser.parsePopularTitles($, allTitles))
+    }
+
+    getTodayTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
         return this.ExecRequest(
             { url: `${this.BASE_URL}/dailySchedule` }, 
-            this.parser.parsePopularTitles)
+            $ => this.parser.parseTodayTitles($, allTitles))
+    }
+
+    getOngoingTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/dailySchedule` }, 
+            $ => this.parser.parseOngoingTitles($, allTitles))
+    }
+
+    getCompletedTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/dailySchedule` }, 
+            $ => this.parser.parseCompletedTitles($, allTitles))
     }
 
     getSearchResults(query: SearchRequest, metadata: unknown | undefined): Promise<PagedResults> {
-        return this.ExecRequest(
-            {
-                url: `${this.BASE_URL}/search`,
-                param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
-            },
-            this.parser.parseSearchResults)
+        if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
+            return this.ExecRequest(
+                { 
+                    url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
+                    param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
+                },
+                $ => this.parser.parseTagResults($, false))
+        else 
+            return this.ExecRequest(
+                {
+                    url: `${this.BASE_URL}/search`,
+                    param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
+                },
+                this.parser.parseSearchResults)
     }
 
     async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
-        const popularSection = App.createHomeSection({
-            id: 'popular',
-            title: 'Popular',
-            containsMoreItems: true,
-            type: HomeSectionType.singleRowNormal,
-            items: await this.getPopularTitles()
-        })
-        sectionCallback(popularSection)
+        const sections : {request: Promise<any>, section: HomeSection}[] = []
+        if(this.HAVE_TRENDING)
+            sections.push(
+                {
+                    request: this.getPopularTitles(false),
+                    section: App.createHomeSection({
+                        id: 'popular',
+                        title: 'New & Trending',
+                        containsMoreItems: false,
+                        type: HomeSectionType.singleRowNormal
+                    })
+                })
+                
+        sections.push(...[
+            {
+                request: this.getTodayTitles(false),
+                section: App.createHomeSection({
+                    id: 'today',
+                    title: 'Today release',
+                    containsMoreItems: true,
+                    type: HomeSectionType.singleRowNormal
+                })
+            },
+            {
+                request: this.getOngoingTitles(false),
+                section: App.createHomeSection({
+                    id: 'ongoing',
+                    title: 'Ongoing',
+                    containsMoreItems: true,
+                    type: HomeSectionType.singleRowNormal
+                })
+            },
+            {
+                request: this.getCompletedTitles(false),
+                section: App.createHomeSection({
+                    id: 'completed',
+                    title: 'Completed',
+                    containsMoreItems: true,
+                    type: HomeSectionType.singleRowNormal
+                })
+            }
+        ])
+
+        const promises: Promise<void>[] = []
+        for (const section of sections) {
+            promises.push(section.request.then(items => {
+                section.section.items = items
+                sectionCallback(section.section)
+            }))
+        }
+    }
+    
+    async getSearchTags(): Promise<TagSection[]> {
+        const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($))
+        return [ 
+            App.createTagSection({
+                id: '0', 
+                label: 'genres', 
+                tags: tags 
+            })
+        ]
     }
 
     async getViewMoreItems(homepageSectionId: string, metadata: unknown): Promise<PagedResults> {
         let items: PartialSourceManga[] = []
 
-        switch (homepageSectionId) {
-            case 'popular':
-                items = await this.getPopularTitles()
+        switch (homepageSectionId) {            
+            case 'today':
+                items = await this.getTodayTitles(true)
+                break
+
+            case 'ongoing':
+                items = await this.getOngoingTitles(true)
+                break
+            
+            case 'completed':
+                items = await this.getCompletedTitles(true)
                 break
 
             default:
