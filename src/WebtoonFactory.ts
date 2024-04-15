@@ -13,36 +13,26 @@ export class WebtoonConfiguration
     public HaveTrending: boolean
     public SourceTags: string
 
-    constructor(
-        sourceName = 'WebtoonEN',
-        locale = 'en',
-        dateFormat = 'MMM D, YYYY',
-        version = '0.0.0',
-        languageInfo: string | undefined = undefined,
-        language: string | undefined = undefined)
-    {
-        this.SourceName = sourceName
-        this.Locale = locale
-        this.DateFormat = dateFormat
-        this.Version = version
-        this.LanguageInfo = languageInfo ? `'${languageInfo}'` : undefined 
-        this.Language = language ?? locale
-        this.ImportLanguage = this.Language === 'en' ? '' : `\nimport 'moment/locale/${this.Language}'\n`
-        this.HaveTrending = locale !== 'es' && locale !== 'de'
+    constructor(input?: Partial<WebtoonConfiguration>){
+        this.SourceName = input?.SourceName ?? 'WebtoonEN'
+        this.Locale = input?.Locale ?? 'en'
+        this.DateFormat = input?.DateFormat ?? 'MMM D, YYYY'
+        this.Version = input?.Version ?? '0.0.0'
+        this.LanguageInfo = input?.LanguageInfo ? `'${input.LanguageInfo}'` : undefined
+        this.Language = input?.Language ?? this.Locale
+        this.ImportLanguage = input?.ImportLanguage ?? (this.Language === 'en' ? '' : `\nimport 'moment/locale/${this.Language}'\n`)
+        this.HaveTrending = input?.HaveTrending !== undefined ? input.HaveTrending : true
         this.SourceTags = this.Language === 'en' ? '[]' : `[{text: ${this.LanguageInfo}, type: BadgeColor.GREY}]`
     }
 }
 
-const IndonesianWebtoon = new WebtoonConfiguration('WebtoonID', 'id', 'YYYY MMM D', '0.0.0', 'Indonesian')
-IndonesianWebtoon.ImportLanguage = '\nimport \'../../src/customLocale/id\'\n'
-
 export const WebtoonFactory : WebtoonConfiguration[] = 
 [
     new WebtoonConfiguration(),
-    new WebtoonConfiguration('WebtoonFR', 'fr', 'D MMM YYYY', '0.0.0', 'French'),
-    IndonesianWebtoon,
-    new WebtoonConfiguration('WebtoonES', 'es', 'DD-MMM-YYYY', '0.0.0', 'Spanish'),
-    new WebtoonConfiguration('WebtoonDE', 'de', 'DD.MM.YYYY', '0.0.0', 'German'),
-    new WebtoonConfiguration('WebtoonZH', 'zh-hant', 'l', '0.0.0', 'Chinese (Traditional)', 'zh-tw'),
-    new WebtoonConfiguration('WebtoonTH', 'th', 'D MMM YYYY', '0.0.0', 'Thai')
+    new WebtoonConfiguration({SourceName: 'WebtoonFR', Locale: 'fr', DateFormat :'D MMM YYYY', LanguageInfo: 'French'}),
+    new WebtoonConfiguration({SourceName: 'WebtoonID', Locale: 'id', DateFormat :'YYYY MMM D', LanguageInfo: 'Indonesian', ImportLanguage: '\nimport \'../../src/customLocale/id\'\n'}),
+    new WebtoonConfiguration({SourceName: 'WebtoonES', Locale: 'es', DateFormat :'DD-MMM-YYYY', LanguageInfo: 'Spanish', HaveTrending: false}),
+    new WebtoonConfiguration({SourceName: 'WebtoonDE', Locale: 'de', DateFormat :'DD.MM.YYYY', LanguageInfo: 'German', HaveTrending: false}),
+    new WebtoonConfiguration({SourceName: 'WebtoonZH', Locale: 'zh-hant', DateFormat :'l', LanguageInfo: 'Chinese (Traditional)', Language: 'zh-tw'}),
+    new WebtoonConfiguration({SourceName: 'WebtoonTH', Locale: 'th', DateFormat: 'D MMM YYYY', LanguageInfo: 'Thai'})
 ]
