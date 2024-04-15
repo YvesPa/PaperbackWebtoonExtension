@@ -1,5 +1,6 @@
 import {
-    SourceInfo
+    SourceInfo,
+    BadgeColor
 } from '@paperback/types'
 
 import {
@@ -21,6 +22,7 @@ const VERSION = '[[Version]]'
 const LANGUAGE_INFO = [[LanguageInfo]]
 const SOURCE_NAME = '[[SourceName]]'
 const HAVE_TRENDING = [[HaveTrending]]
+const SOURCE_TAGS: {text: string, type: BadgeColor}[] = [[SourceTags]]
 
 export const [[SourceName]]Info: SourceInfo = {
     ...WebtoonBaseInfo,
@@ -28,7 +30,8 @@ export const [[SourceName]]Info: SourceInfo = {
     version: getExportVersion(VERSION),
     description: `Extension that pulls manga from ${BASE_URL}`,
     websiteBaseURL: BASE_URL,
-    language: LANGUAGE_INFO
+    language: LANGUAGE_INFO,
+    sourceTags: SOURCE_TAGS
 }
 
 export class [[SourceName]] extends Webtoon {

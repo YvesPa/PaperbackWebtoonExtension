@@ -28,7 +28,7 @@ jobs:
         id: extract_branch
 
       - name: Checkout existing bundles
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.1.2
         continue-on-error: true
         with:
           ref: gh-pages
