@@ -6244,7 +6244,7 @@ const types_1 = require("@paperback/types");
 const WebtoonParser_1 = require("./WebtoonParser");
 exports.BASE_URL_XX = 'https://www.webtoons.com';
 exports.MOBILE_URL_XX = 'https://m.webtoons.com';
-const BASE_VERSION = '1.1.0';
+const BASE_VERSION = '1.1.1';
 const getExportVersion = (EXTENSION_VERSION) => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.');
 };
@@ -6259,7 +6259,7 @@ exports.WebtoonBaseInfo = {
     contentRating: types_1.ContentRating.EVERYONE,
     websiteBaseURL: exports.BASE_URL_XX,
     sourceTags: [],
-    intents: types_1.SourceIntents.MANGA_CHAPTERS | types_1.SourceIntents.HOMEPAGE_SECTIONS | types_1.SourceIntents.CLOUDFLARE_BYPASS_REQUIRED | types_1.SourceIntents.SETTINGS_UI
+    intents: types_1.SourceIntents.MANGA_CHAPTERS | types_1.SourceIntents.HOMEPAGE_SECTIONS | types_1.SourceIntents.SETTINGS_UI
 };
 class Webtoon {
     constructor(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING) {
@@ -6424,6 +6424,7 @@ exports.Webtoon = Webtoon;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebtoonID = exports.WebtoonIDInfo = void 0;
+const types_1 = require("@paperback/types");
 const Webtoon_1 = require("../Webtoon");
 require("../../src/customLocale/id");
 const LOCALE = 'id';
@@ -6435,13 +6436,15 @@ const VERSION = '0.0.0';
 const LANGUAGE_INFO = 'Indonesian';
 const SOURCE_NAME = 'WebtoonID';
 const HAVE_TRENDING = true;
+const SOURCE_TAGS = [{ text: 'Indonesian', type: types_1.BadgeColor.GREY }];
 exports.WebtoonIDInfo = {
     ...Webtoon_1.WebtoonBaseInfo,
     name: SOURCE_NAME,
     version: (0, Webtoon_1.getExportVersion)(VERSION),
     description: `Extension that pulls manga from ${BASE_URL}`,
     websiteBaseURL: BASE_URL,
-    language: LANGUAGE_INFO
+    language: LANGUAGE_INFO,
+    sourceTags: SOURCE_TAGS
 };
 class WebtoonID extends Webtoon_1.Webtoon {
     constructor(cheerio) {
@@ -6450,7 +6453,7 @@ class WebtoonID extends Webtoon_1.Webtoon {
 }
 exports.WebtoonID = WebtoonID;
 
-},{"../../src/customLocale/id":63,"../Webtoon":64}],66:[function(require,module,exports){
+},{"../../src/customLocale/id":63,"../Webtoon":64,"@paperback/types":61}],66:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
