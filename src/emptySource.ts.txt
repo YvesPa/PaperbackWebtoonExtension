@@ -12,7 +12,7 @@ import {
 } from '../Webtoon'
 
 import { CheerioAPI } from 'cheerio/lib/load'
-[[ImportLanguage]]
+[[ImportLanguage]][[SpecialCode]]
 const LOCALE = '[[Locale]]'
 const DATE_FORMAT = '[[DateFormat]]'
 const LANGUAGE = '[[Language]]'

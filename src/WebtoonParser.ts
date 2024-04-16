@@ -61,7 +61,6 @@ export class WebtoonParser {
         return picElement.attr('style')?.match(/url\((.*?)\)/)?.[1] ?? ''
     }
 
-
     parseChaptersList($: CheerioAPI): Chapter[] {
         const chapters: Chapter[] = []
       
@@ -99,7 +98,7 @@ export class WebtoonParser {
         })
     }
 
-    parsePopularTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
+    parsePopularTitles($: CheerioAPI): PartialSourceManga[] {
         const mangas: PartialSourceManga[] = []
         
         $('div#content div.NE\\=a\\:tnt li a').each((_ : number, elem: AnyNode) => {

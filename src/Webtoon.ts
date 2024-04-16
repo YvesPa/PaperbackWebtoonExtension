@@ -16,7 +16,8 @@ import {
     HomePageSectionsProviding,
     HomeSectionType,
     PartialSourceManga,
-    TagSection
+    TagSection,
+    Cookie
 } from '@paperback/types'
 
 import { WebtoonParser } from './WebtoonParser'
@@ -25,7 +26,7 @@ import { CheerioAPI } from 'cheerio/lib/load'
 export const BASE_URL_XX = 'https://www.webtoons.com'
 export const MOBILE_URL_XX = 'https://m.webtoons.com'
 
-const BASE_VERSION = '1.1.1'
+const BASE_VERSION = '1.1.2'
 export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
@@ -46,6 +47,7 @@ export const WebtoonBaseInfo: SourceInfo = {
 export abstract class Webtoon implements SearchResultsProviding, MangaProviding, ChapterProviding, HomePageSectionsProviding {
 
     private parser : WebtoonParser;  
+    private cookies: Cookie[] = []
 
     constructor(
         private cheerio: CheerioAPI,
@@ -57,6 +59,11 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
         private HAVE_TRENDING: boolean) 
     { 
         this.parser = new WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL)  
+        this.cookies = 
+        [
+            App.createCookie({ name: 'ageGatePass', value: 'true', domain: BASE_URL_XX }),
+            App.createCookie({ name: 'locale', value: this.LOCALE, domain: BASE_URL_XX })
+        ]
     }
 
     stateManager = App.createSourceStateManager()
@@ -71,11 +78,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
                     'Referer': request.headers?.Referer ?? `${this.BASE_URL}/`,
                     'user-agent': await this.requestManager.getDefaultUserAgent()
                 }
-
-                request.cookies = [
-                    App.createCookie({ name: 'ageGatePass', value: 'true', domain: BASE_URL_XX }),
-                    App.createCookie({ name: 'locale', value: this.LOCALE, domain: BASE_URL_XX })
-                ]
+                request.cookies = this.cookies
 
                 return request
             },
@@ -117,10 +120,10 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             $ => this.parser.parseChapterDetails($, mangaId, chapterId))
     }
 
-    getPopularTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
+    getPopularTitles(): Promise<PartialSourceManga[]> {
         return this.ExecRequest(
             { url: `${this.BASE_URL}/popular` }, 
-            $ => this.parser.parsePopularTitles($, allTitles))
+            this.parser.parsePopularTitles)
     }
 
     getTodayTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
@@ -163,7 +166,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
         if(this.HAVE_TRENDING)
             sections.push(
                 {
-                    request: this.getPopularTitles(false),
+                    request: this.getPopularTitles(),
                     section: App.createHomeSection({
                         id: 'popular',
                         title: 'New & Trending',
