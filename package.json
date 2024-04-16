@@ -1,8 +1,8 @@
 {
-  "name": "webtoon-extension-0.8",
+  "name": "webtoons-extension-0.8",
   "version": "0.8.0",
-  "repositoryName": "Webtoon.com (0.8)",
-  "description": "Webtoon.com for 0.8!",
+  "repositoryName": "Webtoons.com (0.8)",
+  "description": "Webtoons.com for 0.8!",
   "main": "index.js",
   "scripts": {
     "bundle": "npx paperback bundle",
