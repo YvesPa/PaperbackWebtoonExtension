@@ -1,1 +1,1 @@
-Paperback extension for webtoon
+Paperback extension for webtoons
