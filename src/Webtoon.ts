@@ -26,7 +26,7 @@ import { CheerioAPI } from 'cheerio/lib/load'
 export const BASE_URL_XX = 'https://www.webtoons.com'
 export const MOBILE_URL_XX = 'https://m.webtoons.com'
 
-const BASE_VERSION = '1.1.2'
+const BASE_VERSION = '1.2.0'
 export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
@@ -58,7 +58,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
         private MOBILE_URL: string,
         private HAVE_TRENDING: boolean) 
     { 
-        this.parser = new WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL)  
+        this.parser = new WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL) 
         this.cookies = 
         [
             App.createCookie({ name: 'ageGatePass', value: 'true', domain: BASE_URL_XX }),
@@ -126,6 +126,12 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             this.parser.parsePopularTitles)
     }
 
+    getCarouselTitles(): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/` }, 
+            this.parser.parseCarouselTitles)
+    }
+
     getTodayTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
         return this.ExecRequest(
             { url: `${this.BASE_URL}/dailySchedule` }, 
@@ -151,7 +157,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
                     url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
                     param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
                 },
-                $ => this.parser.parseTagResults($, false))
+                $ => this.parser.parseTagResults($))
         else 
             return this.ExecRequest(
                 {
@@ -162,7 +168,18 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
     }
 
     async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
-        const sections : {request: Promise<any>, section: HomeSection}[] = []
+        const sections : {request: Promise<PartialSourceManga[]>, section: HomeSection}[] = []
+        sections.push({
+            request: this.getCarouselTitles(),
+            section: App.createHomeSection({
+                id: 'test',
+                title: 'test',
+                containsMoreItems: true,
+                type: HomeSectionType.featured
+            })
+        
+        })
+
         if(this.HAVE_TRENDING)
             sections.push(
                 {
