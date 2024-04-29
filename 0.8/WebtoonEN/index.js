@@ -6155,7 +6155,7 @@ const types_1 = require("@paperback/types");
 const WebtoonParser_1 = require("./WebtoonParser");
 exports.BASE_URL_XX = 'https://www.webtoons.com';
 exports.MOBILE_URL_XX = 'https://m.webtoons.com';
-const BASE_VERSION = '1.1.1';
+const BASE_VERSION = '1.2.0';
 const getExportVersion = (EXTENSION_VERSION) => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.');
 };
@@ -6179,6 +6179,7 @@ class Webtoon {
         this.BASE_URL = BASE_URL;
         this.MOBILE_URL = MOBILE_URL;
         this.HAVE_TRENDING = HAVE_TRENDING;
+        this.cookies = [];
         this.stateManager = App.createSourceStateManager();
         this.requestManager = App.createRequestManager({
             requestsPerSecond: 10,
@@ -6190,10 +6191,7 @@ class Webtoon {
                         'Referer': request.headers?.Referer ?? `${this.BASE_URL}/`,
                         'user-agent': await this.requestManager.getDefaultUserAgent()
                     };
-                    request.cookies = [
-                        App.createCookie({ name: 'ageGatePass', value: 'true', domain: exports.BASE_URL_XX }),
-                        App.createCookie({ name: 'locale', value: this.LOCALE, domain: exports.BASE_URL_XX })
-                    ];
+                    request.cookies = this.cookies;
                     return request;
                 },
                 interceptResponse: async (response) => {
@@ -6205,6 +6203,11 @@ class Webtoon {
             return '?' + Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
         };
         this.parser = new WebtoonParser_1.WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL);
+        this.cookies =
+            [
+                App.createCookie({ name: 'ageGatePass', value: 'true', domain: exports.BASE_URL_XX }),
+                App.createCookie({ name: 'locale', value: this.LOCALE, domain: exports.BASE_URL_XX })
+            ];
     }
     async ExecRequest(infos, parseMethods) {
         const request = App.createRequest({ ...infos, method: 'GET' });
@@ -6225,8 +6228,11 @@ class Webtoon {
     getChapterDetails(mangaId, chapterId) {
         return this.ExecRequest({ url: `${this.BASE_URL}/${chapterId}` }, $ => this.parser.parseChapterDetails($, mangaId, chapterId));
     }
-    getPopularTitles(allTitles) {
-        return this.ExecRequest({ url: `${this.BASE_URL}/popular` }, $ => this.parser.parsePopularTitles($, allTitles));
+    getPopularTitles() {
+        return this.ExecRequest({ url: `${this.BASE_URL}/popular` }, this.parser.parsePopularTitles);
+    }
+    getCarouselTitles() {
+        return this.ExecRequest({ url: `${this.BASE_URL}/` }, this.parser.parseCarouselTitles);
     }
     getTodayTitles(allTitles) {
         return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseTodayTitles($, allTitles));
@@ -6242,7 +6248,7 @@ class Webtoon {
             return this.ExecRequest({
                 url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
                 param: this.paramsToString({ sortOrder: 'READ_COUNT#' })
-            }, $ => this.parser.parseTagResults($, false));
+            }, $ => this.parser.parseTagResults($));
         else
             return this.ExecRequest({
                 url: `${this.BASE_URL}/search`,
@@ -6251,9 +6257,18 @@ class Webtoon {
     }
     async getHomePageSections(sectionCallback) {
         const sections = [];
+        sections.push({
+            request: this.getCarouselTitles(),
+            section: App.createHomeSection({
+                id: 'test',
+                title: 'test',
+                containsMoreItems: true,
+                type: types_1.HomeSectionType.featured
+            })
+        });
         if (this.HAVE_TRENDING)
             sections.push({
-                request: this.getPopularTitles(false),
+                request: this.getPopularTitles(),
                 section: App.createHomeSection({
                     id: 'popular',
                     title: 'New & Trending',
@@ -6437,13 +6452,36 @@ class WebtoonParser {
             pages: pages
         });
     }
-    parsePopularTitles($, allTitles) {
+    parsePopularTitles($) {
         const mangas = [];
         $('div#content div.NE\\=a\\:tnt li a').each((_, elem) => {
             if ($(elem).find('p.subj'))
                 mangas.push(this.parseMangaFromElement($(elem)));
         });
         return mangas;
+    }
+    parseCarouselTitles($) {
+        const mangas = [];
+        $('div#content div.main_banner_big div._largeBanner').each((_, elem) => {
+            const manga = this.parseMangaFromCarouselElement($(elem));
+            if (manga)
+                mangas.push(manga);
+        });
+        return mangas;
+    }
+    parseMangaFromCarouselElement(elem) {
+        let mangaId = elem.find('a').attr('href') ?? '';
+        if (mangaId.includes('episode_no')) {
+            mangaId = mangaId
+                .replace(/&episode_no=[^$]+$/, '')
+                .replace(/[^/]+\/viewer(\?|$)/, 'list$1');
+        }
+        if (mangaId.includes('/list?'))
+            return App.createPartialSourceManga({
+                mangaId: mangaId.replace(this.BASE_URL + '/', ''),
+                title: '',
+                image: elem.find('img').attr('src') ?? ''
+            });
     }
     parseTodayTitles($, allTitles) {
         const mangas = [];
@@ -6510,7 +6548,7 @@ class WebtoonParser {
             label: elem.find('a').text().trim()
         });
     }
-    parseTagResults($, allTitles) {
+    parseTagResults($) {
         const items = [];
         $('#content > div.card_wrap ul.card_lst li a').each((_, elem) => {
             items.push(this.parseMangaFromElement($(elem)));

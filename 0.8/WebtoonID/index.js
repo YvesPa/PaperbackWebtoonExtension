@@ -458,6 +458,95 @@ __exportStar(require("./base/index"), exports);
 __exportStar(require("./compat/DyamicUI"), exports);
 
 },{"./base/index":7,"./compat/DyamicUI":16,"./generated/_exports":60}],62:[function(require,module,exports){
+//! moment.js locale configuration
+//! locale : Indonesian [id]
+//! author : Mohammad Satrio Utomo : https://github.com/tyok
+//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
+
+;(function (global, factory) {
+   typeof exports === 'object' && typeof module !== 'undefined'
+       && typeof require === 'function' ? factory(require('../moment')) :
+   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+   factory(global.moment)
+}(this, (function (moment) { 'use strict';
+
+    //! moment.js locale configuration
+
+    var id = moment.defineLocale('id', {
+        months: 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_November_Desember'.split(
+            '_'
+        ),
+        monthsShort: 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agt_Sep_Okt_Nov_Des'.split('_'),
+        weekdays: 'Minggu_Senin_Selasa_Rabu_Kamis_Jumat_Sabtu'.split('_'),
+        weekdaysShort: 'Min_Sen_Sel_Rab_Kam_Jum_Sab'.split('_'),
+        weekdaysMin: 'Mg_Sn_Sl_Rb_Km_Jm_Sb'.split('_'),
+        longDateFormat: {
+            LT: 'HH.mm',
+            LTS: 'HH.mm.ss',
+            L: 'DD/MM/YYYY',
+            LL: 'D MMMM YYYY',
+            LLL: 'D MMMM YYYY [pukul] HH.mm',
+            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
+        },
+        meridiemParse: /pagi|siang|sore|malam/,
+        meridiemHour: function (hour, meridiem) {
+            if (hour === 12) {
+                hour = 0;
+            }
+            if (meridiem === 'pagi') {
+                return hour;
+            } else if (meridiem === 'siang') {
+                return hour >= 11 ? hour : hour + 12;
+            } else if (meridiem === 'sore' || meridiem === 'malam') {
+                return hour + 12;
+            }
+        },
+        meridiem: function (hours, minutes, isLower) {
+            if (hours < 11) {
+                return 'pagi';
+            } else if (hours < 15) {
+                return 'siang';
+            } else if (hours < 19) {
+                return 'sore';
+            } else {
+                return 'malam';
+            }
+        },
+        calendar: {
+            sameDay: '[Hari ini pukul] LT',
+            nextDay: '[Besok pukul] LT',
+            nextWeek: 'dddd [pukul] LT',
+            lastDay: '[Kemarin pukul] LT',
+            lastWeek: 'dddd [lalu pukul] LT',
+            sameElse: 'L',
+        },
+        relativeTime: {
+            future: 'dalam %s',
+            past: '%s yang lalu',
+            s: 'beberapa detik',
+            ss: '%d detik',
+            m: 'semenit',
+            mm: '%d menit',
+            h: 'sejam',
+            hh: '%d jam',
+            d: 'sehari',
+            dd: '%d hari',
+            M: 'sebulan',
+            MM: '%d bulan',
+            y: 'setahun',
+            yy: '%d tahun',
+        },
+        week: {
+            dow: 0, // Sunday is the first day of the week.
+            doy: 6, // The week that contains Jan 6th is the first week of the year.
+        },
+    });
+
+    return id;
+
+})));
+
+},{"../moment":63}],63:[function(require,module,exports){
 //! moment.js
 //! version : 2.30.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -6147,96 +6236,7 @@ __exportStar(require("./compat/DyamicUI"), exports);
 
 })));
 
-},{}],63:[function(require,module,exports){
-//! moment.js locale configuration
-//! locale : Indonesian [id]
-//! author : Mohammad Satrio Utomo : https://github.com/tyok
-//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
-
-;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('moment')) :
-   typeof define === 'function' && define.amd ? define(['moment'], factory) :
-   factory(global.moment)
-}(this, (function (moment) { 'use strict';
-
-    //! moment.js locale configuration
-
-    var id = moment.defineLocale('id', {
-        months: 'Januari_Februari_Maret_April_Mei_Juni_Juli_Agustus_September_Oktober_November_Desember'.split(
-            '_'
-        ),
-        monthsShort: 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agu_Sep_Okt_Nov_Des'.split('_'),
-        weekdays: 'Minggu_Senin_Selasa_Rabu_Kamis_Jumat_Sabtu'.split('_'),
-        weekdaysShort: 'Min_Sen_Sel_Rab_Kam_Jum_Sab'.split('_'),
-        weekdaysMin: 'Mg_Sn_Sl_Rb_Km_Jm_Sb'.split('_'),
-        longDateFormat: {
-            LT: 'HH.mm',
-            LTS: 'HH.mm.ss',
-            L: 'DD/MM/YYYY',
-            LL: 'D MMMM YYYY',
-            LLL: 'D MMMM YYYY [pukul] HH.mm',
-            LLLL: 'dddd, D MMMM YYYY [pukul] HH.mm',
-        },
-        meridiemParse: /pagi|siang|sore|malam/,
-        meridiemHour: function (hour, meridiem) {
-            if (hour === 12) {
-                hour = 0;
-            }
-            if (meridiem === 'pagi') {
-                return hour;
-            } else if (meridiem === 'siang') {
-                return hour >= 11 ? hour : hour + 12;
-            } else if (meridiem === 'sore' || meridiem === 'malam') {
-                return hour + 12;
-            }
-        },
-        meridiem: function (hours, minutes, isLower) {
-            if (hours < 11) {
-                return 'pagi';
-            } else if (hours < 15) {
-                return 'siang';
-            } else if (hours < 19) {
-                return 'sore';
-            } else {
-                return 'malam';
-            }
-        },
-        calendar: {
-            sameDay: '[Hari ini pukul] LT',
-            nextDay: '[Besok pukul] LT',
-            nextWeek: 'dddd [pukul] LT',
-            lastDay: '[Kemarin pukul] LT',
-            lastWeek: 'dddd [lalu pukul] LT',
-            sameElse: 'L',
-        },
-        relativeTime: {
-            future: 'dalam %s',
-            past: '%s yang lalu',
-            s: 'beberapa detik',
-            ss: '%d detik',
-            m: 'semenit',
-            mm: '%d menit',
-            h: 'sejam',
-            hh: '%d jam',
-            d: 'sehari',
-            dd: '%d hari',
-            M: 'sebulan',
-            MM: '%d bulan',
-            y: 'setahun',
-            yy: '%d tahun',
-        },
-        week: {
-            dow: 0, // Sunday is the first day of the week.
-            doy: 6, // The week that contains Jan 6th is the first week of the year.
-        },
-    });
-
-    return id;
-
-})));
-
-},{"moment":62}],64:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Webtoon = exports.WebtoonBaseInfo = exports.getExportVersion = exports.MOBILE_URL_XX = exports.BASE_URL_XX = void 0;
@@ -6244,7 +6244,7 @@ const types_1 = require("@paperback/types");
 const WebtoonParser_1 = require("./WebtoonParser");
 exports.BASE_URL_XX = 'https://www.webtoons.com';
 exports.MOBILE_URL_XX = 'https://m.webtoons.com';
-const BASE_VERSION = '1.1.1';
+const BASE_VERSION = '1.2.0';
 const getExportVersion = (EXTENSION_VERSION) => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.');
 };
@@ -6268,6 +6268,7 @@ class Webtoon {
         this.BASE_URL = BASE_URL;
         this.MOBILE_URL = MOBILE_URL;
         this.HAVE_TRENDING = HAVE_TRENDING;
+        this.cookies = [];
         this.stateManager = App.createSourceStateManager();
         this.requestManager = App.createRequestManager({
             requestsPerSecond: 10,
@@ -6279,10 +6280,7 @@ class Webtoon {
                         'Referer': request.headers?.Referer ?? `${this.BASE_URL}/`,
                         'user-agent': await this.requestManager.getDefaultUserAgent()
                     };
-                    request.cookies = [
-                        App.createCookie({ name: 'ageGatePass', value: 'true', domain: exports.BASE_URL_XX }),
-                        App.createCookie({ name: 'locale', value: this.LOCALE, domain: exports.BASE_URL_XX })
-                    ];
+                    request.cookies = this.cookies;
                     return request;
                 },
                 interceptResponse: async (response) => {
@@ -6294,6 +6292,11 @@ class Webtoon {
             return '?' + Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
         };
         this.parser = new WebtoonParser_1.WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL);
+        this.cookies =
+            [
+                App.createCookie({ name: 'ageGatePass', value: 'true', domain: exports.BASE_URL_XX }),
+                App.createCookie({ name: 'locale', value: this.LOCALE, domain: exports.BASE_URL_XX })
+            ];
     }
     async ExecRequest(infos, parseMethods) {
         const request = App.createRequest({ ...infos, method: 'GET' });
@@ -6314,8 +6317,11 @@ class Webtoon {
     getChapterDetails(mangaId, chapterId) {
         return this.ExecRequest({ url: `${this.BASE_URL}/${chapterId}` }, $ => this.parser.parseChapterDetails($, mangaId, chapterId));
     }
-    getPopularTitles(allTitles) {
-        return this.ExecRequest({ url: `${this.BASE_URL}/popular` }, $ => this.parser.parsePopularTitles($, allTitles));
+    getPopularTitles() {
+        return this.ExecRequest({ url: `${this.BASE_URL}/popular` }, this.parser.parsePopularTitles);
+    }
+    getCarouselTitles() {
+        return this.ExecRequest({ url: `${this.BASE_URL}/` }, this.parser.parseCarouselTitles);
     }
     getTodayTitles(allTitles) {
         return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseTodayTitles($, allTitles));
@@ -6331,7 +6337,7 @@ class Webtoon {
             return this.ExecRequest({
                 url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
                 param: this.paramsToString({ sortOrder: 'READ_COUNT#' })
-            }, $ => this.parser.parseTagResults($, false));
+            }, $ => this.parser.parseTagResults($));
         else
             return this.ExecRequest({
                 url: `${this.BASE_URL}/search`,
@@ -6340,9 +6346,18 @@ class Webtoon {
     }
     async getHomePageSections(sectionCallback) {
         const sections = [];
+        sections.push({
+            request: this.getCarouselTitles(),
+            section: App.createHomeSection({
+                id: 'test',
+                title: 'test',
+                containsMoreItems: true,
+                type: types_1.HomeSectionType.featured
+            })
+        });
         if (this.HAVE_TRENDING)
             sections.push({
-                request: this.getPopularTitles(false),
+                request: this.getPopularTitles(),
                 section: App.createHomeSection({
                     id: 'popular',
                     title: 'New & Trending',
@@ -6422,11 +6437,16 @@ exports.Webtoon = Webtoon;
 
 },{"./WebtoonParser":66,"@paperback/types":61}],65:[function(require,module,exports){
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebtoonID = exports.WebtoonIDInfo = void 0;
 const types_1 = require("@paperback/types");
 const Webtoon_1 = require("../Webtoon");
-require("../../src/customLocale/id");
+require("moment/locale/id");
+const moment_1 = __importDefault(require("moment"));
+moment_1.default.updateLocale('id', { monthsShort: 'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agu_Sep_Okt_Nov_Des'.split('_') });
 const LOCALE = 'id';
 const DATE_FORMAT = 'YYYY MMM D';
 const LANGUAGE = 'id';
@@ -6453,7 +6473,7 @@ class WebtoonID extends Webtoon_1.Webtoon {
 }
 exports.WebtoonID = WebtoonID;
 
-},{"../../src/customLocale/id":63,"../Webtoon":64,"@paperback/types":61}],66:[function(require,module,exports){
+},{"../Webtoon":64,"@paperback/types":61,"moment":63,"moment/locale/id":62}],66:[function(require,module,exports){
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -6528,13 +6548,36 @@ class WebtoonParser {
             pages: pages
         });
     }
-    parsePopularTitles($, allTitles) {
+    parsePopularTitles($) {
         const mangas = [];
         $('div#content div.NE\\=a\\:tnt li a').each((_, elem) => {
             if ($(elem).find('p.subj'))
                 mangas.push(this.parseMangaFromElement($(elem)));
         });
         return mangas;
+    }
+    parseCarouselTitles($) {
+        const mangas = [];
+        $('div#content div.main_banner_big div._largeBanner').each((_, elem) => {
+            const manga = this.parseMangaFromCarouselElement($(elem));
+            if (manga)
+                mangas.push(manga);
+        });
+        return mangas;
+    }
+    parseMangaFromCarouselElement(elem) {
+        let mangaId = elem.find('a').attr('href') ?? '';
+        if (mangaId.includes('episode_no')) {
+            mangaId = mangaId
+                .replace(/&episode_no=[^$]+$/, '')
+                .replace(/[^/]+\/viewer(\?|$)/, 'list$1');
+        }
+        if (mangaId.includes('/list?'))
+            return App.createPartialSourceManga({
+                mangaId: mangaId.replace(this.BASE_URL + '/', ''),
+                title: '',
+                image: elem.find('img').attr('src') ?? ''
+            });
     }
     parseTodayTitles($, allTitles) {
         const mangas = [];
@@ -6601,7 +6644,7 @@ class WebtoonParser {
             label: elem.find('a').text().trim()
         });
     }
-    parseTagResults($, allTitles) {
+    parseTagResults($) {
         const items = [];
         $('#content > div.card_wrap ul.card_lst li a').each((_, elem) => {
             items.push(this.parseMangaFromElement($(elem)));
@@ -6613,5 +6656,5 @@ class WebtoonParser {
 }
 exports.WebtoonParser = WebtoonParser;
 
-},{"moment":62}]},{},[65])(65)
+},{"moment":63}]},{},[65])(65)
 });
