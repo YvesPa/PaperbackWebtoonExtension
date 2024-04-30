@@ -39,7 +39,7 @@ export class WebtoonParser {
                 synopsis: infoElement.find('p.summary').text(),
                 primaryTitle: detailElement.find('h1').text(),
                 secondaryTitles: [],
-                contentRating: ContentRating.EVERYONE,
+                contentRating: ContentRating.MATURE,
 
                 status: this.parseStatus(infoElement),
                 artist: '',
@@ -100,11 +100,11 @@ export class WebtoonParser {
             pages.push($(elem).attr('data-url') ?? '')
         })
 
-        return Paperback.createChapterDetails({
+        return {
             id: chapter.chapterId,
             mangaId: chapter.sourceManga.mangaId,
             pages: pages
-        })
+        }
     }
 
     parsePopularTitles($: CheerioAPI): PagedResults<SearchResultItem> {

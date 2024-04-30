@@ -17,6 +17,8 @@ import {
 } from '@paperback/types'
 
 import { WebtoonParser } from './WebtoonParser'
+
+import * as cheerio from 'cheerio'
 import { CheerioAPI } from 'cheerio/lib/load'
 
 export const BASE_URL_XX = 'https://www.webtoons.com'
@@ -27,14 +29,13 @@ export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
 
-export abstract class Webtoon implements Extension, SearchResultsProviding, MangaProviding, ChapterProviding {
-
+export class Webtoon implements Extension, SearchResultsProviding, MangaProviding, ChapterProviding {
+    cheerio = cheerio
     private parser : WebtoonParser;  
     private cookies: Cookie[] = []
 
     constructor(
-        private cheerio: CheerioAPI,
-        private LOCALE: string,
+        LOCALE: string,
         DATE_FORMAT: string,
         LANGUAGE: string,
         private BASE_URL: string,
@@ -44,8 +45,8 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
         this.parser = new WebtoonParser(DATE_FORMAT, LOCALE, LANGUAGE, BASE_URL, MOBILE_URL) 
         this.cookies = 
         [
-            Paperback.createCookie({ name: 'ageGatePass', value: 'true', domain: BASE_URL_XX }),
-            Paperback.createCookie({ name: 'locale', value: this.LOCALE, domain: BASE_URL_XX })
+            { name: 'ageGatePass', value: 'true', domain: BASE_URL_XX, path: '/', created: new Date(), expires: new Date('2030-01-01')},
+            { name: 'locale', value: LOCALE, domain: BASE_URL_XX, path: '/', created: new Date(), expires: new Date('2030-01-01')},
         ]
     }
 
@@ -55,7 +56,6 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
             Application.Selector(this as Webtoon, 'interceptRequest'),
             Application.Selector(this as Webtoon, 'interceptResponse')
         )
-
         this.registerDiscoverSection()
     }
 
@@ -71,23 +71,16 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
         return request
     }
 
-    async interceptResponse(
-        request: Request,
-        response: Response,
-        data: ArrayBuffer
-    ): Promise<ArrayBuffer> {
+    async interceptResponse(request: Request, response: Response, data: ArrayBuffer): Promise<ArrayBuffer> {
         return data
     }
-
-
-    stateManager = Paperback.createSourceStateManager()
 
     async ExecRequest<T>(
         infos: { url: string, headers?: Record<string, string>, param?: string}, 
         parseMethods: (_: CheerioAPI) => T) : Promise<T> 
     {
         const request = ({ ...infos, method: 'GET'})
-        const [_response, data] = await Application.scheduleRequest(request)
+        const data = (await Application.scheduleRequest(request))[1]
         const $ = this.cheerio.load(Application.arrayBufferToUTF8String(data))
         return parseMethods.call(this.parser, $)
     }
@@ -100,7 +93,7 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
         return this.ExecRequest(
             { 
                 url: `${this.MOBILE_URL}/${sourceManga.mangaId}`, 
-                headers: { 'Referer': this.MOBILE_URL} 
+                headers: { 'referer': this.MOBILE_URL } 
             },
             $ => this.parser.parseChaptersList($, sourceManga))
     }
@@ -117,13 +110,14 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
             this.parser.parsePopularTitles)
     }
 
-    getCarouselTitles(): Promise<PagedResults<SearchResultItem>> {
+    getCarouselTitles(metadata: unknown | undefined): Promise<PagedResults<SearchResultItem>> {
+        console.log('ici')
         return this.ExecRequest(
             { url: `${this.BASE_URL}/` }, 
             this.parser.parseCarouselTitles)
     }
 
-    getTodayTitles() : Promise<PagedResults<SearchResultItem>> { return this._getTodayTitles(false) }
+    getTodayTitles(metadata: unknown | undefined) : Promise<PagedResults<SearchResultItem>> { return this._getTodayTitles(false) }
     _getTodayTitles(allTitles: boolean ): Promise<PagedResults<SearchResultItem>> {
         return this.ExecRequest(
             { url: `${this.BASE_URL}/dailySchedule` }, 
@@ -162,7 +156,7 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
     }
 
     async registerDiscoverSection(): Promise<void> {
-        Application.registerDiscoverSection(
+        /*Application.registerDiscoverSection(
             {
                 id: 'carousel',
                 title: 'Discover',
@@ -170,7 +164,7 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
             },
             Application.Selector(this as Webtoon, 'getCarouselTitles')
         )
-
+        */
         if(this.HAVE_TRENDING)
             Application.registerDiscoverSection(
                 {  
@@ -180,7 +174,8 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
                 },
                 Application.Selector(this as Webtoon, 'getPopularTitles')
             )
-                
+        
+
         Application.registerDiscoverSection(
             {
                 id: 'today',
@@ -189,7 +184,7 @@ export abstract class Webtoon implements Extension, SearchResultsProviding, Mang
             },
             Application.Selector(this as Webtoon, 'getTodayTitles')
         )
-
+        
         Application.registerDiscoverSection(
             {
                 id: 'ongoing',

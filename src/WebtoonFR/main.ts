@@ -4,8 +4,6 @@ import {
     Webtoon
 } from '../Webtoon'
 
-import { CheerioAPI } from 'cheerio/lib/load'
-
 import 'moment/locale/fr'
 
 const LOCALE = 'fr'
@@ -19,8 +17,4 @@ const SOURCE_NAME = 'WebtoonFR'*/
 const HAVE_TRENDING = true
 /*const SOURCE_TAGS: {text: string, type: BadgeColor}[] = [{text: 'French', type: BadgeColor.GREY}]*/
 
-export class WebtoonFR extends Webtoon {
-    constructor (cheerio: CheerioAPI){
-        super(cheerio, LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING)
-    }
-}
+export const WebtoonFR = new Webtoon(LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING)
