@@ -1,6 +1,8 @@
 // > npx ts-node ./src/generateClass.ts
 // to lunch the factory
 
+import { getExportVersion } from './Webtoon'
+
 export class WebtoonConfiguration
 {
     public SourceName: string
@@ -11,19 +13,17 @@ export class WebtoonConfiguration
     public LanguageInfo: string | undefined
     public ImportLanguage: string
     public HaveTrending: boolean
-    public SourceTags: string
     public SpecialCode: string
 
     constructor(input?: Partial<WebtoonConfiguration>){
         this.SourceName = input?.SourceName ?? 'WebtoonEN'
         this.Locale = input?.Locale ?? 'en'
         this.DateFormat = input?.DateFormat ?? 'MMM D, YYYY'
-        this.Version = input?.Version ?? '0.0.0'
-        this.LanguageInfo = input?.LanguageInfo ? `'${input.LanguageInfo}'` : undefined
+        this.Version = getExportVersion(input?.Version ?? '0.0.0')
+        this.LanguageInfo = input?.LanguageInfo ?? 'English'
         this.Language = input?.Language ?? this.Locale
         this.ImportLanguage = (this.Language === 'en' ? '' : `\nimport 'moment/locale/${this.Language}'\n`)
         this.HaveTrending = input?.HaveTrending !== undefined ? input.HaveTrending : true
-        this.SourceTags = this.Language === 'en' ? '[]' : `[{text: ${this.LanguageInfo}, type: BadgeColor.GREY}]`
         this.SpecialCode = input?.SpecialCode ?? ''
     }
 }
