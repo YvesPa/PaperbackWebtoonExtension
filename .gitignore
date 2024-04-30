@@ -20,4 +20,4 @@ todo
 package-lock.json
 
 # ignore auto generated files
-src/Webtoon*/
+# src/Webtoon*/ not ignored for the WIP of 0.9
