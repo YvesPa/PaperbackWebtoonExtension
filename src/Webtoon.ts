@@ -17,16 +17,22 @@ import {
     HomeSectionType,
     PartialSourceManga,
     TagSection,
-    Cookie
+    Cookie,
+    DUISection,
+    SourceStateManager
 } from '@paperback/types'
 
 import { WebtoonParser } from './WebtoonParser'
 import { CheerioAPI } from 'cheerio/lib/load'
+import { 
+    configSettings, 
+    getCanvasWanted
+} from './WebtoonSettings'
 
 export const BASE_URL_XX = 'https://www.webtoons.com'
 export const MOBILE_URL_XX = 'https://m.webtoons.com'
 
-const BASE_VERSION = '1.2.0'
+const BASE_VERSION = '1.3.0'
 export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
@@ -45,9 +51,9 @@ export const WebtoonBaseInfo: SourceInfo = {
 }
 
 export abstract class Webtoon implements SearchResultsProviding, MangaProviding, ChapterProviding, HomePageSectionsProviding {
-
     private parser : WebtoonParser;  
     private cookies: Cookie[] = []
+    private stateManager: SourceStateManager;
 
     constructor(
         private cheerio: CheerioAPI,
@@ -58,6 +64,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
         private MOBILE_URL: string,
         private HAVE_TRENDING: boolean) 
     { 
+        this.stateManager = App.createSourceStateManager()
         this.parser = new WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL) 
         this.cookies = 
         [
@@ -65,8 +72,6 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             App.createCookie({ name: 'locale', value: this.LOCALE, domain: BASE_URL_XX })
         ]
     }
-
-    stateManager = App.createSourceStateManager()
 
     requestManager = App.createRequestManager({
         requestsPerSecond: 10,
@@ -88,6 +93,10 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
 
         }
     });
+    
+    async getSourceMenu(): Promise<DUISection> {
+        return configSettings(this.stateManager)
+    }
 
     async ExecRequest<T>(
         infos: { url: string, headers?: Record<string, string>, param?: string}, 
@@ -150,21 +159,58 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             $ => this.parser.parseCompletedTitles($, allTitles))
     }
 
-    getSearchResults(query: SearchRequest, metadata: unknown | undefined): Promise<PagedResults> {
+    getCanvasRecommendedTitles(): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/canvas` }, 
+            this.parser.parseCanvasRecommendedTitles)
+    }
+
+    getCanvasPopularTitles(metadata?: {page : number} | undefined, genre?: string): Promise<PartialSourceManga[]> {
+        return this.ExecRequest(
+            { 
+                url: `${this.BASE_URL}/canvas/list`,
+                param: this.paramsToString({ genreTab: genre ?? 'ALL', sortOrder: 'READ_COUNT', page: metadata?.page ?? 1})
+            }, 
+            this.parser.parseCanvasPopularTitles)
+    }
+
+    async getSearchResults(query: SearchRequest, metadata: {page : number} | undefined): Promise<PagedResults> {
         if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
-            return this.ExecRequest(
-                { 
-                    url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
-                    param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
-                },
-                $ => this.parser.parseTagResults($))
+        {
+            if (query.includedTags[0].id.startsWith('CANVAS$$'))
+            {
+                const newMetadata = {page: (metadata?.page ?? 0) + 1}
+                const result = await this.getCanvasPopularTitles(newMetadata, query.includedTags[0].id.replace('CANVAS$$', ''))
+                return App.createPagedResults({
+                    results: result,
+                    metadata: newMetadata
+                })
+            }
+            else
+            {
+                return await this.ExecRequest(
+                    { 
+                        url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
+                        param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
+                    },
+                    $ => this.parser.parseTagResults($))
+
+            }
+        }
         else 
-            return this.ExecRequest(
+        {
+            const params = { keyword: query.title} as Record<string, unknown>
+            const canvas_wanted = await getCanvasWanted(this.stateManager)
+            if (!canvas_wanted) 
+                params['searchType'] = 'WEBTOON'
+            
+            return await this.ExecRequest(
                 {
                     url: `${this.BASE_URL}/search`,
-                    param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
+                    param: this.paramsToString(params)
                 },
-                this.parser.parseSearchResults)
+                $ => this.parser.parseSearchResults($, canvas_wanted))
+        }
     }
 
     async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
@@ -222,6 +268,34 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             }
         ])
 
+        if (await getCanvasWanted(this.stateManager))
+        {
+            sections.push(
+                ...[
+                    {
+                        request: this.getCanvasRecommendedTitles(),
+                        section: App.createHomeSection({
+                            id: 'canvas_recommended',
+                            title: 'Canvas Recommended',
+                            containsMoreItems: false,
+                            type: HomeSectionType.singleRowNormal
+                        })
+                    },
+                    {
+                        request: this.getCanvasPopularTitles({page : 1}),
+                        section: App.createHomeSection({
+                            id: 'canvas_popular',
+                            title: 'Canvas Popular',
+                            containsMoreItems: true,
+                            type: HomeSectionType.singleRowNormal
+                        })
+
+                    }
+                ]
+            )
+        }
+
+
         const promises: Promise<void>[] = []
         for (const section of sections) {
             promises.push(section.request.then(items => {
@@ -232,18 +306,30 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
     }
     
     async getSearchTags(): Promise<TagSection[]> {
-        const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($))
-        return [ 
+        const result =
+        [ 
             App.createTagSection({
                 id: '0', 
                 label: 'genres', 
-                tags: tags 
+                tags: await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($)) 
             })
         ]
+
+        if (await getCanvasWanted(this.stateManager))
+            result.push(
+                App.createTagSection({
+                    id: '1', 
+                    label: 'Canvas genres', 
+                    tags: await this.ExecRequest({ url: `${this.BASE_URL}/canvas` }, $ => this.parser.parseCanvasGenres($)) 
+                })
+            )
+
+        return result
     }
 
-    async getViewMoreItems(homepageSectionId: string, metadata: unknown): Promise<PagedResults> {
+    async getViewMoreItems(homepageSectionId: string, metadata: {page: number} | undefined ): Promise<PagedResults> {
         let items: PartialSourceManga[] = []
+        const newMetadata = metadata ?? {page: 0} 
 
         switch (homepageSectionId) {            
             case 'today':
@@ -258,13 +344,18 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
                 items = await this.getCompletedTitles(true)
                 break
 
+            case 'canvas_popular':
+                newMetadata.page += 1
+                items = await this.getCanvasPopularTitles(newMetadata)
+                break
+
             default:
                 throw new Error(`Invalid homeSectionId | ${homepageSectionId}`)
         }
 
         return App.createPagedResults({
             results: items,
-            metadata
+            metadata: newMetadata
         })
     }
 
