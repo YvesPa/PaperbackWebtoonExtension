@@ -6276,9 +6276,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Webtoon = exports.WebtoonBaseInfo = exports.getExportVersion = exports.MOBILE_URL_XX = exports.BASE_URL_XX = void 0;
 const types_1 = require("@paperback/types");
 const WebtoonParser_1 = require("./WebtoonParser");
+const WebtoonSettings_1 = require("./WebtoonSettings");
 exports.BASE_URL_XX = 'https://www.webtoons.com';
 exports.MOBILE_URL_XX = 'https://m.webtoons.com';
-const BASE_VERSION = '1.2.0';
+const BASE_VERSION = '1.3.0';
 const getExportVersion = (EXTENSION_VERSION) => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.');
 };
@@ -6303,7 +6304,6 @@ class Webtoon {
         this.MOBILE_URL = MOBILE_URL;
         this.HAVE_TRENDING = HAVE_TRENDING;
         this.cookies = [];
-        this.stateManager = App.createSourceStateManager();
         this.requestManager = App.createRequestManager({
             requestsPerSecond: 10,
             requestTimeout: 20000,
@@ -6325,12 +6325,16 @@ class Webtoon {
         this.paramsToString = (params) => {
             return '?' + Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
         };
+        this.stateManager = App.createSourceStateManager();
         this.parser = new WebtoonParser_1.WebtoonParser(DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL);
         this.cookies =
             [
                 App.createCookie({ name: 'ageGatePass', value: 'true', domain: exports.BASE_URL_XX }),
                 App.createCookie({ name: 'locale', value: this.LOCALE, domain: exports.BASE_URL_XX })
             ];
+    }
+    async getSourceMenu() {
+        return (0, WebtoonSettings_1.configSettings)(this.stateManager);
     }
     async ExecRequest(infos, parseMethods) {
         const request = App.createRequest({ ...infos, method: 'GET' });
@@ -6366,17 +6370,42 @@ class Webtoon {
     getCompletedTitles(allTitles) {
         return this.ExecRequest({ url: `${this.BASE_URL}/dailySchedule` }, $ => this.parser.parseCompletedTitles($, allTitles));
     }
-    getSearchResults(query, metadata) {
-        if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
-            return this.ExecRequest({
-                url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
-                param: this.paramsToString({ sortOrder: 'READ_COUNT#' })
-            }, $ => this.parser.parseTagResults($));
-        else
-            return this.ExecRequest({
+    getCanvasRecommendedTitles() {
+        return this.ExecRequest({ url: `${this.BASE_URL}/canvas` }, this.parser.parseCanvasRecommendedTitles);
+    }
+    getCanvasPopularTitles(metadata, genre) {
+        return this.ExecRequest({
+            url: `${this.BASE_URL}/canvas/list`,
+            param: this.paramsToString({ genreTab: genre ?? 'ALL', sortOrder: 'READ_COUNT', page: metadata?.page ?? 1 })
+        }, this.parser.parseCanvasPopularTitles);
+    }
+    async getSearchResults(query, metadata) {
+        if (query?.includedTags?.length > 0 && query.includedTags[0]?.id) {
+            if (query.includedTags[0].id.startsWith('CANVAS$$')) {
+                const newMetadata = { page: (metadata?.page ?? 0) + 1 };
+                const result = await this.getCanvasPopularTitles(newMetadata, query.includedTags[0].id.replace('CANVAS$$', ''));
+                return App.createPagedResults({
+                    results: result,
+                    metadata: newMetadata
+                });
+            }
+            else {
+                return await this.ExecRequest({
+                    url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
+                    param: this.paramsToString({ sortOrder: 'READ_COUNT#' })
+                }, $ => this.parser.parseTagResults($));
+            }
+        }
+        else {
+            const params = { keyword: query.title };
+            const canvas_wanted = await (0, WebtoonSettings_1.getCanvasWanted)(this.stateManager);
+            if (!canvas_wanted)
+                params['searchType'] = 'WEBTOON';
+            return await this.ExecRequest({
                 url: `${this.BASE_URL}/search`,
-                param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
-            }, this.parser.parseSearchResults);
+                param: this.paramsToString(params)
+            }, $ => this.parser.parseSearchResults($, canvas_wanted));
+        }
     }
     async getHomePageSections(sectionCallback) {
         const sections = [];
@@ -6428,6 +6457,28 @@ class Webtoon {
                 })
             }
         ]);
+        if (await (0, WebtoonSettings_1.getCanvasWanted)(this.stateManager)) {
+            sections.push(...[
+                {
+                    request: this.getCanvasRecommendedTitles(),
+                    section: App.createHomeSection({
+                        id: 'canvas_recommended',
+                        title: 'Canvas Recommended',
+                        containsMoreItems: false,
+                        type: types_1.HomeSectionType.singleRowNormal
+                    })
+                },
+                {
+                    request: this.getCanvasPopularTitles({ page: 1 }),
+                    section: App.createHomeSection({
+                        id: 'canvas_popular',
+                        title: 'Canvas Popular',
+                        containsMoreItems: true,
+                        type: types_1.HomeSectionType.singleRowNormal
+                    })
+                }
+            ]);
+        }
         const promises = [];
         for (const section of sections) {
             promises.push(section.request.then(items => {
@@ -6437,17 +6488,24 @@ class Webtoon {
         }
     }
     async getSearchTags() {
-        const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($));
-        return [
+        const result = [
             App.createTagSection({
                 id: '0',
                 label: 'genres',
-                tags: tags
+                tags: await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($))
             })
         ];
+        if (await (0, WebtoonSettings_1.getCanvasWanted)(this.stateManager))
+            result.push(App.createTagSection({
+                id: '1',
+                label: 'Canvas genres',
+                tags: await this.ExecRequest({ url: `${this.BASE_URL}/canvas` }, $ => this.parser.parseCanvasGenres($))
+            }));
+        return result;
     }
     async getViewMoreItems(homepageSectionId, metadata) {
         let items = [];
+        const newMetadata = metadata ?? { page: 0 };
         switch (homepageSectionId) {
             case 'today':
                 items = await this.getTodayTitles(true);
@@ -6458,18 +6516,22 @@ class Webtoon {
             case 'completed':
                 items = await this.getCompletedTitles(true);
                 break;
+            case 'canvas_popular':
+                newMetadata.page += 1;
+                items = await this.getCanvasPopularTitles(newMetadata);
+                break;
             default:
                 throw new Error(`Invalid homeSectionId | ${homepageSectionId}`);
         }
         return App.createPagedResults({
             results: items,
-            metadata
+            metadata: newMetadata
         });
     }
 }
 exports.Webtoon = Webtoon;
 
-},{"./WebtoonParser":66,"@paperback/types":61}],65:[function(require,module,exports){
+},{"./WebtoonParser":66,"./WebtoonSettings":67,"@paperback/types":61}],65:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WebtoonES = exports.WebtoonESInfo = void 0;
@@ -6520,11 +6582,14 @@ class WebtoonParser {
     parseDetails($, mangaId) {
         const detailElement = $('#content > div.cont_box > div.detail_header > div.info');
         const infoElement = $('#_asideDetail');
+        const [image, title] = mangaId.startsWith('canvas')
+            ? [this.parseCanvasDetailsThumbnail($), detailElement.find('h3').text().trim()]
+            : [this.parseDetailsThumbnail($), detailElement.find('h1').text().trim()];
         return App.createSourceManga({
             id: mangaId,
             mangaInfo: App.createMangaInfo({
-                image: this.parseDetailsThumbnail($),
-                titles: [detailElement.find('h1').text()],
+                image: image,
+                titles: [title],
                 author: detailElement.find('.author_area').text().trim(),
                 artist: '',
                 desc: infoElement.find('p.summary').text(),
@@ -6545,15 +6610,15 @@ class WebtoonParser {
         return statusElement.text()?.replace(bubbleTest, '');
     }
     parseDetailsThumbnail($) {
-        const picElement = $('#content > div.cont_box > div.detail_body');
-        return picElement.attr('style')?.match(/url\((.*?)\)/)?.[1] ?? '';
+        return $('#content > div.cont_box > div.detail_body').attr('style')?.match(/url\((.*?)\)/)?.[1] ?? '';
+    }
+    parseCanvasDetailsThumbnail($) {
+        return $('#content > div.cont_box span.thmb > img').attr('src') ?? '';
     }
     parseChaptersList($) {
-        const chapters = [];
-        $('ul#_episodeList > li[id*=episode]').each((_, elem) => {
-            chapters.push(this.parseChapter($(elem)));
-        });
-        return chapters;
+        return $('ul#_episodeList > li[id*=episode]')
+            .toArray()
+            .map(elem => this.parseChapter($(elem)));
     }
     parseChapter(elem) {
         return App.createChapter({
@@ -6567,32 +6632,24 @@ class WebtoonParser {
         return new Date((0, moment_1.default)(date, this.dateFormat, this.language).toDate());
     }
     parseChapterDetails($, mangaId, chapterId) {
-        const pages = [];
-        $('div#_imageList img').each((_, elem) => {
-            pages.push($(elem).attr('data-url') ?? '');
-        });
         return App.createChapterDetails({
             id: chapterId,
             mangaId: mangaId,
-            pages: pages
+            pages: $('div#_imageList img').toArray().map(elem => $(elem).attr('data-url') ?? '')
         });
     }
     parsePopularTitles($) {
-        const mangas = [];
-        $('div#content div.NE\\=a\\:tnt li a').each((_, elem) => {
-            if ($(elem).find('p.subj'))
-                mangas.push(this.parseMangaFromElement($(elem)));
-        });
-        return mangas;
+        return $('div#content div.NE\\=a\\:tnt li a')
+            .toArray()
+            .filter(elem => $(elem).find('p.subj'))
+            .map(elem => this.parseMangaFromElement($(elem)));
     }
     parseCarouselTitles($) {
-        const mangas = [];
-        $('div#content div.main_banner_big div._largeBanner').each((_, elem) => {
-            const manga = this.parseMangaFromCarouselElement($(elem));
-            if (manga)
-                mangas.push(manga);
-        });
-        return mangas;
+        return $('div#content div.main_banner_big div._largeBanner')
+            .toArray()
+            .map(elem => this.parseMangaFromCarouselElement($(elem)))
+            .filter(manga => manga)
+            .map(manga => manga);
     }
     parseMangaFromCarouselElement(elem) {
         let mangaId = elem.find('a').attr('href') ?? '';
@@ -6644,6 +6701,24 @@ class WebtoonParser {
         }
         return mangas;
     }
+    parseCanvasRecommendedTitles($) {
+        return $('#recommendArea li.rolling-item')
+            .toArray()
+            .map(elem => this.parseCanvasFromRecommendedElement($(elem)));
+    }
+    parseCanvasFromRecommendedElement(elem) {
+        return App.createPartialSourceManga({
+            mangaId: elem.find('a').attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
+            title: elem.find('p.subj').text(),
+            image: elem.find('img').attr('src') ?? '',
+            subtitle: 'Canvas'
+        });
+    }
+    parseCanvasPopularTitles($) {
+        return $('div.challenge_lst li a')
+            .toArray()
+            .map(elem => this.parseCanvasFromElement($(elem)));
+    }
     parseMangaFromElement(elem) {
         return App.createPartialSourceManga({
             mangaId: elem.attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
@@ -6651,21 +6726,38 @@ class WebtoonParser {
             image: elem.find('img').attr('src') ?? ''
         });
     }
-    parseSearchResults($) {
-        const items = [];
-        $('#content > div.card_wrap.search li a.card_item').each((_, elem) => {
-            items.push(this.parseMangaFromElement($(elem)));
+    parseCanvasFromElement(elem) {
+        return App.createPartialSourceManga({
+            mangaId: elem.attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
+            title: elem.find('p.subj').text(),
+            image: elem.find('img').attr('src') ?? '',
+            subtitle: 'Canvas'
         });
+    }
+    parseSearchResults($, canvas_wanted) {
+        const items = [];
+        items.push(...$('#content > div.card_wrap.search li a.card_item')
+            .toArray()
+            .map(elem => this.parseMangaFromElement($(elem))));
+        if (canvas_wanted) {
+            items.push(...$('#content > div.card_wrap.search li a.challenge_item')
+                .toArray()
+                .map(elem => this.parseCanvasFromElement($(elem))));
+        }
         return App.createPagedResults({
             results: items
         });
     }
     parseGenres($) {
-        const tags = [];
-        $('#content ul._genre li').each((_, elem) => {
-            tags.push(this.parseTagFromElement($(elem)));
-        });
-        return tags;
+        return $('#content ul._genre li')
+            .toArray()
+            .map(elem => this.parseTagFromElement($(elem)));
+    }
+    parseCanvasGenres($) {
+        return $('#content ul.challenge li')
+            .toArray()
+            .filter(elem => $(elem).attr('data-genre') && $(elem).attr('data-genre') !== 'ALL')
+            .map(elem => this.parseCanvasTagFromElement($(elem)));
     }
     parseTagFromElement(elem) {
         return App.createTag({
@@ -6673,17 +6765,61 @@ class WebtoonParser {
             label: elem.find('a').text().trim()
         });
     }
-    parseTagResults($) {
-        const items = [];
-        $('#content > div.card_wrap ul.card_lst li a').each((_, elem) => {
-            items.push(this.parseMangaFromElement($(elem)));
+    parseCanvasTagFromElement(elem) {
+        return App.createTag({
+            id: 'CANVAS$$' + elem.attr('data-genre') ?? '',
+            label: elem.find('a').text().trim()
         });
+    }
+    parseTagResults($) {
         return App.createPagedResults({
-            results: items
+            results: $('#content > div.card_wrap ul.card_lst li a')
+                .toArray()
+                .map(elem => this.parseMangaFromElement($(elem)))
         });
     }
 }
 exports.WebtoonParser = WebtoonParser;
 
-},{"moment":63}]},{},[65])(65)
+},{"moment":63}],67:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.configSettings = exports.setCanvasWanted = exports.getCanvasWanted = void 0;
+const getCanvasWanted = async (stateManager) => {
+    return await stateManager.retrieve('canvas_wanted') ?? false;
+};
+exports.getCanvasWanted = getCanvasWanted;
+const setCanvasWanted = async (stateManager, value) => {
+    await stateManager.store('canvas_wanted', value);
+};
+exports.setCanvasWanted = setCanvasWanted;
+const configSettings = (stateManager) => {
+    return App.createDUISection({
+        id: 'main',
+        header: 'Source Settings',
+        rows: async () => {
+            return [
+                App.createDUISwitch({
+                    id: 'canvas_wanted',
+                    label: 'Enable Canvas (Community)',
+                    value: App.createDUIBinding({
+                        get: async () => await (0, exports.getCanvasWanted)(stateManager),
+                        set: async (value) => { await (0, exports.setCanvasWanted)(stateManager, value); }
+                    })
+                }),
+                App.createDUIButton({
+                    id: 'reset',
+                    label: 'Reset to Default',
+                    onTap: async () => {
+                        await (0, exports.setCanvasWanted)(stateManager, false);
+                    }
+                })
+            ];
+        },
+        isHidden: false
+    });
+};
+exports.configSettings = configSettings;
+
+},{}]},{},[65])(65)
 });
