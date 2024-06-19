@@ -32,7 +32,7 @@ import {
 export const BASE_URL_XX = 'https://www.webtoons.com'
 export const MOBILE_URL_XX = 'https://m.webtoons.com'
 
-const BASE_VERSION = '1.3.0'
+const BASE_VERSION = '1.3.1'
 export const getExportVersion = (EXTENSION_VERSION: string): string => {
     return BASE_VERSION.split('.').map((x, index) => Number(x) + Number(EXTENSION_VERSION.split('.')[index])).join('.')
 }
@@ -111,7 +111,9 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
     getMangaShareUrl(mangaId: string): string { return `${this.BASE_URL}/${mangaId}` }
 
     getMangaDetails(mangaId: string): Promise<SourceManga> {
-        return this.ExecRequest({ url: `${this.BASE_URL}/${mangaId}` }, $ => this.parser.parseDetails($, mangaId))
+        return this.ExecRequest(
+            { url: `${this.BASE_URL}/${mangaId}` }, 
+            $ => this.parser.parseDetails($, mangaId))
     }
 
     getChapters(mangaId: string): Promise<Chapter[]> {
@@ -134,13 +136,7 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
             { url: `${this.BASE_URL}/popular` }, 
             this.parser.parsePopularTitles)
     }
-
-    getCarouselTitles(): Promise<PartialSourceManga[]> {
-        return this.ExecRequest(
-            { url: `${this.BASE_URL}/` }, 
-            this.parser.parseCarouselTitles)
-    }
-
+    
     getTodayTitles(allTitles: boolean): Promise<PartialSourceManga[]> {
         return this.ExecRequest(
             { url: `${this.BASE_URL}/dailySchedule` }, 
@@ -215,17 +211,6 @@ export abstract class Webtoon implements SearchResultsProviding, MangaProviding,
 
     async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
         const sections : {request: Promise<PartialSourceManga[]>, section: HomeSection}[] = []
-        sections.push({
-            request: this.getCarouselTitles(),
-            section: App.createHomeSection({
-                id: 'test',
-                title: 'test',
-                containsMoreItems: true,
-                type: HomeSectionType.featured
-            })
-        
-        })
-
         if(this.HAVE_TRENDING)
             sections.push(
                 {

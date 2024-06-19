@@ -102,30 +102,6 @@ export class WebtoonParser {
             .map(elem => this.parseMangaFromElement($(elem)))
     }
 
-    parseCarouselTitles($: CheerioAPI): PartialSourceManga[] {
-        return $('div#content div.main_banner_big div._largeBanner')
-            .toArray()
-            .map(elem => this.parseMangaFromCarouselElement($(elem)))
-            .filter(manga => manga)
-            .map(manga => manga as PartialSourceManga)
-    }
-
-    parseMangaFromCarouselElement(elem: CheerioElement): PartialSourceManga | void {
-        let mangaId = elem.find('a').attr('href') ?? ''
-        if (mangaId.includes('episode_no')){
-            mangaId = mangaId
-                .replace(/&episode_no=[^$]+$/, '')
-                .replace(/[^/]+\/viewer(\?|$)/, 'list$1')
-        }
-
-        if (mangaId.includes('/list?'))
-            return App.createPartialSourceManga({
-                mangaId: mangaId.replace(this.BASE_URL + '/', ''),
-                title: '',
-                image: elem.find('img').attr('src') ?? ''
-            })
-    }
-
     parseTodayTitles($: CheerioAPI, allTitles: boolean): PartialSourceManga[] {
         const mangas: PartialSourceManga[] = []
 
@@ -247,7 +223,7 @@ export class WebtoonParser {
     
     parseCanvasTagFromElement(elem: CheerioElement): Tag {
         return App.createTag({
-            id: 'CANVAS$$' + elem.attr('data-genre') ?? '',
+            id: 'CANVAS$$' + (elem.attr('data-genre') ?? ''),
             label: elem.find('a').text().trim()
         })
     }
