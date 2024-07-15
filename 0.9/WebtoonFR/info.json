@@ -1,0 +1,1 @@
+{"icon":"icon.png","name":"WebtoonFR","version":"0.9.1","description":"Extension that pulls manga from WebtoonFR","contentRating":"MATURE","developers":[{"name":"Yves Pa","github":"https://github.com/YvesPa/webtoons-extensions"}],"badges":[{"label":"French","backgroundColor":"#FF0000","textColor":"#FFFFFF"}],"capabilities":[1,4,32],"id":"WebtoonFR"}

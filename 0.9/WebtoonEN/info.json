@@ -1,0 +1,1 @@
+{"icon":"icon.png","name":"WebtoonEN","version":"0.9.1","description":"Extension that pulls manga from WebtoonEN","contentRating":"MATURE","developers":[{"name":"Yves Pa","github":"https://github.com/YvesPa/webtoons-extensions"}],"badges":[{"label":"English","backgroundColor":"#FF0000","textColor":"#FFFFFF"}],"capabilities":[1,4,32],"id":"WebtoonEN"}
