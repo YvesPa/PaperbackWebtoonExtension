@@ -9,7 +9,6 @@ import {
     ChapterProviding,
     MangaProviding,
     TagSection,
-    Cookie,
     Extension,
     DiscoverSectionType,
     SearchResultItem,
@@ -31,8 +30,8 @@ export const getExportVersion = (EXTENSION_VERSION: string): string => {
 
 export class Webtoon implements Extension, SearchResultsProviding, MangaProviding, ChapterProviding {
     cheerio = cheerio
-    private parser : WebtoonParser;  
-    private cookies: Cookie[] = []
+    private parser : WebtoonParser;
+    private cookies: Record<string, string> = {}
 
     constructor(
         LOCALE: string,
@@ -40,14 +39,14 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
         LANGUAGE: string,
         private BASE_URL: string,
         private MOBILE_URL: string,
-        private HAVE_TRENDING: boolean) 
-    { 
-        this.parser = new WebtoonParser(DATE_FORMAT, LOCALE, LANGUAGE, BASE_URL, MOBILE_URL) 
+        private HAVE_TRENDING: boolean)
+    {
+        this.parser = new WebtoonParser(DATE_FORMAT, LOCALE, LANGUAGE, BASE_URL, MOBILE_URL)
         this.cookies = 
-        [
-            { name: 'ageGatePass', value: 'true', domain: BASE_URL_XX, path: '/', created: new Date(), expires: new Date('2030-01-01')},
-            { name: 'locale', value: LOCALE, domain: BASE_URL_XX, path: '/', created: new Date(), expires: new Date('2030-01-01')},
-        ]
+        {
+            'ageGatePass': 'true',
+            'locale': LOCALE
+        }
     }
 
     async initialise(): Promise<void> {
@@ -67,7 +66,7 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
                 'user-agent': await Application.getDefaultUserAgent()
             }
         }
-        request.cookies = this.cookies
+        request.cookies = { ...request.cookies, ...this.cookies }
         return request
     }
 
@@ -76,8 +75,8 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
     }
 
     async ExecRequest<T>(
-        infos: { url: string, headers?: Record<string, string>, param?: string}, 
-        parseMethods: (_: CheerioAPI) => T) : Promise<T> 
+        infos: { url: string, headers?: Record<string, string>, param?: string},
+        parseMethods: (_: CheerioAPI) => T) : Promise<T>
     {
         const request = ({ ...infos, method: 'GET'})
         const data = (await Application.scheduleRequest(request))[1]
@@ -91,68 +90,68 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
 
     getChapters(sourceManga: SourceManga): Promise<Chapter[]> {
         return this.ExecRequest(
-            { 
-                url: `${this.MOBILE_URL}/${sourceManga.mangaId}`, 
-                headers: { 'referer': this.MOBILE_URL } 
+            {
+                url: `${this.MOBILE_URL}/${sourceManga.mangaId}`,
+                headers: { 'referer': this.MOBILE_URL }
             },
             $ => this.parser.parseChaptersList($, sourceManga))
     }
 
     getChapterDetails(chapter: Chapter): Promise<ChapterDetails> {
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/${chapter.chapterId}` }, 
+            { url: `${this.BASE_URL}/${chapter.chapterId}` },
             $ => this.parser.parseChapterDetails($, chapter))
     }
 
     getPopularTitles(): Promise<PagedResults<SearchResultItem>> {
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/popular` }, 
+            { url: `${this.BASE_URL}/popular` },
             this.parser.parsePopularTitles)
     }
 
     getCarouselTitles(metadata: unknown | undefined): Promise<PagedResults<SearchResultItem>> {
         console.log('ici')
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/` }, 
+            { url: `${this.BASE_URL}/` },
             this.parser.parseCarouselTitles)
     }
 
     getTodayTitles(metadata: unknown | undefined) : Promise<PagedResults<SearchResultItem>> { return this._getTodayTitles(false) }
     _getTodayTitles(allTitles: boolean ): Promise<PagedResults<SearchResultItem>> {
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/dailySchedule` }, 
+            { url: `${this.BASE_URL}/dailySchedule` },
             $ => this.parser.parseTodayTitles($, allTitles))
     }
 
     getOngoingTitles(metadata: unknown | undefined): Promise<PagedResults<SearchResultItem>> { return this._getOngoingTitles(false) }
     _getOngoingTitles(allTitles: boolean): Promise<PagedResults<SearchResultItem>> {
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/dailySchedule` }, 
+            { url: `${this.BASE_URL}/dailySchedule` },
             $ => this.parser.parseOngoingTitles($, allTitles))
     }
 
     getCompletedTitles(metadata: unknown | undefined): Promise<PagedResults<SearchResultItem>> { return this._getCompletedTitles(false) }
     _getCompletedTitles(allTitles: boolean): Promise<PagedResults<SearchResultItem>> {
         return this.ExecRequest(
-            { url: `${this.BASE_URL}/dailySchedule` }, 
+            { url: `${this.BASE_URL}/dailySchedule` },
             $ => this.parser.parseCompletedTitles($, allTitles))
     }
 
     getSearchResults(query: SearchQuery, metadata: unknown | undefined): Promise<PagedResults<SearchResultItem>> {
-        if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
-            return this.ExecRequest(
-                { 
-                    url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
-                    param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
-                },
-                $ => this.parser.parseTagResults($))
-        else 
-            return this.ExecRequest(
-                {
-                    url: `${this.BASE_URL}/search`,
-                    param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
-                },
-                this.parser.parseSearchResults)
+        // if (query?.includedTags?.length > 0 && query.includedTags[0]?.id)
+        //     return this.ExecRequest(
+        //         {
+        //             url: `${this.BASE_URL}/genres/${query.includedTags[0].id}`,
+        //             param: this.paramsToString({ sortOrder: 'READ_COUNT#'})
+        //         },
+        //         $ => this.parser.parseTagResults($))
+        // else
+        return this.ExecRequest(
+            {
+                url: `${this.BASE_URL}/search`,
+                param: this.paramsToString({ keyword: query.title, searchType: 'WEBTOON' })
+            },
+            this.parser.parseSearchResults)
     }
 
     async registerDiscoverSection(): Promise<void> {
@@ -167,14 +166,14 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
         */
         if(this.HAVE_TRENDING)
             Application.registerDiscoverSection(
-                {  
+                {
                     id: 'popular',
                     title: 'New & Trending',
-                    type: DiscoverSectionType.simpleCarousel 
+                    type: DiscoverSectionType.simpleCarousel
                 },
                 Application.Selector(this as Webtoon, 'getPopularTitles')
             )
-        
+
 
         Application.registerDiscoverSection(
             {
@@ -184,7 +183,7 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
             },
             Application.Selector(this as Webtoon, 'getTodayTitles')
         )
-        
+
         Application.registerDiscoverSection(
             {
                 id: 'ongoing',
@@ -203,14 +202,14 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
             Application.Selector(this as Webtoon, 'getCompletedTitles')
         )
     }
-    
+
     async getSearchTags(): Promise<TagSection[]> {
         const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, $ => this.parser.parseGenres($))
-        return [ 
+        return [
             {
-                id: '0', 
-                title: 'genres', 
-                tags: tags 
+                id: '0',
+                title: 'genres',
+                tags: tags
             }
         ]
     }
@@ -219,7 +218,7 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
     async getViewMoreItems(homepageSectionId: string, metadata: unknown): Promise<PagedResults> {
         let items: PartialSourceManga[] = []
 
-        switch (homepageSectionId) {            
+        switch (homepageSectionId) {
             case 'today':
                 items = await this.getTodayTitles(true)
                 break
@@ -227,7 +226,7 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
             case 'ongoing':
                 items = await this.getOngoingTitles(true)
                 break
-            
+
             case 'completed':
                 items = await this.getCompletedTitles(true)
                 break
@@ -245,5 +244,5 @@ export class Webtoon implements Extension, SearchResultsProviding, MangaProvidin
 
     paramsToString = (params: Record<string, unknown>): string => {
         return '?' + Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
-    } 
+    }
 }
