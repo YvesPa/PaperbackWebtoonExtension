@@ -23,6 +23,7 @@ export default {
     capabilities: [
         SourceIntents.MANGA_CHAPTERS,
         SourceIntents.HOMEPAGE_SECTIONS,
-        SourceIntents.SETTINGS_UI
+        SourceIntents.SETTINGS_UI,
+        SourceIntents.MANGA_SEARCH
     ]
 }

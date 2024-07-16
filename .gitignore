@@ -21,3 +21,5 @@ package-lock.json
 
 # ignore auto generated files
 src/Webtoon*/
+src/0.8/
+src/M*/

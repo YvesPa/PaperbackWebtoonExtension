@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import {
     BASE_URL_XX,
     MOBILE_URL_XX,

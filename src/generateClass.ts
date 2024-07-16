@@ -7,9 +7,9 @@ import fs from 'fs'
 import path from 'path'
 
 const SOURCE_DIRECTORY = 'src'
-const EMPTY_MAIN_FILE = 'emptyMain.ts.txt'
+const EMPTY_MAIN_FILE = 'emptyMain.ts'
 const MAIN_FILE = 'main.ts'
-const EMPTY_PBCONFIG_FILE = 'emptyPbconfig.ts.txt'
+const EMPTY_PBCONFIG_FILE = 'emptyPbconfig.ts'
 const PBCONFIG_FILE = 'pbconfig.ts'
 const INCLUDES_DIRECTORY = 'static'
 const ICON_FILE = 'icon.png'
@@ -31,6 +31,8 @@ for (let i = 0; i < WebtoonFactory.length; i++) {
         ///----- MAIN
         // Read the content of emptyMain.ts.txt
         let emptyMainContent = fs.readFileSync(path.join(SOURCE_DIRECTORY, EMPTY_MAIN_FILE), 'utf-8')
+        emptyMainContent = emptyMainContent.replace('// eslint-disable-next-line @typescript-eslint/ban-ts-comment\n', '')
+        emptyMainContent = emptyMainContent.replace('// @ts-nocheck\n\n', '')
 
         // Replace [[${prop}]] with the property value from configuration
         for (const [prop, propValue] of Object.entries(configuration)) {

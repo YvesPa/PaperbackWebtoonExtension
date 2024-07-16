@@ -32,12 +32,16 @@ export class WebtoonParser {
         const detailElement = $('#content > div.cont_box > div.detail_header > div.info')
         const infoElement = $('#_asideDetail') as CheerioElement
 
+        const [image, title] = mangaId.startsWith('canvas') 
+            ? [this.parseCanvasDetailsThumbnail($), detailElement.find('h3').text().trim()]
+            : [this.parseDetailsThumbnail($), detailElement.find('h1').text().trim()]
+
         return {
             mangaId: mangaId,
             mangaInfo: {
-                thumbnailUrl: this.parseDetailsThumbnail($),
+                thumbnailUrl: image,
                 synopsis: infoElement.find('p.summary').text(),
-                primaryTitle: detailElement.find('h1').text(),
+                primaryTitle: title,
                 secondaryTitles: [],
                 contentRating: ContentRating.MATURE,
 
@@ -65,17 +69,17 @@ export class WebtoonParser {
     }
 
     parseDetailsThumbnail($: CheerioAPI): string {
-        const picElement = $('#content > div.cont_box > div.detail_body')
-        return picElement.attr('style')?.match(/url\((.*?)\)/)?.[1] ?? ''
+        return $('#content > div.cont_box > div.detail_body').attr('style')?.match(/url\((.*?)\)/)?.[1] ?? ''
+    }
+    
+    parseCanvasDetailsThumbnail($: CheerioAPI): string {
+        return $('#content > div.cont_box span.thmb > img').attr('src') ?? ''
     }
 
     parseChaptersList($: CheerioAPI, sourceManga: SourceManga): Chapter[] {
-        const chapters: Chapter[] = []
-      
-        $('ul#_episodeList > li[id*=episode]').each((_ : number, elem: Element) => {
-            chapters.push(this.parseChapter($(elem), sourceManga))})
-
-        return chapters
+        return $('ul#_episodeList > li[id*=episode]')
+            .toArray()
+            .map(elem => this.parseChapter($(elem), sourceManga))
     }
 
     parseChapter(elem: CheerioElement, sourceManga: SourceManga): Chapter {
@@ -94,55 +98,20 @@ export class WebtoonParser {
     }
   
     parseChapterDetails($: CheerioAPI, chapter: Chapter): ChapterDetails {
-        const pages: string[] = []
-
-        $('div#_imageList img').each((_ : number, elem: Element) => {
-            pages.push($(elem).attr('data-url') ?? '')
-        })
-
         return {
             id: chapter.chapterId,
             mangaId: chapter.sourceManga.mangaId,
-            pages: pages
+            pages: $('div#_imageList img').toArray().map(elem => $(elem).attr('data-url') ?? '')
         }
     }
 
     parsePopularTitles($: CheerioAPI): PagedResults<SearchResultItem> {
-        const mangas: SearchResultItem[] = []
-        
-        $('div#content div.NE\\=a\\:tnt li a').each((_ : number, elem: AnyNode) => {
-            if ($(elem).find('p.subj'))
-                mangas.push(this.parseMangaFromElement($(elem as Element)))
-        })
-
-        return {items: mangas}
-    }
-
-    parseCarouselTitles($: CheerioAPI): PagedResults<SearchResultItem> {
-        const mangas: SearchResultItem[] = []
-
-        $('div#content div.main_banner_big div._largeBanner').each((_ : number, elem: Element) => {
-            const manga = this.parseMangaFromCarouselElement($(elem))
-            if(manga) mangas.push(manga)
-        })
-
-        return {items: mangas}
-    }
-
-    parseMangaFromCarouselElement(elem: CheerioElement): SearchResultItem | void {
-        let mangaId = elem.find('a').attr('href') ?? ''
-        if (mangaId.includes('episode_no')){
-            mangaId = mangaId
-                .replace(/&episode_no=[^$]+$/, '')
-                .replace(/[^/]+\/viewer(\?|$)/, 'list$1')
+        return {
+            items: $('div#content div.NE\\=a\\:tnt li a')
+                .toArray()
+                .filter(elem => $(elem).find('p.subj'))
+                .map(elem => this.parseMangaFromElement($(elem)))
         }
-
-        if (mangaId.includes('/list?'))
-            return {
-                mangaId: mangaId.replace(this.BASE_URL + '/', ''),
-                title: '',
-                imageUrl: elem.find('img').attr('src') ?? ''
-            }
     }
 
     parseTodayTitles($: CheerioAPI, allTitles: boolean): PagedResults<SearchResultItem> {
@@ -189,6 +158,31 @@ export class WebtoonParser {
         return {items: mangas}
     }
 
+    parseCanvasRecommendedTitles($: CheerioAPI): PagedResults<SearchResultItem> {
+        return {
+            items: $('#recommendArea li.rolling-item')
+                .toArray()
+                .map(elem => this.parseCanvasFromRecommendedElement($(elem)))
+        }
+    }
+
+    parseCanvasFromRecommendedElement(elem: CheerioElement): SearchResultItem {
+        return {
+            mangaId: elem.find('a').attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
+            title: elem.find('p.subj').text(),
+            imageUrl: elem.find('img').attr('src') ?? '',
+            subtitle: 'Canvas'
+        }
+    }
+
+    parseCanvasPopularTitles($: CheerioAPI): PagedResults<SearchResultItem> {
+        return { 
+            items: $('div.challenge_lst li a')
+                .toArray()
+                .map(elem => this.parseCanvasFromElement($(elem)))
+        }
+    }
+
     parseMangaFromElement(elem: CheerioElement): SearchResultItem {
         return {
             mangaId: elem.attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
@@ -197,24 +191,41 @@ export class WebtoonParser {
         }
     }
 
-    parseSearchResults($: CheerioAPI): PagedResults<SearchResultItem> {
-        const items: SearchResultItem[] = []
-
-        $('#content > div.card_wrap.search li a.card_item').each((_ : number, elem: Element) => {
-            items.push(this.parseMangaFromElement($(elem)))
-        })
-
-        return {items: items}
+    parseCanvasFromElement(elem: CheerioElement): SearchResultItem {
+        return {
+            mangaId: elem.attr('href')?.replace(this.BASE_URL + '/', '') ?? '',
+            title: elem.find('p.subj').text(),
+            imageUrl: elem.find('img').attr('src') ?? '',
+            subtitle: 'Canvas'
+        }
     }
-    
+
+    parseSearchResults($: CheerioAPI, canvas_wanted: boolean): PagedResults<SearchResultItem> {
+        return {
+            items : [
+                ...$('#content > div.card_wrap.search li a.card_item')
+                    .toArray()
+                    .map(elem => this.parseMangaFromElement($(elem))),
+                ...(canvas_wanted 
+                    ? $('#content > div.card_wrap.search li a.challenge_item')
+                        .toArray()
+                        .map(elem => this.parseCanvasFromElement($(elem)))
+                    : [])
+            ]
+        }
+    }
+
     parseGenres($: CheerioAPI): Tag[]{
-        const tags: Tag[] = []
+        return $('#content ul._genre li')
+            .toArray()
+            .map(elem => this.parseTagFromElement($(elem)))
+    }
 
-        $('#content ul._genre li').each((_ : number, elem: Element) => {
-            tags.push(this.parseTagFromElement($(elem)))
-        })
-
-        return tags
+    parseCanvasGenres($: CheerioAPI): Tag[]{
+        return $('#content ul.challenge li')
+            .toArray()
+            .filter(elem => $(elem).attr('data-genre') && $(elem).attr('data-genre') !== 'ALL')
+            .map(elem => this.parseCanvasTagFromElement($(elem)))
     }
 
     parseTagFromElement(elem: CheerioElement): Tag {
@@ -224,15 +235,18 @@ export class WebtoonParser {
         }
     }
     
-    parseTagResults($: CheerioAPI): PagedResults<SearchResultItem> {
-        const items: SearchResultItem[] = []
-
-        $('#content > div.card_wrap ul.card_lst li a').each((_ : number, elem: Element) => {
-            items.push(this.parseMangaFromElement($(elem)))
-        })
-
-        return {items: items}
+    parseCanvasTagFromElement(elem: CheerioElement): Tag {
+        return {
+            id: 'CANVAS$$' + (elem.attr('data-genre') ?? ''),
+            title: 'Canvas - ' + elem.find('a').text().trim()
+        }
     }
-
-
+    
+    parseTagResults($: CheerioAPI): PagedResults<SearchResultItem> {
+        return {
+            items: $('#content > div.card_wrap ul.card_lst li a')
+                .toArray()
+                .map(elem => this.parseMangaFromElement($(elem)))
+        }
+    }
 }
