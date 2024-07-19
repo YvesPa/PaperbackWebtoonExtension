@@ -2631,7 +2631,7 @@ var source = (() => {
       exports.BasicRateLimiter = void 0;
       var PaperbackInterceptor_1 = require_PaperbackInterceptor();
       var Lock_1 = require_Lock();
-      var BasicRateLimiter = class extends PaperbackInterceptor_1.PaperbackInterceptor {
+      var BasicRateLimiter2 = class extends PaperbackInterceptor_1.PaperbackInterceptor {
         numberOfRequests;
         overSeconds;
         promise;
@@ -2669,7 +2669,7 @@ var source = (() => {
           }
         }
       };
-      exports.BasicRateLimiter = BasicRateLimiter;
+      exports.BasicRateLimiter = BasicRateLimiter2;
     }
   });
 
@@ -2680,7 +2680,7 @@ var source = (() => {
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.Form = void 0;
-      var Form = class {
+      var Form2 = class {
         reloadForm() {
           const formId = this["__underlying_formId"];
           if (!formId)
@@ -2688,7 +2688,7 @@ var source = (() => {
           Application.formDidChange(formId);
         }
       };
-      exports.Form = Form;
+      exports.Form = Form2;
     }
   });
 
@@ -2700,7 +2700,7 @@ var source = (() => {
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.LabelRow = LabelRow;
       exports.InputRow = InputRow;
-      exports.ToggleRow = ToggleRow;
+      exports.ToggleRow = ToggleRow2;
       exports.SelectRow = SelectRow;
       exports.ButtonRow = ButtonRow;
       exports.NavigationRow = NavigationRow;
@@ -2712,7 +2712,7 @@ var source = (() => {
       function InputRow(id, props) {
         return { ...props, id, type: "inputRow", isHidden: props.isHidden ?? false };
       }
-      function ToggleRow(id, props) {
+      function ToggleRow2(id, props) {
         return { ...props, id, type: "toggleRow", isHidden: props.isHidden ?? false };
       }
       function SelectRow(id, props) {
@@ -2739,8 +2739,8 @@ var source = (() => {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
-      exports.Section = Section;
-      function Section(id, items) {
+      exports.Section = Section2;
+      function Section2(id, items) {
         return { id, items: items.filter((x) => x) };
       }
     }
@@ -3051,6 +3051,21 @@ var source = (() => {
       __exportStar(require_base(), exports);
       __exportStar(require_DyamicUI(), exports);
       __exportStar(require_DiscoverSectionType(), exports);
+    }
+  });
+
+  // node_modules/boolbase/index.js
+  var require_boolbase = __commonJS({
+    "node_modules/boolbase/index.js"(exports, module) {
+      init_buffer();
+      module.exports = {
+        trueFunc: function trueFunc2() {
+          return true;
+        },
+        falseFunc: function falseFunc() {
+          return false;
+        }
+      };
     }
   });
 
@@ -7044,21 +7059,6 @@ var source = (() => {
     }
   });
 
-  // node_modules/boolbase/index.js
-  var require_boolbase = __commonJS({
-    "node_modules/boolbase/index.js"(exports, module) {
-      init_buffer();
-      module.exports = {
-        trueFunc: function trueFunc2() {
-          return true;
-        },
-        falseFunc: function falseFunc() {
-          return false;
-        }
-      };
-    }
-  });
-
   // node_modules/moment/locale/es.js
   var require_es = __commonJS({
     "node_modules/moment/locale/es.js"(exports, module) {
@@ -7173,189 +7173,13 @@ var source = (() => {
   });
   init_buffer();
 
-  // src/Webtoon.ts
+  // src/Webtoons.ts
   init_buffer();
-  var import_types3 = __toESM(require_lib());
+  var import_types5 = __toESM(require_lib());
 
-  // src/WebtoonParser.ts
+  // src/WebtoonsInfra.ts
   init_buffer();
-  var import_types = __toESM(require_lib());
-  var import_moment = __toESM(require_moment());
-  var WebtoonParser = class {
-    constructor(dateFormat, locale, language, BASE_URL2, MOBILE_URL2) {
-      this.dateFormat = dateFormat;
-      this.locale = locale;
-      this.language = language;
-      this.BASE_URL = BASE_URL2;
-      this.MOBILE_URL = MOBILE_URL2;
-    }
-    parseDetails($2, mangaId) {
-      const detailElement = $2("#content > div.cont_box > div.detail_header > div.info");
-      const infoElement = $2("#_asideDetail");
-      return {
-        mangaId,
-        mangaInfo: {
-          thumbnailUrl: this.parseDetailsThumbnail($2),
-          synopsis: infoElement.find("p.summary").text(),
-          primaryTitle: detailElement.find("h1").text(),
-          secondaryTitles: [],
-          contentRating: import_types.ContentRating.MATURE,
-          status: this.parseStatus(infoElement),
-          artist: "",
-          author: detailElement.find(".author_area").text().trim(),
-          tagGroups: [
-            {
-              id: "0",
-              title: "genres",
-              tags: detailElement.find(".genre").toArray().map((genre) => ({ id: $2(genre).text(), title: $2(genre).text() }))
-            }
-          ]
-        },
-        chapterCount: 0,
-        newChapterCount: 0,
-        unreadChapterCount: 0
-      };
-    }
-    parseStatus(infoElement) {
-      const statusElement = infoElement.find("p.day_info");
-      const bubbleTest = statusElement.find("span").text() ?? "";
-      return statusElement.text()?.replace(bubbleTest, "");
-    }
-    parseDetailsThumbnail($2) {
-      const picElement = $2("#content > div.cont_box > div.detail_body");
-      return picElement.attr("style")?.match(/url\((.*?)\)/)?.[1] ?? "";
-    }
-    parseChaptersList($2, sourceManga) {
-      const chapters = [];
-      $2("ul#_episodeList > li[id*=episode]").each((_, elem) => {
-        chapters.push(this.parseChapter($2(elem), sourceManga));
-      });
-      return chapters;
-    }
-    parseChapter(elem, sourceManga) {
-      return {
-        chapterId: elem.find("a").attr("href")?.replace(this.MOBILE_URL + "/", "") ?? "",
-        sourceManga,
-        langCode: this.locale,
-        title: elem.find("a > div.row > div.info > p.sub_title > span.ellipsis").text(),
-        chapNum: Number(elem.find("a > div.row > div.num").text()?.substring(1)),
-        publishDate: this.parseDate(elem.find("a > div.row > div.info > div.sub_info > span.date").text())
-      };
-    }
-    parseDate(date) {
-      return new Date((0, import_moment.default)(date, this.dateFormat, this.language).toDate());
-    }
-    parseChapterDetails($2, chapter) {
-      const pages = [];
-      $2("div#_imageList img").each((_, elem) => {
-        pages.push($2(elem).attr("data-url") ?? "");
-      });
-      return {
-        id: chapter.chapterId,
-        mangaId: chapter.sourceManga.mangaId,
-        pages
-      };
-    }
-    parsePopularTitles($2) {
-      const mangas = [];
-      $2("div#content div.NE\\=a\\:tnt li a").each((_, elem) => {
-        if ($2(elem).find("p.subj"))
-          mangas.push(this.parseMangaFromElement($2(elem)));
-      });
-      return { items: mangas };
-    }
-    parseCarouselTitles($2) {
-      const mangas = [];
-      $2("div#content div.main_banner_big div._largeBanner").each((_, elem) => {
-        const manga = this.parseMangaFromCarouselElement($2(elem));
-        if (manga)
-          mangas.push(manga);
-      });
-      return { items: mangas };
-    }
-    parseMangaFromCarouselElement(elem) {
-      let mangaId = elem.find("a").attr("href") ?? "";
-      if (mangaId.includes("episode_no")) {
-        mangaId = mangaId.replace(/&episode_no=[^$]+$/, "").replace(/[^/]+\/viewer(\?|$)/, "list$1");
-      }
-      if (mangaId.includes("/list?"))
-        return {
-          mangaId: mangaId.replace(this.BASE_URL + "/", ""),
-          title: "",
-          imageUrl: elem.find("img").attr("src") ?? ""
-        };
-    }
-    parseTodayTitles($2, allTitles) {
-      const mangas = [];
-      const date = (0, import_moment.default)().locale("en").format("dddd").toUpperCase();
-      const list = $2(`div#dailyList div.daily_section._list_${date} li a.daily_card_item`);
-      for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
-        if ($2(list[i]).find("p.subj"))
-          mangas.push(this.parseMangaFromElement($2(list[i])));
-      }
-      return { items: mangas };
-    }
-    parseOngoingTitles($2, allTitles) {
-      const mangas = [];
-      let maxChild = 0;
-      $2("div#dailyList > div").each((_, elem) => {
-        if ($2(elem).find("li").length > maxChild)
-          maxChild = $2(elem).find("li").length;
-      });
-      for (let i = 1; i <= maxChild; i++) {
-        if (!allTitles && mangas.length >= 14)
-          return { items: mangas };
-        $2("div#dailyList > div li:nth-child(" + i + ") a.daily_card_item").each((_, elem) => {
-          if ($2(elem).find("p.subj"))
-            mangas.push(this.parseMangaFromElement($2(elem)));
-        });
-      }
-      return { items: mangas };
-    }
-    parseCompletedTitles($2, allTitles) {
-      const mangas = [];
-      const list = $2("div.daily_lst.comp li a");
-      for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
-        if ($2(list[i]).find("p.subj"))
-          mangas.push(this.parseMangaFromElement($2(list[i])));
-      }
-      return { items: mangas };
-    }
-    parseMangaFromElement(elem) {
-      return {
-        mangaId: elem.attr("href")?.replace(this.BASE_URL + "/", "") ?? "",
-        title: elem.find("p.subj").text(),
-        imageUrl: elem.find("img").attr("src") ?? ""
-      };
-    }
-    parseSearchResults($2) {
-      const items = [];
-      $2("#content > div.card_wrap.search li a.card_item").each((_, elem) => {
-        items.push(this.parseMangaFromElement($2(elem)));
-      });
-      return { items };
-    }
-    parseGenres($2) {
-      const tags = [];
-      $2("#content ul._genre li").each((_, elem) => {
-        tags.push(this.parseTagFromElement($2(elem)));
-      });
-      return tags;
-    }
-    parseTagFromElement(elem) {
-      return {
-        id: elem.attr("data-genre") ?? "",
-        title: elem.find("a").text().trim()
-      };
-    }
-    parseTagResults($2) {
-      const items = [];
-      $2("#content > div.card_wrap ul.card_lst li a").each((_, elem) => {
-        items.push(this.parseMangaFromElement($2(elem)));
-      });
-      return { items };
-    }
-  };
+  var import_types4 = __toESM(require_lib());
 
   // node_modules/cheerio/lib/esm/index.js
   var esm_exports4 = {};
@@ -7482,7 +7306,7 @@ var source = (() => {
   var Comment = ElementType.Comment;
   var Script = ElementType.Script;
   var Style = ElementType.Style;
-  var Tag2 = ElementType.Tag;
+  var Tag = ElementType.Tag;
   var CDATA = ElementType.CDATA;
   var Doctype = ElementType.Doctype;
 
@@ -8593,7 +8417,7 @@ var source = (() => {
         return renderCdata(node);
       case Script:
       case Style:
-      case Tag2:
+      case Tag:
         return renderTag(node, options);
       case Text:
         return renderText(node, options);
@@ -21341,59 +21165,249 @@ var source = (() => {
   var { parseHTML: parseHTML2 } = static_exports;
   var { root: root2 } = static_exports;
 
-  // src/Webtoon.ts
-  var BASE_URL_XX = "https://www.webtoons.com";
-  var MOBILE_URL_XX = "https://m.webtoons.com";
-  var Webtoon = class {
-    constructor(LOCALE2, DATE_FORMAT2, LANGUAGE2, BASE_URL2, MOBILE_URL2, HAVE_TRENDING2) {
+  // src/WebtoonsParser.ts
+  init_buffer();
+  var import_types3 = __toESM(require_lib());
+  var import_moment = __toESM(require_moment());
+
+  // src/WebtoonsSettings.ts
+  init_buffer();
+  var import_types2 = __toESM(require_lib());
+  var CANVAS_WANTED = "canvas_wanted";
+  function toBoolean(value) {
+    return (value ?? false) === "true";
+  }
+  var WebtoonsSettings = class {
+    get canvasWanted() {
+      return toBoolean(Application.getState(CANVAS_WANTED));
+    }
+    set canvasWanted(value) {
+      Application.setState(value.toString(), CANVAS_WANTED);
+    }
+    async getSettingsForm() {
+      return new WebtoonSettingForm(this);
+    }
+  };
+  var WebtoonSettingForm = class extends import_types2.Form {
+    constructor(settings) {
+      super();
+      this.settings = settings;
+    }
+    getSections() {
+      return [
+        (0, import_types2.Section)("hideStuff", [
+          (0, import_types2.ToggleRow)("toggle", {
+            title: "Toggles can hide rows",
+            value: this.settings.canvasWanted,
+            onValueChange: Application.Selector(this, "setCanvasWanted")
+          })
+        ])
+      ];
+    }
+    async setCanvasWanted(value) {
+      this.settings.canvasWanted = value;
+    }
+  };
+
+  // src/WebtoonsParser.ts
+  var WebtoonsParser = class extends WebtoonsSettings {
+    constructor(dateFormat, locale, language, BASE_URL2, MOBILE_URL2) {
+      super();
+      this.dateFormat = dateFormat;
+      this.locale = locale;
+      this.language = language;
       this.BASE_URL = BASE_URL2;
       this.MOBILE_URL = MOBILE_URL2;
-      this.HAVE_TRENDING = HAVE_TRENDING2;
-      this.cheerio = esm_exports4;
-      this.cookies = {};
-      /*
-          async getViewMoreItems(homepageSectionId: string, metadata: unknown): Promise<PagedResults> {
-              let items: PartialSourceManga[] = []
-      
-              switch (homepageSectionId) {
-                  case 'today':
-                      items = await this.getTodayTitles(true)
-                      break
-      
-                  case 'ongoing':
-                      items = await this.getOngoingTitles(true)
-                      break
-      
-                  case 'completed':
-                      items = await this.getCompletedTitles(true)
-                      break
-      
-                  default:
-                      throw new Error(`Invalid homeSectionId | ${homepageSectionId}`)
-              }
-      
-              return App.createPagedResults({
-                  results: items,
-                  metadata
-              })
-          }
-          */
-      this.paramsToString = (params) => {
-        return "?" + Object.keys(params).map((key) => `${key}=${params[key]}`).join("&");
+    }
+    parseDetails($2, mangaId) {
+      const detailElement = $2("#content > div.cont_box > div.detail_header > div.info");
+      const infoElement = $2("#_asideDetail");
+      const [image, title] = mangaId.startsWith("canvas") ? [this.parseCanvasDetailsThumbnail($2), detailElement.find("h3").text().trim()] : [this.parseDetailsThumbnail($2), detailElement.find("h1").text().trim()];
+      return {
+        mangaId,
+        mangaInfo: {
+          thumbnailUrl: image,
+          synopsis: infoElement.find("p.summary").text(),
+          primaryTitle: title,
+          secondaryTitles: [],
+          contentRating: import_types3.ContentRating.MATURE,
+          status: this.parseStatus(infoElement),
+          artist: "",
+          author: detailElement.find(".author_area").text().trim(),
+          tagGroups: [
+            {
+              id: "0",
+              title: "genres",
+              tags: detailElement.find(".genre").toArray().map((genre) => ({ id: $2(genre).text(), title: $2(genre).text() }))
+            }
+          ]
+        }
       };
-      this.parser = new WebtoonParser(DATE_FORMAT2, LOCALE2, LANGUAGE2, BASE_URL2, MOBILE_URL2);
+    }
+    parseStatus(infoElement) {
+      const statusElement = infoElement.find("p.day_info");
+      const bubbleTest = statusElement.find("span").text() ?? "";
+      return statusElement.text()?.replace(bubbleTest, "");
+    }
+    parseDetailsThumbnail($2) {
+      return $2("#content > div.cont_box > div.detail_body").attr("style")?.match(/url\((.*?)\)/)?.[1] ?? "";
+    }
+    parseCanvasDetailsThumbnail($2) {
+      return $2("#content > div.cont_box span.thmb > img").attr("src") ?? "";
+    }
+    parseChaptersList($2, sourceManga) {
+      return $2("ul#_episodeList > li[id*=episode]").toArray().map((elem) => this.parseChapter($2(elem), sourceManga));
+    }
+    parseChapter(elem, sourceManga) {
+      return {
+        chapterId: elem.find("a").attr("href")?.replace(this.MOBILE_URL + "/", "") ?? "",
+        sourceManga,
+        langCode: this.locale,
+        title: elem.find("a > div.row > div.info > p.sub_title > span.ellipsis").text(),
+        chapNum: Number(elem.find("a > div.row > div.num").text()?.substring(1)),
+        publishDate: this.parseDate(elem.find("a > div.row > div.info > div.sub_info > span.date").text())
+      };
+    }
+    parseDate(date) {
+      return new Date((0, import_moment.default)(date, this.dateFormat, this.language).toDate());
+    }
+    parseChapterDetails($2, chapter) {
+      return {
+        id: chapter.chapterId,
+        mangaId: chapter.sourceManga.mangaId,
+        pages: $2("div#_imageList img").toArray().map((elem) => $2(elem).attr("data-url") ?? "")
+      };
+    }
+    parsePopularTitles($2) {
+      return {
+        items: $2("div#content div.NE\\=a\\:tnt li a").toArray().filter((elem) => $2(elem).find("p.subj")).map((elem) => this.parseMangaFromElement($2(elem)))
+      };
+    }
+    parseTodayTitles($2, allTitles) {
+      const mangas = [];
+      const date = (0, import_moment.default)().locale("en").format("dddd").toUpperCase();
+      const list = $2(`div#dailyList div.daily_section._list_${date} li a.daily_card_item`);
+      for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
+        if ($2(list[i]).find("p.subj"))
+          mangas.push(this.parseMangaFromElement($2(list[i])));
+      }
+      return { items: mangas };
+    }
+    parseOngoingTitles($2, allTitles) {
+      const mangas = [];
+      let maxChild = 0;
+      $2("div#dailyList > div").each((_, elem) => {
+        if ($2(elem).find("li").length > maxChild)
+          maxChild = $2(elem).find("li").length;
+      });
+      for (let i = 1; i <= maxChild; i++) {
+        if (!allTitles && mangas.length >= 14)
+          return { items: mangas };
+        $2("div#dailyList > div li:nth-child(" + i + ") a.daily_card_item").each((_, elem) => {
+          if ($2(elem).find("p.subj"))
+            mangas.push(this.parseMangaFromElement($2(elem)));
+        });
+      }
+      return { items: mangas };
+    }
+    parseCompletedTitles($2, allTitles) {
+      const mangas = [];
+      const list = $2("div.daily_lst.comp li a");
+      for (let i = 0; i <= list.length && (allTitles || mangas.length < 10); i++) {
+        if ($2(list[i]).find("p.subj"))
+          mangas.push(this.parseMangaFromElement($2(list[i])));
+      }
+      return { items: mangas };
+    }
+    parseCanvasRecommendedTitles($2) {
+      return {
+        items: $2("#recommendArea li.rolling-item").toArray().map((elem) => this.parseCanvasFromRecommendedElement($2(elem)))
+      };
+    }
+    parseCanvasFromRecommendedElement(elem) {
+      return {
+        mangaId: elem.find("a").attr("href")?.replace(this.BASE_URL + "/", "") ?? "",
+        title: elem.find("p.subj").text(),
+        imageUrl: elem.find("img").attr("src") ?? "",
+        subtitle: "Canvas"
+      };
+    }
+    parseCanvasPopularTitles($2) {
+      return {
+        items: $2("div.challenge_lst li a").toArray().map((elem) => this.parseCanvasFromElement($2(elem)))
+      };
+    }
+    parseMangaFromElement(elem) {
+      return {
+        mangaId: elem.attr("href")?.replace(this.BASE_URL + "/", "") ?? "",
+        title: elem.find("p.subj").text(),
+        imageUrl: elem.find("img").attr("src") ?? ""
+      };
+    }
+    parseCanvasFromElement(elem) {
+      return {
+        mangaId: elem.attr("href")?.replace(this.BASE_URL + "/", "") ?? "",
+        title: elem.find("p.subj").text(),
+        imageUrl: elem.find("img").attr("src") ?? "",
+        subtitle: "Canvas"
+      };
+    }
+    parseSearchResults($2) {
+      return {
+        items: [
+          ...$2("#content > div.card_wrap.search li a.card_item").toArray().map((elem) => this.parseMangaFromElement($2(elem))),
+          ...this.canvasWanted ? $2("#content > div.card_wrap.search li a.challenge_item").toArray().map((elem) => this.parseCanvasFromElement($2(elem))) : []
+        ]
+      };
+    }
+    parseGenres($2) {
+      return $2("#content ul._genre li").toArray().map((elem) => this.parseTagFromElement($2(elem)));
+    }
+    parseCanvasGenres($2) {
+      return $2("#content ul.challenge li").toArray().filter((elem) => $2(elem).attr("data-genre") && $2(elem).attr("data-genre") !== "ALL").map((elem) => this.parseCanvasTagFromElement($2(elem)));
+    }
+    parseTagFromElement(elem) {
+      return {
+        id: elem.attr("data-genre") ?? "",
+        title: elem.find("a").text().trim()
+      };
+    }
+    parseCanvasTagFromElement(elem) {
+      return {
+        id: "CANVAS$$" + (elem.attr("data-genre") ?? ""),
+        title: "Canvas - " + elem.find("a").text().trim()
+      };
+    }
+    parseTagResults($2) {
+      return {
+        items: $2("#content > div.card_wrap ul.card_lst li a").toArray().map((elem) => this.parseMangaFromElement($2(elem)))
+      };
+    }
+  };
+
+  // src/WebtoonsInfra.ts
+  var WebtoonsInfra = class extends WebtoonsParser {
+    constructor(dateFormat, locale, language, BASE_URL2, MOBILE_URL2) {
+      super(dateFormat, locale, language, BASE_URL2, MOBILE_URL2);
+      this.cheerio = esm_exports4;
+      this.globalRateLimiter = new import_types4.BasicRateLimiter("rateLimiter", 10, 1);
       this.cookies = {
         "ageGatePass": "true",
-        "locale": LOCALE2
+        "locale": locale
       };
     }
     async initialise() {
+      this.registerInterceptors();
+      this.registerDiscoverSections();
+      await this.registerSearchFilters();
+    }
+    registerInterceptors() {
+      this.globalRateLimiter.registerInterceptor();
       Application.registerInterceptor(
-        "main",
+        "requestInterceptor",
         Application.Selector(this, "interceptRequest"),
         Application.Selector(this, "interceptResponse")
       );
-      this.registerDiscoverSection();
     }
     async interceptRequest(request) {
       request.headers = {
@@ -21406,17 +21420,42 @@ var source = (() => {
       request.cookies = { ...request.cookies, ...this.cookies };
       return request;
     }
-    async interceptResponse(request, response, data2) {
+    async interceptResponse(_request, _response, data2) {
       return data2;
     }
     async ExecRequest(infos, parseMethods) {
+      if (infos.params)
+        infos.url += `?${Object.entries(infos.params).map(([key, value]) => `${key}=${value}`).join("&")}`;
       const request = { ...infos, method: "GET" };
       const data2 = (await Application.scheduleRequest(request))[1];
       const $2 = this.cheerio.load(Application.arrayBufferToUTF8String(data2));
-      return parseMethods.call(this.parser, $2);
+      return parseMethods.call(this, $2);
+    }
+    async ExecPagedResultsRequest(infos, metadata, parseMethods) {
+      infos.params ??= {};
+      const page = infos.params.page = metadata.page + 1;
+      if (metadata?.maxPages && page > metadata.maxPages)
+        return { items: [], metadata };
+      return {
+        items: (await this.ExecRequest(infos, parseMethods)).items,
+        metadata: { ...metadata, page }
+      };
+    }
+  };
+
+  // src/Webtoons.ts
+  var BASE_URL_XX = "https://www.webtoons.com";
+  var MOBILE_URL_XX = "https://m.webtoons.com";
+  var Webtoons = class extends WebtoonsInfra {
+    constructor(LOCALE2, DATE_FORMAT2, LANGUAGE2, BASE_URL2, MOBILE_URL2, HAVE_TRENDING2) {
+      super(DATE_FORMAT2, LOCALE2, LANGUAGE2, BASE_URL2, MOBILE_URL2);
+      this.HAVE_TRENDING = HAVE_TRENDING2;
     }
     getMangaDetails(mangaId) {
-      return this.ExecRequest({ url: `${this.BASE_URL}/${mangaId}` }, ($2) => this.parser.parseDetails($2, mangaId));
+      return this.ExecRequest(
+        { url: `${this.BASE_URL}/${mangaId}` },
+        ($2) => this.parseDetails($2, mangaId)
+      );
     }
     getChapters(sourceManga) {
       return this.ExecRequest(
@@ -21424,71 +21463,92 @@ var source = (() => {
           url: `${this.MOBILE_URL}/${sourceManga.mangaId}`,
           headers: { "referer": this.MOBILE_URL }
         },
-        ($2) => this.parser.parseChaptersList($2, sourceManga)
+        ($2) => this.parseChaptersList($2, sourceManga)
       );
     }
     getChapterDetails(chapter) {
       return this.ExecRequest(
         { url: `${this.BASE_URL}/${chapter.chapterId}` },
-        ($2) => this.parser.parseChapterDetails($2, chapter)
+        ($2) => this.parseChapterDetails($2, chapter)
       );
     }
     getPopularTitles() {
-      return this.ExecRequest(
+      return this.ExecPagedResultsRequest(
         { url: `${this.BASE_URL}/popular` },
-        this.parser.parsePopularTitles
+        { page: 0, maxPages: 1 },
+        this.parsePopularTitles
       );
     }
-    getCarouselTitles(metadata) {
-      console.log("ici");
-      return this.ExecRequest(
-        { url: `${this.BASE_URL}/` },
-        this.parser.parseCarouselTitles
+    getTodayTitles(section, metadata) {
+      return this.ExecPagedResultsRequest(
+        { url: `${this.BASE_URL}/originals` },
+        { page: metadata?.page ?? 0, maxPages: 2 },
+        ($2) => this.parseTodayTitles($2, metadata?.page ? true : false)
       );
     }
-    getTodayTitles(metadata) {
-      return this._getTodayTitles(false);
-    }
-    _getTodayTitles(allTitles) {
-      return this.ExecRequest(
-        { url: `${this.BASE_URL}/dailySchedule` },
-        ($2) => this.parser.parseTodayTitles($2, allTitles)
+    getOngoingTitles(section, metadata) {
+      return this.ExecPagedResultsRequest(
+        { url: `${this.BASE_URL}/originals` },
+        { page: metadata?.page ?? 0, maxPages: 2 },
+        ($2) => this.parseOngoingTitles($2, metadata?.page ? true : false)
       );
     }
-    getOngoingTitles(metadata) {
-      return this._getOngoingTitles(false);
-    }
-    _getOngoingTitles(allTitles) {
-      return this.ExecRequest(
-        { url: `${this.BASE_URL}/dailySchedule` },
-        ($2) => this.parser.parseOngoingTitles($2, allTitles)
+    getCompletedTitles(section, metadata) {
+      return this.ExecPagedResultsRequest(
+        { url: `${this.BASE_URL}/originals` },
+        { page: metadata?.page ?? 0, maxPages: 2 },
+        ($2) => this.parseCompletedTitles($2, metadata?.page ? true : false)
       );
     }
-    getCompletedTitles(metadata) {
-      return this._getCompletedTitles(false);
-    }
-    _getCompletedTitles(allTitles) {
+    getCanvasRecommendedTitles() {
       return this.ExecRequest(
-        { url: `${this.BASE_URL}/dailySchedule` },
-        ($2) => this.parser.parseCompletedTitles($2, allTitles)
+        { url: `${this.BASE_URL}/canvas` },
+        this.parseCanvasRecommendedTitles
+      );
+    }
+    getCanvasPopularTitles(section, metadata) {
+      return this._getCanvasPopularTitles(metadata);
+    }
+    _getCanvasPopularTitles(metadata, genre) {
+      return this.ExecPagedResultsRequest(
+        {
+          url: `${this.BASE_URL}/canvas/list`,
+          params: { genreTab: genre ?? "ALL", sortOrder: "READ_COUNT" }
+        },
+        { page: metadata?.page ?? 0 },
+        this.parseCanvasPopularTitles
+      );
+    }
+    getTitlesByGenre(genre) {
+      return this.ExecRequest(
+        {
+          url: `${this.BASE_URL}/genres/${genre}`,
+          params: { sortOrder: "READ_COUNT" }
+        },
+        this.parseTagResults
+      );
+    }
+    getTitlesByKeyword(keyword, metadata) {
+      return this.ExecPagedResultsRequest(
+        {
+          url: `${this.BASE_URL}/search`,
+          params: { keyword, ...this.canvasWanted ? {} : { searchType: "WEBTOON" } }
+        },
+        { page: metadata?.page ?? 0 },
+        this.parseSearchResults
       );
     }
     getSearchResults(query, metadata) {
-      return this.ExecRequest(
-        {
-          url: `${this.BASE_URL}/search`,
-          param: this.paramsToString({ keyword: query.title, searchType: "WEBTOON" })
-        },
-        this.parser.parseSearchResults
-      );
+      const genre = query.filters[0]?.value ?? "ALL";
+      return genre !== "ALL" ? genre.startsWith("CANVAS$$") ? this._getCanvasPopularTitles(metadata, genre.split("$$")[1]) : this.getTitlesByGenre(genre) : query.title ? this.getTitlesByKeyword(query.title, metadata) : Promise.resolve({ items: [] });
     }
-    async registerDiscoverSection() {
+    registerDiscoverSections() {
       if (this.HAVE_TRENDING)
         Application.registerDiscoverSection(
           {
             id: "popular",
             title: "New & Trending",
-            type: import_types3.DiscoverSectionType.simpleCarousel
+            type: import_types5.DiscoverSectionType.simpleCarousel
           },
           Application.Selector(this, "getPopularTitles")
         );
@@ -21496,7 +21556,7 @@ var source = (() => {
         {
           id: "today",
           title: "Today release",
-          type: import_types3.DiscoverSectionType.simpleCarousel
+          type: import_types5.DiscoverSectionType.simpleCarousel
         },
         Application.Selector(this, "getTodayTitles")
       );
@@ -21504,7 +21564,7 @@ var source = (() => {
         {
           id: "ongoing",
           title: "Ongoing",
-          type: import_types3.DiscoverSectionType.simpleCarousel
+          type: import_types5.DiscoverSectionType.simpleCarousel
         },
         Application.Selector(this, "getOngoingTitles")
       );
@@ -21512,19 +21572,44 @@ var source = (() => {
         {
           id: "completed",
           title: "Completed",
-          type: import_types3.DiscoverSectionType.simpleCarousel
+          type: import_types5.DiscoverSectionType.simpleCarousel
         },
         Application.Selector(this, "getCompletedTitles")
       );
+      if (this.canvasWanted) {
+        Application.registerDiscoverSection(
+          {
+            id: "canvas_recommended",
+            title: "Canvas Recommended",
+            type: import_types5.DiscoverSectionType.simpleCarousel
+          },
+          Application.Selector(this, "getCanvasRecommendedTitles")
+        );
+        Application.registerDiscoverSection(
+          {
+            id: "canvas_popular",
+            title: "Canvas Popular",
+            type: import_types5.DiscoverSectionType.simpleCarousel
+          },
+          Application.Selector(this, "getCanvasPopularTitles")
+        );
+      }
+    }
+    async registerSearchFilters() {
+      const genres = await this.getSearchTags();
+      Application.registerSearchFilter({
+        id: "0",
+        title: "Genres",
+        type: "dropdown",
+        options: genres.map((genre) => ({ id: genre.id, value: genre.title })),
+        value: "ALL"
+      });
     }
     async getSearchTags() {
-      const tags = await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, ($2) => this.parser.parseGenres($2));
       return [
-        {
-          id: "0",
-          title: "genres",
-          tags
-        }
+        { id: "ALL", title: "All" },
+        ...await this.ExecRequest({ url: `${this.BASE_URL}/genres` }, ($2) => this.parseGenres($2)),
+        ...this.canvasWanted ? await this.ExecRequest({ url: `${this.BASE_URL}/canvas` }, ($2) => this.parseCanvasGenres($2)) : []
       ];
     }
   };
@@ -21537,7 +21622,7 @@ var source = (() => {
   var BASE_URL = `${BASE_URL_XX}/${LOCALE}`;
   var MOBILE_URL = `${MOBILE_URL_XX}/${LOCALE}`;
   var HAVE_TRENDING = false;
-  var WebtoonES = new Webtoon(LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING);
+  var WebtoonES = new Webtoons(LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING);
   return __toCommonJS(main_exports);
 })();
 /*! Bundled license information:
