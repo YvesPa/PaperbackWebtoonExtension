@@ -1,16 +1,18 @@
 import {
-    DUISection,
     Form,
     Section,
+    SettingsFormProviding,
     ToggleRow
 } from '@paperback/types'
 
 const CANVAS_WANTED = 'canvas_wanted'
 
-export function toBoolean(value: any | undefined): boolean {
+function toBoolean(value: any | undefined): boolean {
     return (value ?? false) === 'true'
 }
-export class WebtoonSettings {
+
+export abstract class WebtoonsSettings implements SettingsFormProviding
+{
     get canvasWanted(): boolean {
         return toBoolean(Application.getState(CANVAS_WANTED))
     }
@@ -18,12 +20,16 @@ export class WebtoonSettings {
     set canvasWanted(value: boolean) {
         Application.setState(value.toString(), CANVAS_WANTED)
     }
+
+    async getSettingsForm(): Promise<Form> {
+        return new WebtoonSettingForm(this)
+    }
 }
 
-export class WebtoonSettingForm  extends Form {
-    private settings: WebtoonSettings
+class WebtoonSettingForm extends Form {
+    private settings: WebtoonsSettings
 
-    constructor(settings: WebtoonSettings) {
+    constructor(settings: WebtoonsSettings) {
         super()
         this.settings = settings
     }

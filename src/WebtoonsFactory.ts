@@ -1,9 +1,9 @@
 // > npx ts-node ./src/generateClass.ts
 // to lunch the factory
 
-import { getExportVersion } from './Webtoon'
+import { getExportVersion } from './Webtoons'
 
-export class WebtoonConfiguration
+export class WebtoonsConfiguration
 {
     public SourceName: string
     public Locale: string
@@ -15,7 +15,7 @@ export class WebtoonConfiguration
     public HaveTrending: boolean
     public SpecialCode: string
 
-    constructor(input?: Partial<WebtoonConfiguration>){
+    constructor(input?: Partial<WebtoonsConfiguration>){
         this.SourceName = input?.SourceName ?? 'WebtoonEN'
         this.Locale = input?.Locale ?? 'en'
         this.DateFormat = input?.DateFormat ?? 'MMM D, YYYY'
@@ -28,14 +28,14 @@ export class WebtoonConfiguration
     }
 }
 
-export const WebtoonFactory : WebtoonConfiguration[] = 
+export const WebtoonsFactory : WebtoonsConfiguration[] = 
 [
-    new WebtoonConfiguration(),
-    new WebtoonConfiguration({SourceName: 'WebtoonFR', Locale: 'fr', DateFormat :'D MMM YYYY', LanguageInfo: 'French'}),
-    new WebtoonConfiguration({SourceName: 'WebtoonES', Locale: 'es', DateFormat :'DD-MMM-YYYY', LanguageInfo: 'Spanish', HaveTrending: false}),
-    new WebtoonConfiguration({SourceName: 'WebtoonDE', Locale: 'de', DateFormat :'DD.MM.YYYY', LanguageInfo: 'German', HaveTrending: false}),
-    new WebtoonConfiguration({SourceName: 'WebtoonZH', Locale: 'zh-hant', DateFormat :'l', LanguageInfo: 'Chinese (Traditional)', Language: 'zh-tw'}),
-    new WebtoonConfiguration({SourceName: 'WebtoonTH', Locale: 'th', DateFormat: 'D MMM YYYY', LanguageInfo: 'Thai'}),
-    new WebtoonConfiguration({SourceName: 'WebtoonID', Locale: 'id', DateFormat :'YYYY MMM D', LanguageInfo: 'Indonesian', 
+    new WebtoonsConfiguration(),
+    new WebtoonsConfiguration({SourceName: 'WebtoonFR', Locale: 'fr', DateFormat :'D MMM YYYY', LanguageInfo: 'French'}),
+    new WebtoonsConfiguration({SourceName: 'WebtoonES', Locale: 'es', DateFormat :'DD-MMM-YYYY', LanguageInfo: 'Spanish', HaveTrending: false}),
+    new WebtoonsConfiguration({SourceName: 'WebtoonDE', Locale: 'de', DateFormat :'DD.MM.YYYY', LanguageInfo: 'German', HaveTrending: false}),
+    new WebtoonsConfiguration({SourceName: 'WebtoonZH', Locale: 'zh-hant', DateFormat :'l', LanguageInfo: 'Chinese (Traditional)', Language: 'zh-tw'}),
+    new WebtoonsConfiguration({SourceName: 'WebtoonTH', Locale: 'th', DateFormat: 'D MMM YYYY', LanguageInfo: 'Thai'}),
+    new WebtoonsConfiguration({SourceName: 'WebtoonID', Locale: 'id', DateFormat :'YYYY MMM D', LanguageInfo: 'Indonesian', 
         SpecialCode: '\nimport moment from \'moment\'\n' + 'moment.updateLocale(\'id\', {monthsShort: \'Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agu_Sep_Okt_Nov_Des\'.split(\'_\')})\n' })
 ]

@@ -1,7 +1,7 @@
 import { 
-    WebtoonFactory,
-    WebtoonConfiguration 
-} from './WebtoonFactory'
+    WebtoonsFactory,
+    WebtoonsConfiguration 
+} from './WebtoonsFactory'
 
 import fs from 'fs'
 import path from 'path'
@@ -14,10 +14,10 @@ const PBCONFIG_FILE = 'pbconfig.ts'
 const INCLUDES_DIRECTORY = 'static'
 const ICON_FILE = 'icon.png'
 
-for (let i = 0; i < WebtoonFactory.length; i++) {
+for (let i = 0; i < WebtoonsFactory.length; i++) {
 
-    if (WebtoonFactory[i] !== undefined) {
-        const configuration = WebtoonFactory[i] as WebtoonConfiguration
+    if (WebtoonsFactory[i] !== undefined) {
+        const configuration = WebtoonsFactory[i] as WebtoonsConfiguration
         const sourceName = configuration.SourceName
 
         //Delete directory if exist 

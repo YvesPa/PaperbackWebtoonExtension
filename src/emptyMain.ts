@@ -4,8 +4,8 @@
 import {
     BASE_URL_XX,
     MOBILE_URL_XX,
-    Webtoon
-} from '../Webtoon'
+    Webtoons
+} from '../Webtoons'
 [[ImportLanguage]][[SpecialCode]]
 const LOCALE = '[[Locale]]'
 const DATE_FORMAT = '[[DateFormat]]'
@@ -14,4 +14,4 @@ const BASE_URL = `${BASE_URL_XX}/${LOCALE}`
 const MOBILE_URL = `${MOBILE_URL_XX}/${LOCALE}`
 const HAVE_TRENDING = [[HaveTrending]]
 
-export const [[SourceName]] = new Webtoon(LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING)
+export const [[SourceName]] = new Webtoons(LOCALE, DATE_FORMAT, LANGUAGE, BASE_URL, MOBILE_URL, HAVE_TRENDING)

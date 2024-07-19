@@ -15,18 +15,29 @@ import {
     Element,
     AnyNode
 } from 'domhandler/lib/node'
+import { WebtoonsSettings } from './WebtoonsSettings'
 
 type CheerioElement = Cheerio<Element>;
 
-export class WebtoonParser {
+export type WebtoonsMetadata = { page: number, maxPages?: number | undefined }
+
+export abstract class WebtoonsParser
+    extends WebtoonsSettings
+{
+    BASE_URL: string
+    MOBILE_URL: string
 
     constructor(
         private dateFormat: string,
         private locale: string,
         private language: string,
-        private BASE_URL: string,
-        private MOBILE_URL: string) 
-    { }
+        BASE_URL: string,
+        MOBILE_URL: string) 
+    { 
+        super()
+        this.BASE_URL = BASE_URL
+        this.MOBILE_URL = MOBILE_URL
+    }
 
     parseDetails($: CheerioAPI, mangaId: string): SourceManga {
         const detailElement = $('#content > div.cont_box > div.detail_header > div.info')
@@ -55,10 +66,7 @@ export class WebtoonParser {
                         tags: detailElement.find('.genre').toArray().map(genre => ({ id: $(genre).text(), title: $(genre).text() }))
                     }
                 ]
-            },
-            chapterCount: 0,
-            newChapterCount: 0,
-            unreadChapterCount: 0
+            }
         }
     }
 
@@ -200,13 +208,13 @@ export class WebtoonParser {
         }
     }
 
-    parseSearchResults($: CheerioAPI, canvas_wanted: boolean): PagedResults<SearchResultItem> {
+    parseSearchResults($: CheerioAPI): PagedResults<SearchResultItem> {
         return {
             items : [
                 ...$('#content > div.card_wrap.search li a.card_item')
                     .toArray()
                     .map(elem => this.parseMangaFromElement($(elem))),
-                ...(canvas_wanted 
+                ...(this.canvasWanted 
                     ? $('#content > div.card_wrap.search li a.challenge_item')
                         .toArray()
                         .map(elem => this.parseCanvasFromElement($(elem)))
