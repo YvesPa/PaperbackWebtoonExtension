@@ -38,7 +38,7 @@ class WebtoonSettingForm extends Form {
         return [
             Section('hideStuff', [
                 ToggleRow('toggle', {
-                    title: 'Toggles can hide rows',
+                    title: 'Show Canvas',
                     value: this.settings.canvasWanted,
                     onValueChange: Application.Selector(this as WebtoonSettingForm, 'setCanvasWanted')
                 })

@@ -9,8 +9,10 @@ import {
 } from '@paperback/types'
 
 import moment from 'moment'
-import { CheerioAPI } from 'cheerio/lib/load'
-import { Cheerio } from 'cheerio/lib/cheerio'
+import { 
+    CheerioAPI,
+    Cheerio 
+} from 'cheerio'
 import { 
     Element,
     AnyNode

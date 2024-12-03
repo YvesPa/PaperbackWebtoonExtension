@@ -9,7 +9,9 @@ import {
     SearchResultItem,
     SearchQuery,
     DiscoverSection,
-    Tag
+    Tag,
+    DiscoverSectionProviding,
+    DiscoverSectionItem
 } from '@paperback/types'
 
 import { WebtoonsMetadata } from './WebtoonsParser'
@@ -25,7 +27,7 @@ export const getExportVersion = (EXTENSION_VERSION: string): string => {
 
 export class Webtoons 
     extends WebtoonsInfra
-    implements SearchResultsProviding, ChapterProviding  
+    implements SearchResultsProviding, ChapterProviding, DiscoverSectionProviding 
 {
     constructor(
         LOCALE: string,
@@ -66,21 +68,21 @@ export class Webtoons
             this.parsePopularTitles)
     }
 
-    getTodayTitles(section: DiscoverSection, metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
+    getTodayTitles(metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
         return this.ExecPagedResultsRequest(
             { url: `${this.BASE_URL}/originals` },
             { page: metadata?.page ?? 0, maxPages: 2 },
             $ => this.parseTodayTitles($, metadata?.page ? true : false))
     }
 
-    getOngoingTitles(section: DiscoverSection, metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
+    getOngoingTitles(metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
         return this.ExecPagedResultsRequest(
             { url: `${this.BASE_URL}/originals` },
             { page: metadata?.page ?? 0, maxPages: 2 },
             $ => this.parseOngoingTitles($, metadata?.page ? true : false))
     }
 
-    getCompletedTitles(section: DiscoverSection, metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
+    getCompletedTitles(metadata: WebtoonsMetadata | undefined) : Promise<PagedResults<SearchResultItem>> {
         return this.ExecPagedResultsRequest(
             { url: `${this.BASE_URL}/originals` },
             { page: metadata?.page ?? 0, maxPages: 2 },
@@ -93,8 +95,7 @@ export class Webtoons
             this.parseCanvasRecommendedTitles)
     }
 
-    getCanvasPopularTitles(section: DiscoverSection, metadata: WebtoonsMetadata | undefined): Promise<PagedResults<SearchResultItem>> { return this._getCanvasPopularTitles(metadata) }
-    _getCanvasPopularTitles(metadata: WebtoonsMetadata | undefined, genre?: string): Promise<PagedResults<SearchResultItem>> {
+    getCanvasPopularTitles(metadata: WebtoonsMetadata | undefined, genre?: string): Promise<PagedResults<SearchResultItem>> {
         return this.ExecPagedResultsRequest(
             { 
                 url: `${this.BASE_URL}/canvas/list`,
@@ -127,72 +128,78 @@ export class Webtoons
         const genre = (query.filters[0]?.value as string) ?? 'ALL'
         return genre !== 'ALL'
             ? genre.startsWith('CANVAS$$')
-                ? this._getCanvasPopularTitles(metadata, genre.split('$$')[1])
+                ? this.getCanvasPopularTitles(metadata, genre.split('$$')[1])
                 : this.getTitlesByGenre(genre)
             : query.title
                 ? this.getTitlesByKeyword(query.title, metadata)
                 : Promise.resolve({ items: [] })
     }
 
-    registerDiscoverSections(): void {
-        if(this.HAVE_TRENDING)
-            Application.registerDiscoverSection(
-                {
-                    id: 'popular',
-                    title: 'New & Trending',
-                    type: DiscoverSectionType.simpleCarousel
-                },
-                Application.Selector(this as Webtoons, 'getPopularTitles')
-            )
+    async getDiscoverSectionItems(section: DiscoverSection, metadata: WebtoonsMetadata | undefined): Promise<PagedResults<DiscoverSectionItem>> {
+        let result : PagedResults<SearchResultItem> = { items: [] } 
+        switch (section.id) {
+            case 'popular':
+                result = await this.getPopularTitles()
+                break
+            case 'today': 
+                result = await this.getTodayTitles(metadata)
+                break
+            case 'ongoing': 
+                result = await this.getOngoingTitles(metadata)
+                break
+            case 'completed': 
+                result = await this.getCompletedTitles(metadata)
+                break
+            case 'canvas_recommended': 
+                result = await this.getCanvasRecommendedTitles()
+                break
+            case 'canvas_popular': 
+                result = await this.getCanvasPopularTitles(metadata)
+                break
+        }
 
+        return {
+            items: result.items.map(item => ({ type: 'simpleCarouselItem', ...item })),
+            metadata: result.metadata
+        }
+    }
 
-        Application.registerDiscoverSection(
+    getDiscoverSections(): Promise<DiscoverSection[]>{
+        return Promise.resolve([
+            ...(this.HAVE_TRENDING ? [{
+                id: 'popular',
+                title: 'New & Trending',
+                type: DiscoverSectionType.simpleCarousel
+            
+            }] : []),
             {
                 id: 'today',
                 title: 'Today release',
                 type: DiscoverSectionType.simpleCarousel
             },
-            Application.Selector(this as Webtoons, 'getTodayTitles')
-        )
-
-        Application.registerDiscoverSection(
             {
                 id: 'ongoing',
                 title: 'Ongoing',
                 type: DiscoverSectionType.simpleCarousel
             },
-            Application.Selector(this as Webtoons, 'getOngoingTitles')
-        )
-
-        Application.registerDiscoverSection(
             {
                 id: 'completed',
                 title: 'Completed',
                 type: DiscoverSectionType.simpleCarousel
             },
-            Application.Selector(this as Webtoons, 'getCompletedTitles')
-        )
-
-        if (this.canvasWanted)
-        {
-            Application.registerDiscoverSection(
+            ...(this.canvasWanted ? [
                 {
-                    id : 'canvas_recommended',
+                    id: 'canvas_recommended',
                     title: 'Canvas Recommended',
                     type: DiscoverSectionType.simpleCarousel
                 },
-                Application.Selector(this as Webtoons, 'getCanvasRecommendedTitles')
-            )
-
-            Application.registerDiscoverSection(
                 {
-                    id : 'canvas_popular',
+                    id: 'canvas_popular',
                     title: 'Canvas Popular',
                     type: DiscoverSectionType.simpleCarousel
-                },
-                Application.Selector(this as Webtoons, 'getCanvasPopularTitles')
-            )
-        }
+                }
+            ] : [])
+        ])
     }
 
     async registerSearchFilters(): Promise<void> {

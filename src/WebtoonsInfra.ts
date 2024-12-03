@@ -7,7 +7,7 @@ import {
 } from '@paperback/types'
 
 import * as cheerio from 'cheerio'
-import { CheerioAPI } from 'cheerio/lib/load'
+import { CheerioAPI } from 'cheerio'
 import { 
     WebtoonsMetadata,
     WebtoonsParser
@@ -18,7 +18,7 @@ export abstract class WebtoonsInfra
     implements Extension
 {
     cheerio = cheerio
-    globalRateLimiter = new BasicRateLimiter('rateLimiter', 10, 1)
+    globalRateLimiter = new BasicRateLimiter('rateLimiter', {numberOfRequests : 10, bufferInterval: 1, ignoreImages: false})
     cookies: Record<string, string>
 
     constructor(
@@ -37,11 +37,9 @@ export abstract class WebtoonsInfra
     
     async initialise(): Promise<void> {
         this.registerInterceptors()
-        this.registerDiscoverSections()
         await this.registerSearchFilters()
     }
 
-    abstract registerDiscoverSections() : void
     abstract registerSearchFilters() : Promise<void>
 
 
