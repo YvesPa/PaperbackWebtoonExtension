@@ -1932,750 +1932,9 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIBinding.js
-  var require_DUIBinding = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIBinding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIForm.js
-  var require_DUIForm = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIForm.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIFormRow.js
-  var require_DUIFormRow = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUIFormRow.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUISection.js
-  var require_DUISection = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Exports/DUISection.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIButton.js
-  var require_DUIButton = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIButton.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIHeader.js
-  var require_DUIHeader = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIHeader.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIInputField.js
-  var require_DUIInputField = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIInputField.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUILabel.js
-  var require_DUILabel = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUILabel.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUILink.js
-  var require_DUILink = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUILink.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIMultilineLabel.js
-  var require_DUIMultilineLabel = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIMultilineLabel.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUINavigationButton.js
-  var require_DUINavigationButton = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUINavigationButton.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIOAuthButton.js
-  var require_DUIOAuthButton = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIOAuthButton.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISecureInputField.js
-  var require_DUISecureInputField = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISecureInputField.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISelect.js
-  var require_DUISelect = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISelect.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIStepper.js
-  var require_DUIStepper = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUIStepper.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISwitch.js
-  var require_DUISwitch = __commonJS({
-    "node_modules/@paperback/types/lib/generated/DynamicUI/Rows/Exports/DUISwitch.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/ChapterDetails.js
-  var require_ChapterDetails = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/ChapterDetails.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/Chapter.js
-  var require_Chapter = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/Chapter.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/Cookie.js
-  var require_Cookie = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/Cookie.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/HomeSection.js
-  var require_HomeSection = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/HomeSection.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/IconText.js
-  var require_IconText = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/IconText.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/MangaInfo.js
-  var require_MangaInfo = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/MangaInfo.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/MangaProgress.js
-  var require_MangaProgress = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/MangaProgress.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/MangaUpdates.js
-  var require_MangaUpdates = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/MangaUpdates.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/PBCanvas.js
-  var require_PBCanvas = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/PBCanvas.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/PBImage.js
-  var require_PBImage = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/PBImage.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/RawData.js
-  var require_RawData = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/RawData.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/Request.js
-  var require_Request = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/Request.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/Response.js
-  var require_Response = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/Response.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/SearchField.js
-  var require_SearchField = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/SearchField.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/SourceCookieStore.js
-  var require_SourceCookieStore = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/SourceCookieStore.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/SourceManga.js
-  var require_SourceManga = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/SourceManga.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/SecureStateManager.js
-  var require_SecureStateManager = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/SecureStateManager.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/SourceStateManager.js
-  var require_SourceStateManager = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/SourceStateManager.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/Tag.js
-  var require_Tag = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/Tag.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/TagSection.js
-  var require_TagSection = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/TagSection.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/TrackedMangaChapterReadAction.js
-  var require_TrackedMangaChapterReadAction = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/TrackedMangaChapterReadAction.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/Exports/TrackerActionQueue.js
-  var require_TrackerActionQueue = __commonJS({
-    "node_modules/@paperback/types/lib/generated/Exports/TrackerActionQueue.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/generated/_exports.js
-  var require_exports = __commonJS({
-    "node_modules/@paperback/types/lib/generated/_exports.js"(exports) {
-      "use strict";
-      init_buffer();
-      var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        var desc = Object.getOwnPropertyDescriptor(m, k);
-        if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-          desc = { enumerable: true, get: function() {
-            return m[k];
-          } };
-        }
-        Object.defineProperty(o, k2, desc);
-      } : function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        o[k2] = m[k];
-      });
-      var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-        for (var p in m)
-          if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-            __createBinding(exports2, m, p);
-      };
-      Object.defineProperty(exports, "__esModule", { value: true });
-      __exportStar(require_DUIBinding(), exports);
-      __exportStar(require_DUIForm(), exports);
-      __exportStar(require_DUIFormRow(), exports);
-      __exportStar(require_DUISection(), exports);
-      __exportStar(require_DUIButton(), exports);
-      __exportStar(require_DUIHeader(), exports);
-      __exportStar(require_DUIInputField(), exports);
-      __exportStar(require_DUILabel(), exports);
-      __exportStar(require_DUILink(), exports);
-      __exportStar(require_DUIMultilineLabel(), exports);
-      __exportStar(require_DUINavigationButton(), exports);
-      __exportStar(require_DUIOAuthButton(), exports);
-      __exportStar(require_DUISecureInputField(), exports);
-      __exportStar(require_DUISelect(), exports);
-      __exportStar(require_DUIStepper(), exports);
-      __exportStar(require_DUISwitch(), exports);
-      __exportStar(require_ChapterDetails(), exports);
-      __exportStar(require_Chapter(), exports);
-      __exportStar(require_Cookie(), exports);
-      __exportStar(require_HomeSection(), exports);
-      __exportStar(require_IconText(), exports);
-      __exportStar(require_MangaInfo(), exports);
-      __exportStar(require_MangaProgress(), exports);
-      __exportStar(require_MangaUpdates(), exports);
-      __exportStar(require_PBCanvas(), exports);
-      __exportStar(require_PBImage(), exports);
-      __exportStar(require_RawData(), exports);
-      __exportStar(require_Request(), exports);
-      __exportStar(require_Response(), exports);
-      __exportStar(require_SearchField(), exports);
-      __exportStar(require_SourceCookieStore(), exports);
-      __exportStar(require_SourceManga(), exports);
-      __exportStar(require_SecureStateManager(), exports);
-      __exportStar(require_SourceStateManager(), exports);
-      __exportStar(require_Tag(), exports);
-      __exportStar(require_TagSection(), exports);
-      __exportStar(require_TrackedMangaChapterReadAction(), exports);
-      __exportStar(require_TrackerActionQueue(), exports);
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/Application.js
-  var require_Application = __commonJS({
-    "node_modules/@paperback/types/lib/base/Application.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/ByteArray.js
-  var require_ByteArray = __commonJS({
-    "node_modules/@paperback/types/lib/base/ByteArray.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/ChapterProviding.js
-  var require_ChapterProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/ChapterProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/CloudflareBypassRequestProviding.js
-  var require_CloudflareBypassRequestProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/CloudflareBypassRequestProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/MangaProgressProviding.js
-  var require_MangaProgressProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/MangaProgressProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/MangaProviding.js
-  var require_MangaProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/MangaProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/SearchResultsProviding.js
-  var require_SearchResultsProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/SearchResultsProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/SettingsFormProviding.js
-  var require_SettingsFormProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/SettingsFormProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/ManagedCollectionProviding.js
-  var require_ManagedCollectionProviding = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/ManagedCollectionProviding.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/interfaces/index.js
-  var require_interfaces = __commonJS({
-    "node_modules/@paperback/types/lib/base/interfaces/index.js"(exports) {
-      "use strict";
-      init_buffer();
-      var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        var desc = Object.getOwnPropertyDescriptor(m, k);
-        if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-          desc = { enumerable: true, get: function() {
-            return m[k];
-          } };
-        }
-        Object.defineProperty(o, k2, desc);
-      } : function(o, m, k, k2) {
-        if (k2 === void 0)
-          k2 = k;
-        o[k2] = m[k];
-      });
-      var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-        for (var p in m)
-          if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-            __createBinding(exports2, m, p);
-      };
-      Object.defineProperty(exports, "__esModule", { value: true });
-      __exportStar(require_ChapterProviding(), exports);
-      __exportStar(require_CloudflareBypassRequestProviding(), exports);
-      __exportStar(require_MangaProgressProviding(), exports);
-      __exportStar(require_MangaProviding(), exports);
-      __exportStar(require_SearchResultsProviding(), exports);
-      __exportStar(require_SettingsFormProviding(), exports);
-      __exportStar(require_ManagedCollectionProviding(), exports);
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/SourceInfo.js
-  var require_SourceInfo = __commonJS({
-    "node_modules/@paperback/types/lib/base/SourceInfo.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.ContentRating = exports.SourceIntents = void 0;
-      var SourceIntents;
-      (function(SourceIntents2) {
-        SourceIntents2[SourceIntents2["MANGA_CHAPTERS"] = 1] = "MANGA_CHAPTERS";
-        SourceIntents2[SourceIntents2["MANGA_TRACKING"] = 2] = "MANGA_TRACKING";
-        SourceIntents2[SourceIntents2["HOMEPAGE_SECTIONS"] = 4] = "HOMEPAGE_SECTIONS";
-        SourceIntents2[SourceIntents2["COLLECTION_MANAGEMENT"] = 8] = "COLLECTION_MANAGEMENT";
-        SourceIntents2[SourceIntents2["CLOUDFLARE_BYPASS_REQUIRED"] = 16] = "CLOUDFLARE_BYPASS_REQUIRED";
-        SourceIntents2[SourceIntents2["SETTINGS_UI"] = 32] = "SETTINGS_UI";
-        SourceIntents2[SourceIntents2["MANGA_SEARCH"] = 64] = "MANGA_SEARCH";
-      })(SourceIntents || (exports.SourceIntents = SourceIntents = {}));
-      var ContentRating2;
-      (function(ContentRating3) {
-        ContentRating3["EVERYONE"] = "SAFE";
-        ContentRating3["MATURE"] = "MATURE";
-        ContentRating3["ADULT"] = "ADULT";
-      })(ContentRating2 || (exports.ContentRating = ContentRating2 = {}));
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/HomeSectionType.js
-  var require_HomeSectionType = __commonJS({
-    "node_modules/@paperback/types/lib/base/HomeSectionType.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.HomeSectionType = void 0;
-      var HomeSectionType;
-      (function(HomeSectionType2) {
-        HomeSectionType2["singleRowNormal"] = "singleRowNormal";
-        HomeSectionType2["singleRowLarge"] = "singleRowLarge";
-        HomeSectionType2["doubleRow"] = "doubleRow";
-        HomeSectionType2["featured"] = "featured";
-      })(HomeSectionType || (exports.HomeSectionType = HomeSectionType = {}));
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/PaperbackInterceptor.js
-  var require_PaperbackInterceptor = __commonJS({
-    "node_modules/@paperback/types/lib/base/PaperbackInterceptor.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.PaperbackInterceptor = void 0;
-      var PaperbackInterceptor = class {
-        id;
-        constructor(id) {
-          this.id = id;
-        }
-        registerInterceptor() {
-          Application.registerInterceptor(this.id, Application.Selector(this, "interceptRequest"), Application.Selector(this, "interceptResponse"));
-        }
-        unregisterInterceptor() {
-          Application.unregisterInterceptor(this.id);
-        }
-      };
-      exports.PaperbackInterceptor = PaperbackInterceptor;
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/Selector.js
-  var require_Selector = __commonJS({
-    "node_modules/@paperback/types/lib/base/Selector.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/Extension.js
-  var require_Extension = __commonJS({
-    "node_modules/@paperback/types/lib/base/Extension.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/DiscoverSectionItem.js
-  var require_DiscoverSectionItem = __commonJS({
-    "node_modules/@paperback/types/lib/base/DiscoverSectionItem.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/PagedResults.js
-  var require_PagedResults = __commonJS({
-    "node_modules/@paperback/types/lib/base/PagedResults.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.EndOfPageResults = void 0;
-      exports.EndOfPageResults = Object.freeze({
-        items: [],
-        metadata: void 0
-      });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/SearchQuery.js
-  var require_SearchQuery = __commonJS({
-    "node_modules/@paperback/types/lib/base/SearchQuery.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/SearchResultItem.js
-  var require_SearchResultItem = __commonJS({
-    "node_modules/@paperback/types/lib/base/SearchResultItem.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/SearchFilter.js
-  var require_SearchFilter = __commonJS({
-    "node_modules/@paperback/types/lib/base/SearchFilter.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/Lock.js
-  var require_Lock = __commonJS({
-    "node_modules/@paperback/types/lib/base/Lock.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.unlock = exports.lock = void 0;
-      var promises = {};
-      var resolvers = {};
-      var lock = async (uid) => {
-        if (promises[uid]) {
-          await promises[uid];
-          await (0, exports.lock)(uid);
-          return;
-        }
-        promises[uid] = new Promise((resolve) => resolvers[uid] = () => {
-          delete promises[uid];
-          resolve();
-        });
-      };
-      exports.lock = lock;
-      var unlock = (uid) => {
-        if (resolvers[uid]) {
-          resolvers[uid]();
-        }
-      };
-      exports.unlock = unlock;
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/BasicRateLimiter.js
-  var require_BasicRateLimiter = __commonJS({
-    "node_modules/@paperback/types/lib/base/BasicRateLimiter.js"(exports) {
-      "use strict";
-      init_buffer();
-      Object.defineProperty(exports, "__esModule", { value: true });
-      exports.BasicRateLimiter = void 0;
-      var PaperbackInterceptor_1 = require_PaperbackInterceptor();
-      var Lock_1 = require_Lock();
-      var BasicRateLimiter2 = class extends PaperbackInterceptor_1.PaperbackInterceptor {
-        numberOfRequests;
-        overSeconds;
-        promise;
-        currentRequestsMade = 0;
-        lastReset = Date.now();
-        constructor(id, numberOfRequests, overSeconds) {
-          super(id);
-          this.numberOfRequests = numberOfRequests;
-          this.overSeconds = overSeconds;
-        }
-        async interceptRequest(request) {
-          await (0, Lock_1.lock)(this.id);
-          await this.incrementRequestCount();
-          (0, Lock_1.unlock)(this.id);
-          return request;
-        }
-        async interceptResponse(request, response, data2) {
-          return data2;
-        }
-        async incrementRequestCount() {
-          await this.promise;
-          const secondsSinceLastReset = (Date.now() - this.lastReset) / 1e3;
-          if (secondsSinceLastReset > this.overSeconds) {
-            this.currentRequestsMade = 0;
-            this.lastReset = Date.now();
-          }
-          this.currentRequestsMade += 1;
-          if (this.currentRequestsMade >= this.numberOfRequests) {
-            if (secondsSinceLastReset <= this.overSeconds) {
-              const sleepTime = this.overSeconds - secondsSinceLastReset;
-              console.log(`[BasicRateLimiter] rate limit hit, sleeping for ${sleepTime}`);
-              this.promise = Application.sleep(sleepTime);
-              await this.promise;
-            }
-          }
-        }
-      };
-      exports.BasicRateLimiter = BasicRateLimiter2;
-    }
-  });
-
-  // node_modules/@paperback/types/lib/base/SettingsUI/Form.js
+  // node_modules/@paperback/types/lib/impl/SettingsUI/Form.js
   var require_Form = __commonJS({
-    "node_modules/@paperback/types/lib/base/SettingsUI/Form.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/SettingsUI/Form.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
@@ -2692,9 +1951,9 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/base/SettingsUI/FormItemElement.js
+  // node_modules/@paperback/types/lib/impl/SettingsUI/FormItemElement.js
   var require_FormItemElement = __commonJS({
-    "node_modules/@paperback/types/lib/base/SettingsUI/FormItemElement.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/SettingsUI/FormItemElement.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
@@ -2722,10 +1981,20 @@ var source = (() => {
         return { ...props, id, type: "buttonRow", isHidden: props.isHidden ?? false };
       }
       function NavigationRow(id, props) {
-        return { ...props, id, type: "navigationRow", isHidden: props.isHidden ?? false };
+        return {
+          ...props,
+          id,
+          type: "navigationRow",
+          isHidden: props.isHidden ?? false
+        };
       }
       function OAuthButtonRow(id, props) {
-        return { ...props, id, type: "oauthButtonRow", isHidden: props.isHidden ?? false };
+        return {
+          ...props,
+          id,
+          type: "oauthButtonRow",
+          isHidden: props.isHidden ?? false
+        };
       }
       function DeferredItem(work) {
         return work();
@@ -2733,22 +2002,31 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/base/SettingsUI/FormSection.js
+  // node_modules/@paperback/types/lib/impl/SettingsUI/FormSection.js
   var require_FormSection = __commonJS({
-    "node_modules/@paperback/types/lib/base/SettingsUI/FormSection.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/SettingsUI/FormSection.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.Section = Section2;
-      function Section2(id, items) {
-        return { id, items: items.filter((x) => x) };
+      function Section2(params, items) {
+        let info;
+        if (typeof params === "string") {
+          info = { id: params };
+        } else {
+          info = params;
+        }
+        return {
+          ...info,
+          items: items.filter((x) => x)
+        };
       }
     }
   });
 
-  // node_modules/@paperback/types/lib/base/SettingsUI/index.js
+  // node_modules/@paperback/types/lib/impl/SettingsUI/index.js
   var require_SettingsUI = __commonJS({
-    "node_modules/@paperback/types/lib/base/SettingsUI/index.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/SettingsUI/index.js"(exports) {
       "use strict";
       init_buffer();
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
@@ -2778,9 +2056,251 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/base/CloudflareError.js
+  // node_modules/@paperback/types/lib/impl/interfaces/ChapterProviding.js
+  var require_ChapterProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/ChapterProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/CloudflareBypassRequestProviding.js
+  var require_CloudflareBypassRequestProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/CloudflareBypassRequestProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/DiscoverSectionProviding.js
+  var require_DiscoverSectionProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/DiscoverSectionProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/ManagedCollectionProviding.js
+  var require_ManagedCollectionProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/ManagedCollectionProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/MangaProgressProviding.js
+  var require_MangaProgressProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/MangaProgressProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/MangaProviding.js
+  var require_MangaProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/MangaProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/SearchResultsProviding.js
+  var require_SearchResultsProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/SearchResultsProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/SettingsFormProviding.js
+  var require_SettingsFormProviding = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/SettingsFormProviding.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/interfaces/index.js
+  var require_interfaces = __commonJS({
+    "node_modules/@paperback/types/lib/impl/interfaces/index.js"(exports) {
+      "use strict";
+      init_buffer();
+      var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+        if (k2 === void 0)
+          k2 = k;
+        var desc = Object.getOwnPropertyDescriptor(m, k);
+        if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+          desc = { enumerable: true, get: function() {
+            return m[k];
+          } };
+        }
+        Object.defineProperty(o, k2, desc);
+      } : function(o, m, k, k2) {
+        if (k2 === void 0)
+          k2 = k;
+        o[k2] = m[k];
+      });
+      var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+        for (var p in m)
+          if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+            __createBinding(exports2, m, p);
+      };
+      Object.defineProperty(exports, "__esModule", { value: true });
+      __exportStar(require_ChapterProviding(), exports);
+      __exportStar(require_CloudflareBypassRequestProviding(), exports);
+      __exportStar(require_DiscoverSectionProviding(), exports);
+      __exportStar(require_ManagedCollectionProviding(), exports);
+      __exportStar(require_MangaProgressProviding(), exports);
+      __exportStar(require_MangaProviding(), exports);
+      __exportStar(require_SearchResultsProviding(), exports);
+      __exportStar(require_SettingsFormProviding(), exports);
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/Application.js
+  var require_Application = __commonJS({
+    "node_modules/@paperback/types/lib/impl/Application.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/PaperbackInterceptor.js
+  var require_PaperbackInterceptor = __commonJS({
+    "node_modules/@paperback/types/lib/impl/PaperbackInterceptor.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.PaperbackInterceptor = void 0;
+      var PaperbackInterceptor = class {
+        id;
+        constructor(id) {
+          this.id = id;
+        }
+        registerInterceptor() {
+          Application.registerInterceptor(this.id, Application.Selector(this, "interceptRequest"), Application.Selector(this, "interceptResponse"));
+        }
+        unregisterInterceptor() {
+          Application.unregisterInterceptor(this.id);
+        }
+      };
+      exports.PaperbackInterceptor = PaperbackInterceptor;
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/Selector.js
+  var require_Selector = __commonJS({
+    "node_modules/@paperback/types/lib/impl/Selector.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/Extension.js
+  var require_Extension = __commonJS({
+    "node_modules/@paperback/types/lib/impl/Extension.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/Lock.js
+  var require_Lock = __commonJS({
+    "node_modules/@paperback/types/lib/impl/Lock.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.unlock = exports.lock = void 0;
+      var promises = {};
+      var resolvers = {};
+      var lock = async (uid) => {
+        if (promises[uid]) {
+          await promises[uid];
+          await (0, exports.lock)(uid);
+          return;
+        }
+        promises[uid] = new Promise((resolve) => resolvers[uid] = () => {
+          delete promises[uid];
+          resolve();
+        });
+      };
+      exports.lock = lock;
+      var unlock = (uid) => {
+        if (resolvers[uid]) {
+          resolvers[uid]();
+        }
+      };
+      exports.unlock = unlock;
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/BasicRateLimiter.js
+  var require_BasicRateLimiter = __commonJS({
+    "node_modules/@paperback/types/lib/impl/BasicRateLimiter.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.BasicRateLimiter = void 0;
+      var Lock_1 = require_Lock();
+      var PaperbackInterceptor_1 = require_PaperbackInterceptor();
+      var BasicRateLimiter2 = class extends PaperbackInterceptor_1.PaperbackInterceptor {
+        options;
+        promise;
+        currentRequestsMade = 0;
+        lastReset = Date.now();
+        imageRegex = new RegExp(/\.(png|gif|jpeg|jpg|webp)(\?|$)/gi);
+        constructor(id, options) {
+          super(id);
+          this.options = options;
+        }
+        async interceptRequest(request) {
+          if (this.options.ignoreImages && this.imageRegex.test(request.url)) {
+            return request;
+          }
+          await (0, Lock_1.lock)(this.id);
+          await this.incrementRequestCount();
+          (0, Lock_1.unlock)(this.id);
+          return request;
+        }
+        async interceptResponse(request, response, data2) {
+          return data2;
+        }
+        async incrementRequestCount() {
+          await this.promise;
+          const secondsSinceLastReset = (Date.now() - this.lastReset) / 1e3;
+          if (secondsSinceLastReset > this.options.bufferInterval) {
+            this.currentRequestsMade = 0;
+            this.lastReset = Date.now();
+          }
+          this.currentRequestsMade += 1;
+          if (this.currentRequestsMade >= this.options.numberOfRequests) {
+            if (secondsSinceLastReset <= this.options.bufferInterval) {
+              const sleepTime = this.options.bufferInterval - secondsSinceLastReset;
+              console.log(`[BasicRateLimiter] rate limit hit, sleeping for ${sleepTime}`);
+              this.promise = Application.sleep(sleepTime);
+              await this.promise;
+            }
+          }
+        }
+      };
+      exports.BasicRateLimiter = BasicRateLimiter2;
+    }
+  });
+
+  // node_modules/@paperback/types/lib/impl/CloudflareError.js
   var require_CloudflareError = __commonJS({
-    "node_modules/@paperback/types/lib/base/CloudflareError.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/CloudflareError.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
@@ -2797,9 +2317,9 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/base/CookieStorageInterceptor.js
+  // node_modules/@paperback/types/lib/impl/CookieStorageInterceptor.js
   var require_CookieStorageInterceptor = __commonJS({
-    "node_modules/@paperback/types/lib/base/CookieStorageInterceptor.js"(exports) {
+    "node_modules/@paperback/types/lib/impl/CookieStorageInterceptor.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
@@ -2865,9 +2385,16 @@ var source = (() => {
           delete this._cookies[this.cookieIdentifier(cookie)];
         }
         cookiesForUrl(urlString) {
-          const url = new URL(urlString);
+          console.log("[COMPAT] COOKIES FOR URL");
+          const urlRegex = /^((?:(https?):\/\/)?((?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9][0-9]|[0-9])\.(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9][0-9]|[0-9])\.)(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9][0-9]|[0-9])\.)(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9][0-9]|[0-9]))|(?:(?:(?:\w+\.){1,2}[\w]{2,3})))(?::(\d+))?((?:\/[\w]+)*)(?:\/|(\/[\w]+\.[\w]{3,4})|(\?(?:([\w]+=[\w]+)&)*([\w]+=[\w]+))?|\?(?:(wsdl|wadl))))$/gm;
+          const urlParsed = urlRegex.exec(urlString);
+          if (!urlParsed) {
+            return [];
+          }
+          const hostname = urlParsed[3];
+          const pathname = urlParsed[5];
           const matchedCookies = {};
-          const splitUrlPath = url.pathname.split("/");
+          const splitUrlPath = pathname.split("/");
           const cookies = this.cookies;
           for (const cookie of cookies) {
             if (this.isCookieExpired(cookie)) {
@@ -2875,17 +2402,17 @@ var source = (() => {
               continue;
             }
             const cookieDomain = this.cookieSanitizedDomain(cookie);
-            if (cookieDomain != url.hostname) {
+            if (cookieDomain != hostname) {
               continue;
             }
             const cookiePath = this.cookieSanitizedPath(cookie);
             const splitCookiePath = cookiePath.split("/");
             let pathMatches = 0;
-            if (url.pathname === cookiePath) {
+            if (pathname === cookiePath) {
               pathMatches = Number.MAX_SAFE_INTEGER;
             } else if (splitUrlPath.length === 0) {
               pathMatches = 1;
-            } else if (cookiePath.startsWith(url.pathname) && splitUrlPath.length >= splitCookiePath.length) {
+            } else if (cookiePath.startsWith(pathname) && splitUrlPath.length >= splitCookiePath.length) {
               for (let i = 0; i < splitUrlPath.length; i++) {
                 if (splitCookiePath[i] === splitUrlPath[i]) {
                   pathMatches += 1;
@@ -2920,9 +2447,8 @@ var source = (() => {
           }
         }
         loadCookiesFromStorage() {
-          if (this.options.storage == "memory") {
+          if (this.options.storage == "memory")
             return;
-          }
           const cookieData = Application.getState(cookieStateKey);
           if (!cookieData) {
             this._cookies = {};
@@ -2930,17 +2456,15 @@ var source = (() => {
           }
           const cookies = {};
           for (const cookie of cookieData) {
-            if (!cookie.expires || this.isCookieExpired(cookie)) {
+            if (!cookie.expires || this.isCookieExpired(cookie))
               continue;
-            }
             cookies[this.cookieIdentifier(cookie)] = cookie;
           }
           this._cookies = cookies;
         }
         saveCookiesToStorage() {
-          if (this.options.storage == "memory") {
+          if (this.options.storage == "memory")
             return;
-          }
           Application.setState(this.cookies.filter((x) => x.expires), cookieStateKey);
         }
       };
@@ -2948,9 +2472,9 @@ var source = (() => {
     }
   });
 
-  // node_modules/@paperback/types/lib/base/index.js
-  var require_base = __commonJS({
-    "node_modules/@paperback/types/lib/base/index.js"(exports) {
+  // node_modules/@paperback/types/lib/impl/index.js
+  var require_impl = __commonJS({
+    "node_modules/@paperback/types/lib/impl/index.js"(exports) {
       "use strict";
       init_buffer();
       var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
@@ -2974,29 +2498,48 @@ var source = (() => {
             __createBinding(exports2, m, p);
       };
       Object.defineProperty(exports, "__esModule", { value: true });
-      __exportStar(require_Application(), exports);
-      __exportStar(require_ByteArray(), exports);
+      __exportStar(require_SettingsUI(), exports);
       __exportStar(require_interfaces(), exports);
-      __exportStar(require_SourceInfo(), exports);
-      __exportStar(require_HomeSectionType(), exports);
+      __exportStar(require_Application(), exports);
       __exportStar(require_PaperbackInterceptor(), exports);
       __exportStar(require_Selector(), exports);
       __exportStar(require_Extension(), exports);
-      __exportStar(require_DiscoverSectionItem(), exports);
-      __exportStar(require_PagedResults(), exports);
-      __exportStar(require_SearchQuery(), exports);
-      __exportStar(require_SearchResultItem(), exports);
-      __exportStar(require_SearchFilter(), exports);
       __exportStar(require_BasicRateLimiter(), exports);
-      __exportStar(require_SettingsUI(), exports);
       __exportStar(require_CloudflareError(), exports);
       __exportStar(require_CookieStorageInterceptor(), exports);
     }
   });
 
-  // node_modules/@paperback/types/lib/compat/DyamicUI.js
-  var require_DyamicUI = __commonJS({
-    "node_modules/@paperback/types/lib/compat/DyamicUI.js"(exports) {
+  // node_modules/@paperback/types/lib/Chapter.js
+  var require_Chapter = __commonJS({
+    "node_modules/@paperback/types/lib/Chapter.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/ChapterDetails.js
+  var require_ChapterDetails = __commonJS({
+    "node_modules/@paperback/types/lib/ChapterDetails.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/Cookie.js
+  var require_Cookie = __commonJS({
+    "node_modules/@paperback/types/lib/Cookie.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/DiscoverSectionItem.js
+  var require_DiscoverSectionItem = __commonJS({
+    "node_modules/@paperback/types/lib/DiscoverSectionItem.js"(exports) {
       "use strict";
       init_buffer();
       Object.defineProperty(exports, "__esModule", { value: true });
@@ -3018,6 +2561,181 @@ var source = (() => {
         DiscoverSectionType3[DiscoverSectionType3["chapterUpdates"] = 3] = "chapterUpdates";
         DiscoverSectionType3[DiscoverSectionType3["genres"] = 4] = "genres";
       })(DiscoverSectionType2 || (exports.DiscoverSectionType = DiscoverSectionType2 = {}));
+    }
+  });
+
+  // node_modules/@paperback/types/lib/HomeSection.js
+  var require_HomeSection = __commonJS({
+    "node_modules/@paperback/types/lib/HomeSection.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/MangaInfo.js
+  var require_MangaInfo = __commonJS({
+    "node_modules/@paperback/types/lib/MangaInfo.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/MangaProgress.js
+  var require_MangaProgress = __commonJS({
+    "node_modules/@paperback/types/lib/MangaProgress.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/PagedResults.js
+  var require_PagedResults = __commonJS({
+    "node_modules/@paperback/types/lib/PagedResults.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.EndOfPageResults = void 0;
+      exports.EndOfPageResults = Object.freeze({
+        items: [],
+        metadata: void 0
+      });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/PBCanvas.js
+  var require_PBCanvas = __commonJS({
+    "node_modules/@paperback/types/lib/PBCanvas.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/PBImage.js
+  var require_PBImage = __commonJS({
+    "node_modules/@paperback/types/lib/PBImage.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/Request.js
+  var require_Request = __commonJS({
+    "node_modules/@paperback/types/lib/Request.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/Response.js
+  var require_Response = __commonJS({
+    "node_modules/@paperback/types/lib/Response.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/SearchFilter.js
+  var require_SearchFilter = __commonJS({
+    "node_modules/@paperback/types/lib/SearchFilter.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/SearchQuery.js
+  var require_SearchQuery = __commonJS({
+    "node_modules/@paperback/types/lib/SearchQuery.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/SearchResultItem.js
+  var require_SearchResultItem = __commonJS({
+    "node_modules/@paperback/types/lib/SearchResultItem.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/SourceInfo.js
+  var require_SourceInfo = __commonJS({
+    "node_modules/@paperback/types/lib/SourceInfo.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+      exports.ContentRating = exports.SourceIntents = void 0;
+      var SourceIntents;
+      (function(SourceIntents2) {
+        SourceIntents2[SourceIntents2["MANGA_CHAPTERS"] = 1] = "MANGA_CHAPTERS";
+        SourceIntents2[SourceIntents2["MANGA_TRACKING"] = 2] = "MANGA_TRACKING";
+        SourceIntents2[SourceIntents2["HOMEPAGE_SECTIONS"] = 4] = "HOMEPAGE_SECTIONS";
+        SourceIntents2[SourceIntents2["COLLECTION_MANAGEMENT"] = 8] = "COLLECTION_MANAGEMENT";
+        SourceIntents2[SourceIntents2["CLOUDFLARE_BYPASS_REQUIRED"] = 16] = "CLOUDFLARE_BYPASS_REQUIRED";
+        SourceIntents2[SourceIntents2["SETTINGS_UI"] = 32] = "SETTINGS_UI";
+        SourceIntents2[SourceIntents2["MANGA_SEARCH"] = 64] = "MANGA_SEARCH";
+      })(SourceIntents || (exports.SourceIntents = SourceIntents = {}));
+      var ContentRating2;
+      (function(ContentRating3) {
+        ContentRating3["EVERYONE"] = "SAFE";
+        ContentRating3["MATURE"] = "MATURE";
+        ContentRating3["ADULT"] = "ADULT";
+      })(ContentRating2 || (exports.ContentRating = ContentRating2 = {}));
+    }
+  });
+
+  // node_modules/@paperback/types/lib/SourceManga.js
+  var require_SourceManga = __commonJS({
+    "node_modules/@paperback/types/lib/SourceManga.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/Tag.js
+  var require_Tag = __commonJS({
+    "node_modules/@paperback/types/lib/Tag.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/TagSection.js
+  var require_TagSection = __commonJS({
+    "node_modules/@paperback/types/lib/TagSection.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/TrackedMangaChapterReadAction.js
+  var require_TrackedMangaChapterReadAction = __commonJS({
+    "node_modules/@paperback/types/lib/TrackedMangaChapterReadAction.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
+    }
+  });
+
+  // node_modules/@paperback/types/lib/TrackerActionQueue.js
+  var require_TrackerActionQueue = __commonJS({
+    "node_modules/@paperback/types/lib/TrackerActionQueue.js"(exports) {
+      "use strict";
+      init_buffer();
+      Object.defineProperty(exports, "__esModule", { value: true });
     }
   });
 
@@ -3047,10 +2765,30 @@ var source = (() => {
             __createBinding(exports2, m, p);
       };
       Object.defineProperty(exports, "__esModule", { value: true });
-      __exportStar(require_exports(), exports);
-      __exportStar(require_base(), exports);
-      __exportStar(require_DyamicUI(), exports);
+      __exportStar(require_impl(), exports);
+      __exportStar(require_Chapter(), exports);
+      __exportStar(require_ChapterDetails(), exports);
+      __exportStar(require_Cookie(), exports);
+      __exportStar(require_DiscoverSectionItem(), exports);
       __exportStar(require_DiscoverSectionType(), exports);
+      __exportStar(require_HomeSection(), exports);
+      __exportStar(require_lib(), exports);
+      __exportStar(require_MangaInfo(), exports);
+      __exportStar(require_MangaProgress(), exports);
+      __exportStar(require_PagedResults(), exports);
+      __exportStar(require_PBCanvas(), exports);
+      __exportStar(require_PBImage(), exports);
+      __exportStar(require_Request(), exports);
+      __exportStar(require_Response(), exports);
+      __exportStar(require_SearchFilter(), exports);
+      __exportStar(require_SearchQuery(), exports);
+      __exportStar(require_SearchResultItem(), exports);
+      __exportStar(require_SourceInfo(), exports);
+      __exportStar(require_SourceManga(), exports);
+      __exportStar(require_Tag(), exports);
+      __exportStar(require_TagSection(), exports);
+      __exportStar(require_TrackedMangaChapterReadAction(), exports);
+      __exportStar(require_TrackerActionQueue(), exports);
     }
   });
 
@@ -3109,7 +2847,7 @@ var source = (() => {
         function isUndefined(input) {
           return input === void 0;
         }
-        function isNumber3(input) {
+        function isNumber2(input) {
           return typeof input === "number" || Object.prototype.toString.call(input) === "[object Number]";
         }
         function isDate(input) {
@@ -3659,7 +3397,7 @@ var source = (() => {
           if (typeof token2 === "string") {
             token2 = [token2];
           }
-          if (isNumber3(callback)) {
+          if (isNumber2(callback)) {
             func = function(input, array) {
               array[callback] = toInt(input);
             };
@@ -3960,7 +3698,7 @@ var source = (() => {
               value = toInt(value);
             } else {
               value = mom.localeData().monthsParse(value);
-              if (!isNumber3(value)) {
+              if (!isNumber2(value)) {
                 return mom;
               }
             }
@@ -5211,7 +4949,7 @@ var source = (() => {
             configFromArray(config);
           } else if (isObject(input)) {
             configFromObject(config);
-          } else if (isNumber3(input)) {
+          } else if (isNumber2(input)) {
             config._d = new Date(input);
           } else {
             hooks.createFromInputFallback(config);
@@ -5523,7 +5261,7 @@ var source = (() => {
               d: input._days,
               M: input._months
             };
-          } else if (isNumber3(input) || !isNaN(+input)) {
+          } else if (isNumber2(input) || !isNaN(+input)) {
             duration = {};
             if (key) {
               duration[key] = +input;
@@ -5643,7 +5381,7 @@ var source = (() => {
           return typeof input === "string" || input instanceof String;
         }
         function isMomentInput(input) {
-          return isMoment(input) || isDate(input) || isString(input) || isNumber3(input) || isNumberOrStringArray(input) || isMomentInputObject(input) || input === null || input === void 0;
+          return isMoment(input) || isDate(input) || isString(input) || isNumber2(input) || isNumberOrStringArray(input) || isMomentInputObject(input) || input === null || input === void 0;
         }
         function isMomentInputObject(input) {
           var objectTest = isObject(input) && !isObjectEmpty(input), propertyTest = false, properties = [
@@ -5682,7 +5420,7 @@ var source = (() => {
           var arrayTest = isArray(input), dataTypeTest = false;
           if (arrayTest) {
             dataTypeTest = input.filter(function(item) {
-              return !isNumber3(item) && isString(input);
+              return !isNumber2(item) && isString(input);
             }).length === 0;
           }
           return arrayTest && dataTypeTest;
@@ -6642,7 +6380,7 @@ var source = (() => {
           return locale2[field](utc, format2);
         }
         function listMonthsImpl(format2, index2, field) {
-          if (isNumber3(format2)) {
+          if (isNumber2(format2)) {
             index2 = format2;
             format2 = void 0;
           }
@@ -6658,7 +6396,7 @@ var source = (() => {
         }
         function listWeekdaysImpl(localeSorted, format2, index2, field) {
           if (typeof localeSorted === "boolean") {
-            if (isNumber3(format2)) {
+            if (isNumber2(format2)) {
               index2 = format2;
               format2 = void 0;
             }
@@ -6667,7 +6405,7 @@ var source = (() => {
             format2 = localeSorted;
             index2 = format2;
             localeSorted = false;
-            if (isNumber3(format2)) {
+            if (isNumber2(format2)) {
               index2 = format2;
               format2 = void 0;
             }
@@ -7158,46 +6896,20 @@ var source = (() => {
   init_buffer();
   var import_types4 = __toESM(require_lib());
 
-  // node_modules/cheerio/lib/esm/index.js
-  var esm_exports4 = {};
-  __export(esm_exports4, {
-    contains: () => contains2,
-    default: () => esm_default2,
-    html: () => html,
+  // node_modules/cheerio/dist/browser/index.js
+  var browser_exports = {};
+  __export(browser_exports, {
+    contains: () => contains,
     load: () => load,
-    merge: () => merge2,
-    parseHTML: () => parseHTML2,
-    root: () => root2,
-    text: () => text,
-    xml: () => xml
+    merge: () => merge
   });
   init_buffer();
 
-  // node_modules/cheerio/lib/esm/types.js
-  init_buffer();
-
-  // node_modules/cheerio/lib/esm/load.js
-  init_buffer();
-
-  // node_modules/cheerio/lib/esm/options.js
-  init_buffer();
-  var defaultOpts = {
-    xml: false,
-    decodeEntities: true
-  };
-  var options_default = defaultOpts;
-  var xmlModeDefault = {
-    _useHtmlParser2: true,
-    xmlMode: true
-  };
-  function flatten(options) {
-    return (options === null || options === void 0 ? void 0 : options.xml) ? typeof options.xml === "boolean" ? xmlModeDefault : { ...xmlModeDefault, ...options.xml } : options !== null && options !== void 0 ? options : void 0;
-  }
-
-  // node_modules/cheerio/lib/esm/static.js
+  // node_modules/cheerio/dist/browser/static.js
   var static_exports = {};
   __export(static_exports, {
     contains: () => contains,
+    extract: () => extract,
     html: () => html,
     merge: () => merge,
     parseHTML: () => parseHTML,
@@ -7552,7 +7264,7 @@ var source = (() => {
   }
 
   // node_modules/domhandler/lib/esm/index.js
-  var defaultOpts2 = {
+  var defaultOpts = {
     withStartIndices: false,
     withEndIndices: false,
     xmlMode: false
@@ -7572,14 +7284,14 @@ var source = (() => {
       this.parser = null;
       if (typeof options === "function") {
         elementCB = options;
-        options = defaultOpts2;
+        options = defaultOpts;
       }
       if (typeof callback === "object") {
         options = callback;
         callback = void 0;
       }
       this.callback = callback !== null && callback !== void 0 ? callback : null;
-      this.options = options !== null && options !== void 0 ? options : defaultOpts2;
+      this.options = options !== null && options !== void 0 ? options : defaultOpts;
       this.elementCB = elementCB !== null && elementCB !== void 0 ? elementCB : null;
     }
     onparserinit(parser) {
@@ -8984,7 +8696,33 @@ var source = (() => {
     return value === "rss" || value === "feed" || value === "rdf:RDF";
   }
 
-  // node_modules/cheerio/lib/esm/static.js
+  // node_modules/cheerio/dist/browser/options.js
+  init_buffer();
+  var defaultOpts2 = {
+    _useHtmlParser2: false
+  };
+  function flattenOptions(options, baseOptions) {
+    if (!options) {
+      return baseOptions !== null && baseOptions !== void 0 ? baseOptions : defaultOpts2;
+    }
+    const opts = {
+      _useHtmlParser2: !!options.xmlMode,
+      ...baseOptions,
+      ...options
+    };
+    if (options.xml) {
+      opts._useHtmlParser2 = true;
+      opts.xmlMode = true;
+      if (options.xml !== true) {
+        Object.assign(opts, options.xml);
+      }
+    } else if (options.xmlMode) {
+      opts._useHtmlParser2 = true;
+    }
+    return opts;
+  }
+
+  // node_modules/cheerio/dist/browser/static.js
   function render2(that, dom, options) {
     if (!that)
       return "";
@@ -8996,9 +8734,8 @@ var source = (() => {
   function html(dom, options) {
     const toRender = isOptions(dom) ? (options = dom, void 0) : dom;
     const opts = {
-      ...options_default,
       ...this === null || this === void 0 ? void 0 : this._options,
-      ...flatten(options !== null && options !== void 0 ? options : {})
+      ...flattenOptions(options)
     };
     return render2(this, toRender, opts);
   }
@@ -9007,7 +8744,7 @@ var source = (() => {
     return render2(this, dom, options);
   }
   function text(elements) {
-    const elems = elements ? elements : this ? this.root() : [];
+    const elems = elements !== null && elements !== void 0 ? elements : this ? this.root() : [];
     let ret = "";
     for (let i = 0; i < elems.length; i++) {
       ret += textContent(elems[i]);
@@ -9021,11 +8758,11 @@ var source = (() => {
     if (typeof context === "boolean") {
       keepScripts = context;
     }
-    const parsed = this.load(data2, options_default, false);
+    const parsed = this.load(data2, this._options, false);
     if (!keepScripts) {
       parsed("script").remove();
     }
-    return parsed.root()[0].children.slice();
+    return [...parsed.root()[0].children];
   }
   function root() {
     return this(this._root);
@@ -9043,6 +8780,9 @@ var source = (() => {
     }
     return false;
   }
+  function extract(map2) {
+    return this.root().extract(map2);
+  }
   function merge(arr1, arr2) {
     if (!isArrayLike(arr1) || !isArrayLike(arr2)) {
       return;
@@ -9059,7 +8799,7 @@ var source = (() => {
     if (Array.isArray(item)) {
       return true;
     }
-    if (typeof item !== "object" || !Object.prototype.hasOwnProperty.call(item, "length") || typeof item.length !== "number" || item.length < 0) {
+    if (typeof item !== "object" || item === null || !("length" in item) || typeof item.length !== "number" || item.length < 0) {
       return false;
     }
     for (let i = 0; i < item.length; i++) {
@@ -9070,10 +8810,16 @@ var source = (() => {
     return true;
   }
 
-  // node_modules/cheerio/lib/esm/cheerio.js
+  // node_modules/cheerio/dist/browser/load-parse.js
   init_buffer();
 
-  // node_modules/cheerio/lib/esm/api/attributes.js
+  // node_modules/cheerio/dist/browser/load.js
+  init_buffer();
+
+  // node_modules/cheerio/dist/browser/cheerio.js
+  init_buffer();
+
+  // node_modules/cheerio/dist/browser/api/attributes.js
   var attributes_exports = {};
   __export(attributes_exports, {
     addClass: () => addClass,
@@ -9088,13 +8834,13 @@ var source = (() => {
   });
   init_buffer();
 
-  // node_modules/cheerio/lib/esm/utils.js
+  // node_modules/cheerio/dist/browser/utils.js
   init_buffer();
   function isCheerio(maybeCheerio) {
     return maybeCheerio.cheerio != null;
   }
   function camelCase(str) {
-    return str.replace(/[_.-](\w|$)/g, (_, x) => x.toUpperCase());
+    return str.replace(/[._-](\w|$)/g, (_, x) => x.toUpperCase());
   }
   function cssCase(str) {
     return str.replace(/[A-Z]/g, "-$&").toLowerCase();
@@ -9104,14 +8850,6 @@ var source = (() => {
     for (let i = 0; i < len; i++)
       fn(array[i], i);
     return array;
-  }
-  function cloneDom(dom) {
-    const clone2 = "length" in dom ? Array.prototype.map.call(dom, (el) => cloneNode(el, true)) : [cloneNode(dom, true)];
-    const root3 = new Document(clone2);
-    clone2.forEach((node) => {
-      node.parent = root3;
-    });
-    return clone2;
   }
   var CharacterCodes;
   (function(CharacterCodes2) {
@@ -9129,15 +8867,10 @@ var source = (() => {
     return (tagChar >= CharacterCodes.LowerA && tagChar <= CharacterCodes.LowerZ || tagChar >= CharacterCodes.UpperA && tagChar <= CharacterCodes.UpperZ || tagChar === CharacterCodes.Exclamation) && str.includes(">", tagStart + 2);
   }
 
-  // node_modules/cheerio/lib/esm/api/attributes.js
+  // node_modules/cheerio/dist/browser/api/attributes.js
   var hasOwn = Object.prototype.hasOwnProperty;
   var rspace = /\s+/;
   var dataAttrPrefix = "data-";
-  var primitives = {
-    null: null,
-    true: true,
-    false: false
-  };
   var rboolean = /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i;
   var rbrace = /^{[^]*}$|^\[[^]*]$/;
   function getAttr(elem, name, xmlMode) {
@@ -9183,10 +8916,10 @@ var source = (() => {
         if (!isTag2(el))
           return;
         if (typeof name === "object") {
-          Object.keys(name).forEach((objName) => {
+          for (const objName of Object.keys(name)) {
             const objValue = name[objName];
             setAttr(el, objName, objValue);
-          });
+          }
         } else {
           setAttr(el, name, value);
         }
@@ -9217,9 +8950,9 @@ var source = (() => {
         case "style": {
           const property = this.css();
           const keys = Object.keys(property);
-          keys.forEach((p, i) => {
-            property[i] = p;
-          });
+          for (let i = 0; i < keys.length; i++) {
+            property[i] = keys[i];
+          }
           property.length = keys.length;
           return property;
         }
@@ -9230,7 +8963,7 @@ var source = (() => {
         case "href":
         case "src": {
           const prop2 = (_a2 = el.attribs) === null || _a2 === void 0 ? void 0 : _a2[name];
-          if (typeof URL !== "undefined" && (name === "href" && (el.tagName === "a" || el.name === "link") || name === "src" && (el.tagName === "img" || el.tagName === "iframe" || el.tagName === "audio" || el.tagName === "video" || el.tagName === "source")) && prop2 !== void 0 && this.options.baseURI) {
+          if (typeof URL !== "undefined" && (name === "href" && (el.tagName === "a" || el.tagName === "link") || name === "src" && (el.tagName === "img" || el.tagName === "iframe" || el.tagName === "audio" || el.tagName === "video" || el.tagName === "source")) && prop2 !== void 0 && this.options.baseURI) {
             return new URL(prop2, this.options.baseURI).href;
           }
           return prop2;
@@ -9241,18 +8974,21 @@ var source = (() => {
         case "textContent": {
           return textContent(el);
         }
-        case "outerHTML":
+        case "outerHTML": {
           return this.clone().wrap("<container />").parent().html();
-        case "innerHTML":
+        }
+        case "innerHTML": {
           return this.html();
-        default:
+        }
+        default: {
           return getProp(el, name, this.options.xmlMode);
+        }
       }
     }
     if (typeof name === "object" || value !== void 0) {
       if (typeof value === "function") {
         if (typeof name === "object") {
-          throw new Error("Bad combination of arguments.");
+          throw new TypeError("Bad combination of arguments.");
         }
         return domEach(this, (el, i) => {
           if (isTag2(el)) {
@@ -9264,10 +9000,10 @@ var source = (() => {
         if (!isTag2(el))
           return;
         if (typeof name === "object") {
-          Object.keys(name).forEach((key) => {
+          for (const key of Object.keys(name)) {
             const val2 = name[key];
             setProp(el, key, val2, this.options.xmlMode);
-          });
+          }
         } else {
           setProp(el, name, value, this.options.xmlMode);
         }
@@ -9275,9 +9011,8 @@ var source = (() => {
     }
     return void 0;
   }
-  function setData(el, name, value) {
+  function setData(elem, name, value) {
     var _a2;
-    const elem = el;
     (_a2 = elem.data) !== null && _a2 !== void 0 ? _a2 : elem.data = {};
     if (typeof name === "object")
       Object.assign(elem.data, name);
@@ -9285,36 +9020,46 @@ var source = (() => {
       elem.data[name] = value;
     }
   }
-  function readData(el, name) {
-    let domNames;
-    let jsNames;
-    let value;
-    if (name == null) {
-      domNames = Object.keys(el.attribs).filter((attrName) => attrName.startsWith(dataAttrPrefix));
-      jsNames = domNames.map((domName) => camelCase(domName.slice(dataAttrPrefix.length)));
-    } else {
-      domNames = [dataAttrPrefix + cssCase(name)];
-      jsNames = [name];
-    }
-    for (let idx = 0; idx < domNames.length; ++idx) {
-      const domName = domNames[idx];
-      const jsName = jsNames[idx];
-      if (hasOwn.call(el.attribs, domName) && !hasOwn.call(el.data, jsName)) {
-        value = el.attribs[domName];
-        if (hasOwn.call(primitives, value)) {
-          value = primitives[value];
-        } else if (value === String(Number(value))) {
-          value = Number(value);
-        } else if (rbrace.test(value)) {
-          try {
-            value = JSON.parse(value);
-          } catch (e) {
-          }
-        }
-        el.data[jsName] = value;
+  function readAllData(el) {
+    for (const domName of Object.keys(el.attribs)) {
+      if (!domName.startsWith(dataAttrPrefix)) {
+        continue;
+      }
+      const jsName = camelCase(domName.slice(dataAttrPrefix.length));
+      if (!hasOwn.call(el.data, jsName)) {
+        el.data[jsName] = parseDataValue(el.attribs[domName]);
       }
     }
-    return name == null ? el.data : value;
+    return el.data;
+  }
+  function readData(el, name) {
+    const domName = dataAttrPrefix + cssCase(name);
+    const data2 = el.data;
+    if (hasOwn.call(data2, name)) {
+      return data2[name];
+    }
+    if (hasOwn.call(el.attribs, domName)) {
+      return data2[name] = parseDataValue(el.attribs[domName]);
+    }
+    return void 0;
+  }
+  function parseDataValue(value) {
+    if (value === "null")
+      return null;
+    if (value === "true")
+      return true;
+    if (value === "false")
+      return false;
+    const num = Number(value);
+    if (value === String(num))
+      return num;
+    if (rbrace.test(value)) {
+      try {
+        return JSON.parse(value);
+      } catch {
+      }
+    }
+    return value;
   }
   function data(name, value) {
     var _a2;
@@ -9323,8 +9068,8 @@ var source = (() => {
       return;
     const dataEl = elem;
     (_a2 = dataEl.data) !== null && _a2 !== void 0 ? _a2 : dataEl.data = {};
-    if (!name) {
-      return readData(dataEl);
+    if (name == null) {
+      return readAllData(dataEl);
     }
     if (typeof name === "object" || value !== void 0) {
       domEach(this, (el) => {
@@ -9337,9 +9082,6 @@ var source = (() => {
       });
       return this;
     }
-    if (hasOwn.call(dataEl.data, name)) {
-      return dataEl.data[name];
-    }
     return readData(dataEl, name);
   }
   function val(value) {
@@ -9348,8 +9090,9 @@ var source = (() => {
     if (!element || !isTag2(element))
       return querying ? void 0 : this;
     switch (element.name) {
-      case "textarea":
+      case "textarea": {
         return this.text(value);
+      }
       case "select": {
         const option = this.find("option:selected");
         if (!querying) {
@@ -9357,17 +9100,18 @@ var source = (() => {
             return this;
           }
           this.find("option").removeAttr("selected");
-          const values = typeof value !== "object" ? [value] : value;
-          for (let i = 0; i < values.length; i++) {
-            this.find(`option[value="${values[i]}"]`).attr("selected", "");
+          const values = typeof value === "object" ? value : [value];
+          for (const val2 of values) {
+            this.find(`option[value="${val2}"]`).attr("selected", "");
           }
           return this;
         }
         return this.attr("multiple") ? option.toArray().map((el) => text(el.children)) : option.attr("value");
       }
       case "input":
-      case "option":
+      case "option": {
         return querying ? this.attr("value") : this.attr("value", value);
+      }
     }
     return void 0;
   }
@@ -9381,10 +9125,10 @@ var source = (() => {
   }
   function removeAttr(name) {
     const attrNames = splitNames(name);
-    for (let i = 0; i < attrNames.length; i++) {
+    for (const attrName of attrNames) {
       domEach(this, (elem) => {
         if (isTag2(elem))
-          removeAttribute(elem, attrNames[i]);
+          removeAttribute(elem, attrName);
       });
     }
     return this;
@@ -9393,7 +9137,7 @@ var source = (() => {
     return this.toArray().some((elem) => {
       const clazz = isTag2(elem) && elem.attribs["class"];
       let idx = -1;
-      if (clazz && className.length) {
+      if (clazz && className.length > 0) {
         while ((idx = clazz.indexOf(className, idx + 1)) > -1) {
           const end2 = idx + className.length;
           if ((idx === 0 || rspace.test(clazz[idx - 1])) && (end2 === clazz.length || rspace.test(clazz[end2]))) {
@@ -9422,16 +9166,16 @@ var source = (() => {
       if (!isTag2(el))
         continue;
       const className = getAttr(el, "class", false);
-      if (!className) {
-        setAttr(el, "class", classNames.join(" ").trim());
-      } else {
+      if (className) {
         let setClass = ` ${className} `;
-        for (let j = 0; j < classNames.length; j++) {
-          const appendClass = `${classNames[j]} `;
+        for (const cn of classNames) {
+          const appendClass = `${cn} `;
           if (!setClass.includes(` ${appendClass}`))
             setClass += appendClass;
         }
         setAttr(el, "class", setClass.trim());
+      } else {
+        setAttr(el, "class", classNames.join(" ").trim());
       }
     }
     return this;
@@ -9501,9 +9245,10 @@ var source = (() => {
     return this;
   }
 
-  // node_modules/cheerio/lib/esm/api/traversing.js
+  // node_modules/cheerio/dist/browser/api/traversing.js
   var traversing_exports = {};
   __export(traversing_exports, {
+    _findBySelector: () => _findBySelector,
     add: () => add,
     addBack: () => addBack,
     children: () => children,
@@ -10269,7 +10014,7 @@ var source = (() => {
   }
   var filters = {
     contains(next2, text3, { adapter: adapter2 }) {
-      return function contains3(elem) {
+      return function contains2(elem) {
         return next2(elem) && adapter2.getText(elem).includes(text3);
       };
     },
@@ -11015,21 +10760,21 @@ var source = (() => {
   function filterBySelector(selector, elements, options) {
     var _a2;
     if (selector.some(isTraversal)) {
-      const root3 = (_a2 = options.root) !== null && _a2 !== void 0 ? _a2 : getDocumentRoot(elements[0]);
+      const root2 = (_a2 = options.root) !== null && _a2 !== void 0 ? _a2 : getDocumentRoot(elements[0]);
       const opts = { ...options, context: elements, relativeSelector: false };
       selector.push(SCOPE_PSEUDO);
-      return findFilterElements(root3, selector, opts, true, elements.length);
+      return findFilterElements(root2, selector, opts, true, elements.length);
     }
     return findFilterElements(elements, selector, options, false, elements.length);
   }
-  function select(selector, root3, options = {}, limit = Infinity) {
+  function select(selector, root2, options = {}, limit = Infinity) {
     if (typeof selector === "function") {
-      return find2(root3, selector);
+      return find2(root2, selector);
     }
     const [plain, filtered] = groupSelectors(parse(selector));
-    const results = filtered.map((sel) => findFilterElements(root3, sel, options, true, limit));
+    const results = filtered.map((sel) => findFilterElements(root2, sel, options, true, limit));
     if (plain.length) {
-      results.push(findElements(root3, plain, options, limit));
+      results.push(findElements(root2, plain, options, limit));
     }
     if (results.length === 0) {
       return [];
@@ -11039,7 +10784,7 @@ var source = (() => {
     }
     return uniqueSort(results.reduce((a, b) => [...a, ...b]));
   }
-  function findFilterElements(root3, selector, options, queryForSelector, totalLimit) {
+  function findFilterElements(root2, selector, options, queryForSelector, totalLimit) {
     const filterIndex = selector.findIndex(isFilter);
     const sub = selector.slice(0, filterIndex);
     const filter4 = selector[filterIndex];
@@ -11047,7 +10792,7 @@ var source = (() => {
     const limit = getLimit(filter4.name, filter4.data, partLimit);
     if (limit === 0)
       return [];
-    const elemsNoLimit = sub.length === 0 && !Array.isArray(root3) ? getChildren(root3).filter(isTag2) : sub.length === 0 ? (Array.isArray(root3) ? root3 : [root3]).filter(isTag2) : queryForSelector || sub.some(isTraversal) ? findElements(root3, [sub], options, limit) : filterElements(root3, [sub], options);
+    const elemsNoLimit = sub.length === 0 && !Array.isArray(root2) ? getChildren(root2).filter(isTag2) : sub.length === 0 ? (Array.isArray(root2) ? root2 : [root2]).filter(isTag2) : queryForSelector || sub.some(isTraversal) ? findElements(root2, [sub], options, limit) : filterElements(root2, [sub], options);
     const elems = elemsNoLimit.slice(0, limit);
     let result = filterByPosition(filter4.name, elems, filter4.data, options);
     if (result.length === 0 || selector.length === filterIndex + 1) {
@@ -11084,12 +10829,12 @@ var source = (() => {
       filterElements(result, [remainingSelector], options)
     );
   }
-  function findElements(root3, sel, options, limit) {
-    const query = _compileToken(sel, options, root3);
-    return find2(root3, query, limit);
+  function findElements(root2, sel, options, limit) {
+    const query = _compileToken(sel, options, root2);
+    return find2(root2, query, limit);
   }
-  function find2(root3, query, limit = Infinity) {
-    const elems = prepareContext(root3, esm_exports2, query.shouldTestNextSiblings);
+  function find2(root2, query, limit = Infinity) {
+    const elems = prepareContext(root2, esm_exports2, query.shouldTestNextSiblings);
     return find((node) => isTag2(node) && query(node), elems, true, limit);
   }
   function filterElements(elements, sel, options) {
@@ -11100,19 +10845,23 @@ var source = (() => {
     return query === boolbase7.trueFunc ? els : els.filter(query);
   }
 
-  // node_modules/cheerio/lib/esm/api/traversing.js
-  var reSiblingSelector = /^\s*[~+]/;
+  // node_modules/cheerio/dist/browser/api/traversing.js
+  var reSiblingSelector = /^\s*[+~]/;
   function find3(selectorOrHaystack) {
-    var _a2;
     if (!selectorOrHaystack) {
       return this._make([]);
     }
-    const context = this.toArray();
     if (typeof selectorOrHaystack !== "string") {
       const haystack = isCheerio(selectorOrHaystack) ? selectorOrHaystack.toArray() : [selectorOrHaystack];
+      const context = this.toArray();
       return this._make(haystack.filter((elem) => context.some((node) => contains(node, elem))));
     }
-    const elems = reSiblingSelector.test(selectorOrHaystack) ? context : this.children().toArray();
+    return this._findBySelector(selectorOrHaystack, Number.POSITIVE_INFINITY);
+  }
+  function _findBySelector(selector, limit) {
+    var _a2;
+    const context = this.toArray();
+    const elems = reSiblingSelector.test(selector) ? context : this.children().toArray();
     const options = {
       context,
       root: (_a2 = this._root) === null || _a2 === void 0 ? void 0 : _a2[0],
@@ -11123,7 +10872,7 @@ var source = (() => {
       pseudos: this.options.pseudos,
       quirksMode: this.options.quirksMode
     };
-    return this._make(select(selectorOrHaystack, elems, options));
+    return this._make(select(selector, elems, options, limit));
   }
   function _getMatcher(matchMap) {
     return function(fn, ...postFns) {
@@ -11141,12 +10890,13 @@ var source = (() => {
     };
   }
   var _matcher = _getMatcher((fn, elems) => {
-    const ret = [];
+    let ret = [];
     for (let i = 0; i < elems.length; i++) {
       const value = fn(elems[i]);
-      ret.push(value);
+      if (value.length > 0)
+        ret = ret.concat(value);
     }
-    return new Array().concat(...ret);
+    return ret;
   });
   var _singleMatcher = _getMatcher((fn, elems) => {
     const ret = [];
@@ -11179,7 +10929,7 @@ var source = (() => {
     };
   }
   function _removeDuplicates(elems) {
-    return Array.from(new Set(elems));
+    return elems.length > 1 ? Array.from(new Set(elems)) : elems;
   }
   var parent = _singleMatcher(({ parent: parent2 }) => parent2 && !isDocument(parent2) ? parent2 : null, _removeDuplicates);
   var parents = _matcher((elem) => {
@@ -11203,6 +10953,9 @@ var source = (() => {
     };
     const selectFn = typeof selector === "string" ? (elem) => is2(elem, selector, selectOpts) : getFilterFn(selector);
     domEach(this, (elem) => {
+      if (elem && !isDocument(elem) && !isTag2(elem)) {
+        elem = elem.parent;
+      }
       while (elem && isTag2(elem)) {
         if (selectFn(elem, 0)) {
           if (!set.includes(elem)) {
@@ -11276,8 +11029,8 @@ var source = (() => {
     var _a2;
     return this._make(filterArray(this.toArray(), match, this.options.xmlMode, (_a2 = this._root) === null || _a2 === void 0 ? void 0 : _a2[0]));
   }
-  function filterArray(nodes, match, xmlMode, root3) {
-    return typeof match === "string" ? filter2(match, nodes, { xmlMode, root: root3 }) : nodes.filter(getFilterFn(match));
+  function filterArray(nodes, match, xmlMode, root2) {
+    return typeof match === "string" ? filter2(match, nodes, { xmlMode, root: root2 }) : nodes.filter(getFilterFn(match));
   }
   function is3(selector) {
     const nodes = this.toArray();
@@ -11355,7 +11108,7 @@ var source = (() => {
     return this.prevObject ? this.add(selector ? this.prevObject.filter(selector) : this.prevObject) : this;
   }
 
-  // node_modules/cheerio/lib/esm/api/manipulation.js
+  // node_modules/cheerio/dist/browser/api/manipulation.js
   var manipulation_exports = {};
   __export(manipulation_exports, {
     _makeDomArray: () => _makeDomArray,
@@ -11381,7 +11134,7 @@ var source = (() => {
   });
   init_buffer();
 
-  // node_modules/cheerio/lib/esm/parse.js
+  // node_modules/cheerio/dist/browser/parse.js
   init_buffer();
   function getParse(parser) {
     return function parse6(content, options, isDocument2, context) {
@@ -11395,9 +11148,9 @@ var source = (() => {
       if (!Array.isArray(doc) && isDocument(doc)) {
         return doc;
       }
-      const root3 = new Document([]);
-      update(doc, root3);
-      return root3;
+      const root2 = new Document([]);
+      update(doc, root2);
+      return root2;
     };
   }
   function update(newChilds, parent2) {
@@ -11423,21 +11176,35 @@ var source = (() => {
     return parent2;
   }
 
-  // node_modules/cheerio/lib/esm/api/manipulation.js
+  // node_modules/cheerio/dist/browser/api/manipulation.js
   function _makeDomArray(elem, clone2) {
     if (elem == null) {
       return [];
     }
-    if (isCheerio(elem)) {
-      return clone2 ? cloneDom(elem.get()) : elem.get();
-    }
-    if (Array.isArray(elem)) {
-      return elem.reduce((newElems, el) => newElems.concat(this._makeDomArray(el, clone2)), []);
-    }
     if (typeof elem === "string") {
-      return this._parse(elem, this.options, false, null).children;
+      return this._parse(elem, this.options, false, null).children.slice(0);
     }
-    return clone2 ? cloneDom([elem]) : [elem];
+    if ("length" in elem) {
+      if (elem.length === 1) {
+        return this._makeDomArray(elem[0], clone2);
+      }
+      const result = [];
+      for (let i = 0; i < elem.length; i++) {
+        const el = elem[i];
+        if (typeof el === "object") {
+          if (el == null) {
+            continue;
+          }
+          if (!("length" in el)) {
+            result.push(clone2 ? cloneNode(el, true) : el);
+            continue;
+          }
+        }
+        result.push(...this._makeDomArray(el, clone2));
+      }
+      return result;
+    }
+    return [clone2 ? cloneNode(elem, true) : elem];
   }
   function _insert(concatenator) {
     return function(...elems) {
@@ -11581,17 +11348,16 @@ var source = (() => {
   function after(...elems) {
     const lastIdx = this.length - 1;
     return domEach(this, (el, i) => {
-      const { parent: parent2 } = el;
-      if (!hasChildren(el) || !parent2) {
+      if (!hasChildren(el) || !el.parent) {
         return;
       }
-      const siblings2 = parent2.children;
+      const siblings2 = el.parent.children;
       const index2 = siblings2.indexOf(el);
       if (index2 < 0)
         return;
       const domSrc = typeof elems[0] === "function" ? elems[0].call(el, i, this._render(el.children)) : elems;
       const dom = this._makeDomArray(domSrc, i < lastIdx);
-      uniqueSplice(siblings2, index2 + 1, 0, dom, parent2);
+      uniqueSplice(siblings2, index2 + 1, 0, dom, el.parent);
     });
   }
   function insertAfter(target) {
@@ -11600,35 +11366,34 @@ var source = (() => {
     }
     this.remove();
     const clones = [];
-    this._makeDomArray(target).forEach((el) => {
+    for (const el of this._makeDomArray(target)) {
       const clonedSelf = this.clone().toArray();
       const { parent: parent2 } = el;
       if (!parent2) {
-        return;
+        continue;
       }
       const siblings2 = parent2.children;
       const index2 = siblings2.indexOf(el);
       if (index2 < 0)
-        return;
+        continue;
       uniqueSplice(siblings2, index2 + 1, 0, clonedSelf, parent2);
       clones.push(...clonedSelf);
-    });
+    }
     return this._make(clones);
   }
   function before(...elems) {
     const lastIdx = this.length - 1;
     return domEach(this, (el, i) => {
-      const { parent: parent2 } = el;
-      if (!hasChildren(el) || !parent2) {
+      if (!hasChildren(el) || !el.parent) {
         return;
       }
-      const siblings2 = parent2.children;
+      const siblings2 = el.parent.children;
       const index2 = siblings2.indexOf(el);
       if (index2 < 0)
         return;
       const domSrc = typeof elems[0] === "function" ? elems[0].call(el, i, this._render(el.children)) : elems;
       const dom = this._makeDomArray(domSrc, i < lastIdx);
-      uniqueSplice(siblings2, index2, 0, dom, parent2);
+      uniqueSplice(siblings2, index2, 0, dom, el.parent);
     });
   }
   function insertBefore(target) {
@@ -11679,9 +11444,9 @@ var source = (() => {
     return domEach(this, (el) => {
       if (!hasChildren(el))
         return;
-      el.children.forEach((child) => {
+      for (const child of el.children) {
         child.next = child.prev = child.parent = null;
-      });
+      }
       el.children.length = 0;
     });
   }
@@ -11695,9 +11460,9 @@ var source = (() => {
     return domEach(this, (el) => {
       if (!hasChildren(el))
         return;
-      el.children.forEach((child) => {
+      for (const child of el.children) {
         child.next = child.prev = child.parent = null;
-      });
+      }
       const content = isCheerio(str) ? str.toArray() : this._parse(`${str}`, this.options, false, el).children;
       update(content, el);
     });
@@ -11715,18 +11480,23 @@ var source = (() => {
     return domEach(this, (el) => {
       if (!hasChildren(el))
         return;
-      el.children.forEach((child) => {
+      for (const child of el.children) {
         child.next = child.prev = child.parent = null;
-      });
+      }
       const textNode = new Text2(`${str}`);
       update(textNode, el);
     });
   }
   function clone() {
-    return this._make(cloneDom(this.get()));
+    const clone2 = Array.prototype.map.call(this.get(), (el) => cloneNode(el, true));
+    const root2 = new Document(clone2);
+    for (const node of clone2) {
+      node.parent = root2;
+    }
+    return this._make(clone2);
   }
 
-  // node_modules/cheerio/lib/esm/api/css.js
+  // node_modules/cheerio/dist/browser/api/css.js
   var css_exports = {};
   __export(css_exports, {
     css: () => css
@@ -11757,9 +11527,11 @@ var source = (() => {
       }
       el.attribs["style"] = stringify(styles);
     } else if (typeof prop2 === "object") {
-      Object.keys(prop2).forEach((k, i) => {
+      const keys = Object.keys(prop2);
+      for (let i = 0; i < keys.length; i++) {
+        const k = keys[i];
         setCss(el, k, prop2[k], i);
-      });
+      }
     }
   }
   function getCss(el, prop2) {
@@ -11771,11 +11543,11 @@ var source = (() => {
     }
     if (Array.isArray(prop2)) {
       const newStyles = {};
-      prop2.forEach((item) => {
+      for (const item of prop2) {
         if (styles[item] != null) {
           newStyles[item] = styles[item];
         }
-      });
+      }
       return newStyles;
     }
     return styles;
@@ -11804,7 +11576,7 @@ var source = (() => {
     return obj;
   }
 
-  // node_modules/cheerio/lib/esm/api/forms.js
+  // node_modules/cheerio/dist/browser/api/forms.js
   var forms_exports = {};
   __export(forms_exports, {
     serialize: () => serialize,
@@ -11829,7 +11601,6 @@ var source = (() => {
     }).filter(
       // Verify elements have a name (`attr.name`) and are not disabled (`:enabled`)
       '[name!=""]:enabled:not(:submit, :button, :image, :reset, :file):matches([checked], :not(:checkbox, :radio))'
-      // Convert each of the elements to its value(s)
     ).map((_, elem) => {
       var _a2;
       const $elem = this._make(elem);
@@ -11848,7 +11619,40 @@ var source = (() => {
     }).toArray();
   }
 
-  // node_modules/cheerio/lib/esm/cheerio.js
+  // node_modules/cheerio/dist/browser/api/extract.js
+  var extract_exports = {};
+  __export(extract_exports, {
+    extract: () => extract2
+  });
+  init_buffer();
+  function getExtractDescr(descr) {
+    var _a2;
+    if (typeof descr === "string") {
+      return { selector: descr, value: "textContent" };
+    }
+    return {
+      selector: descr.selector,
+      value: (_a2 = descr.value) !== null && _a2 !== void 0 ? _a2 : "textContent"
+    };
+  }
+  function extract2(map2) {
+    const ret = {};
+    for (const key in map2) {
+      const descr = map2[key];
+      const isArray = Array.isArray(descr);
+      const { selector, value } = getExtractDescr(isArray ? descr[0] : descr);
+      const fn = typeof value === "function" ? value : typeof value === "string" ? (el) => this._make(el).prop(value) : (el) => this._make(el).extract(value);
+      if (isArray) {
+        ret[key] = this._findBySelector(selector, Number.POSITIVE_INFINITY).map((_, el) => fn(el, key, ret)).get();
+      } else {
+        const $2 = this._findBySelector(selector, 1);
+        ret[key] = $2.length > 0 ? fn($2[0], key, ret) : void 0;
+      }
+    }
+    return ret;
+  }
+
+  // node_modules/cheerio/dist/browser/cheerio.js
   var Cheerio = class {
     /**
      * Instance of cheerio. Methods are specified in the modules. Usage of this
@@ -11859,10 +11663,10 @@ var source = (() => {
      * @param root - Sets the root node.
      * @param options - Options for the instance.
      */
-    constructor(elements, root3, options) {
+    constructor(elements, root2, options) {
       this.length = 0;
       this.options = options;
-      this._root = root3;
+      this._root = root2;
       if (elements) {
         for (let idx = 0; idx < elements.length; idx++) {
           this[idx] = elements[idx];
@@ -11874,15 +11678,15 @@ var source = (() => {
   Cheerio.prototype.cheerio = "[cheerio object]";
   Cheerio.prototype.splice = Array.prototype.splice;
   Cheerio.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
-  Object.assign(Cheerio.prototype, attributes_exports, traversing_exports, manipulation_exports, css_exports, forms_exports);
+  Object.assign(Cheerio.prototype, attributes_exports, traversing_exports, manipulation_exports, css_exports, forms_exports, extract_exports);
 
-  // node_modules/cheerio/lib/esm/load.js
+  // node_modules/cheerio/dist/browser/load.js
   function getLoad(parse6, render3) {
     return function load2(content, options, isDocument2 = true) {
       if (content == null) {
         throw new Error("cheerio.load() expects a string");
       }
-      const internalOpts = { ...options_default, ...flatten(options) };
+      const internalOpts = flattenOptions(options);
       const initialRoot = parse6(content, internalOpts, isDocument2, null);
       class LoadedCheerio extends Cheerio {
         _make(selector, context) {
@@ -11897,14 +11701,11 @@ var source = (() => {
           return render3(dom, this.options);
         }
       }
-      function initialize(selector, context, root3 = initialRoot, opts) {
+      function initialize(selector, context, root2 = initialRoot, opts) {
         if (selector && isCheerio(selector))
           return selector;
-        const options2 = {
-          ...internalOpts,
-          ...flatten(opts)
-        };
-        const r = typeof root3 === "string" ? [parse6(root3, options2, false, null)] : "length" in root3 ? root3 : [root3];
+        const options2 = flattenOptions(opts, internalOpts);
+        const r = typeof root2 === "string" ? [parse6(root2, options2, false, null)] : "length" in root2 ? root2 : [root2];
         const rootInstance = isCheerio(r) ? r : new LoadedCheerio(r, null, options2);
         rootInstance._root = rootInstance;
         if (!selector) {
@@ -11925,25 +11726,25 @@ var source = (() => {
           return instance;
         }
         if (typeof selector !== "string") {
-          throw new Error("Unexpected type of selector");
+          throw new TypeError("Unexpected type of selector");
         }
         let search = selector;
-        const searchContext = !context ? (
+        const searchContext = context ? (
           // If we don't have a context, maybe we have a root, from loading
-          rootInstance
-        ) : typeof context === "string" ? isHtml(context) ? (
-          // $('li', '<ul>...</ul>')
-          new LoadedCheerio([parse6(context, options2, false, null)], rootInstance, options2)
-        ) : (
-          // $('li', 'ul')
-          (search = `${context} ${search}`, rootInstance)
-        ) : isCheerio(context) ? (
-          // $('li', $)
-          context
-        ) : (
-          // $('li', node), $('li', [nodes])
-          new LoadedCheerio(Array.isArray(context) ? context : [context], rootInstance, options2)
-        );
+          typeof context === "string" ? isHtml(context) ? (
+            // $('li', '<ul>...</ul>')
+            new LoadedCheerio([parse6(context, options2, false, null)], rootInstance, options2)
+          ) : (
+            // $('li', 'ul')
+            (search = `${context} ${search}`, rootInstance)
+          ) : isCheerio(context) ? (
+            // $('li', $)
+            context
+          ) : (
+            // $('li', node), $('li', [nodes])
+            new LoadedCheerio(Array.isArray(context) ? context : [context], rootInstance, options2)
+          )
+        ) : rootInstance;
         if (!searchContext)
           return instance;
         return searchContext.find(search);
@@ -11965,7 +11766,7 @@ var source = (() => {
     return !!obj.name || obj.type === "root" || obj.type === "text" || obj.type === "comment";
   }
 
-  // node_modules/cheerio/lib/esm/parsers/parse5-adapter.js
+  // node_modules/cheerio/dist/browser/parsers/parse5-adapter.js
   init_buffer();
 
   // node_modules/parse5/dist/index.js
@@ -12030,7 +11831,6 @@ var source = (() => {
     CODE_POINTS2[CODE_POINTS2["SPACE"] = 32] = "SPACE";
     CODE_POINTS2[CODE_POINTS2["EXCLAMATION_MARK"] = 33] = "EXCLAMATION_MARK";
     CODE_POINTS2[CODE_POINTS2["QUOTATION_MARK"] = 34] = "QUOTATION_MARK";
-    CODE_POINTS2[CODE_POINTS2["NUMBER_SIGN"] = 35] = "NUMBER_SIGN";
     CODE_POINTS2[CODE_POINTS2["AMPERSAND"] = 38] = "AMPERSAND";
     CODE_POINTS2[CODE_POINTS2["APOSTROPHE"] = 39] = "APOSTROPHE";
     CODE_POINTS2[CODE_POINTS2["HYPHEN_MINUS"] = 45] = "HYPHEN_MINUS";
@@ -12043,17 +11843,12 @@ var source = (() => {
     CODE_POINTS2[CODE_POINTS2["GREATER_THAN_SIGN"] = 62] = "GREATER_THAN_SIGN";
     CODE_POINTS2[CODE_POINTS2["QUESTION_MARK"] = 63] = "QUESTION_MARK";
     CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_A"] = 65] = "LATIN_CAPITAL_A";
-    CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_F"] = 70] = "LATIN_CAPITAL_F";
-    CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_X"] = 88] = "LATIN_CAPITAL_X";
     CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_Z"] = 90] = "LATIN_CAPITAL_Z";
     CODE_POINTS2[CODE_POINTS2["RIGHT_SQUARE_BRACKET"] = 93] = "RIGHT_SQUARE_BRACKET";
     CODE_POINTS2[CODE_POINTS2["GRAVE_ACCENT"] = 96] = "GRAVE_ACCENT";
     CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_A"] = 97] = "LATIN_SMALL_A";
-    CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_F"] = 102] = "LATIN_SMALL_F";
-    CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_X"] = 120] = "LATIN_SMALL_X";
     CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_Z"] = 122] = "LATIN_SMALL_Z";
-    CODE_POINTS2[CODE_POINTS2["REPLACEMENT_CHARACTER"] = 65533] = "REPLACEMENT_CHARACTER";
-  })(CODE_POINTS = CODE_POINTS || (CODE_POINTS = {}));
+  })(CODE_POINTS || (CODE_POINTS = {}));
   var SEQUENCES = {
     DASH_DASH: "--",
     CDATA_START: "[CDATA[",
@@ -12142,7 +11937,7 @@ var source = (() => {
     ERR2["misplacedStartTagForHeadElement"] = "misplaced-start-tag-for-head-element";
     ERR2["nestedNoscriptInHead"] = "nested-noscript-in-head";
     ERR2["eofInElementThatCanContainOnlyText"] = "eof-in-element-that-can-contain-only-text";
-  })(ERR = ERR || (ERR = {}));
+  })(ERR || (ERR = {}));
 
   // node_modules/parse5/dist/tokenizer/preprocessor.js
   var DEFAULT_BUFFER_WATERLINE = 1 << 16;
@@ -12170,22 +11965,24 @@ var source = (() => {
     get offset() {
       return this.droppedBufferSize + this.pos;
     }
-    getError(code) {
+    getError(code, cpOffset) {
       const { line, col, offset } = this;
+      const startCol = col + cpOffset;
+      const startOffset = offset + cpOffset;
       return {
         code,
         startLine: line,
         endLine: line,
-        startCol: col,
-        endCol: col,
-        startOffset: offset,
-        endOffset: offset
+        startCol,
+        endCol: startCol,
+        startOffset,
+        endOffset: startOffset
       };
     }
     _err(code) {
       if (this.handler.onParseError && this.lastErrOffset !== this.offset) {
         this.lastErrOffset = this.offset;
-        this.handler.onParseError(this.getError(code));
+        this.handler.onParseError(this.getError(code, 0));
       }
     }
     _addGap() {
@@ -12324,7 +12121,7 @@ var source = (() => {
     TokenType2[TokenType2["DOCTYPE"] = 6] = "DOCTYPE";
     TokenType2[TokenType2["EOF"] = 7] = "EOF";
     TokenType2[TokenType2["HIBERNATION"] = 8] = "HIBERNATION";
-  })(TokenType = TokenType || (TokenType = {}));
+  })(TokenType || (TokenType = {}));
   function getTokenAttr(token, attrName) {
     for (let i = token.attrs.length - 1; i >= 0; i--) {
       if (token.attrs[i].name === attrName) {
@@ -12340,12 +12137,12 @@ var source = (() => {
     ATTRS: () => ATTRS,
     DOCUMENT_MODE: () => DOCUMENT_MODE,
     NS: () => NS,
+    NUMBERED_HEADERS: () => NUMBERED_HEADERS,
     SPECIAL_ELEMENTS: () => SPECIAL_ELEMENTS,
     TAG_ID: () => TAG_ID,
     TAG_NAMES: () => TAG_NAMES,
     getTagID: () => getTagID,
-    hasUnescapedText: () => hasUnescapedText,
-    isNumberedHeader: () => isNumberedHeader
+    hasUnescapedText: () => hasUnescapedText
   });
   init_buffer();
   var NS;
@@ -12356,7 +12153,7 @@ var source = (() => {
     NS2["XLINK"] = "http://www.w3.org/1999/xlink";
     NS2["XML"] = "http://www.w3.org/XML/1998/namespace";
     NS2["XMLNS"] = "http://www.w3.org/2000/xmlns/";
-  })(NS = NS || (NS = {}));
+  })(NS || (NS = {}));
   var ATTRS;
   (function(ATTRS2) {
     ATTRS2["TYPE"] = "type";
@@ -12367,13 +12164,13 @@ var source = (() => {
     ATTRS2["COLOR"] = "color";
     ATTRS2["FACE"] = "face";
     ATTRS2["SIZE"] = "size";
-  })(ATTRS = ATTRS || (ATTRS = {}));
+  })(ATTRS || (ATTRS = {}));
   var DOCUMENT_MODE;
   (function(DOCUMENT_MODE2) {
     DOCUMENT_MODE2["NO_QUIRKS"] = "no-quirks";
     DOCUMENT_MODE2["QUIRKS"] = "quirks";
     DOCUMENT_MODE2["LIMITED_QUIRKS"] = "limited-quirks";
-  })(DOCUMENT_MODE = DOCUMENT_MODE || (DOCUMENT_MODE = {}));
+  })(DOCUMENT_MODE || (DOCUMENT_MODE = {}));
   var TAG_NAMES;
   (function(TAG_NAMES2) {
     TAG_NAMES2["A"] = "a";
@@ -12469,6 +12266,7 @@ var source = (() => {
     TAG_NAMES2["RUBY"] = "ruby";
     TAG_NAMES2["S"] = "s";
     TAG_NAMES2["SCRIPT"] = "script";
+    TAG_NAMES2["SEARCH"] = "search";
     TAG_NAMES2["SECTION"] = "section";
     TAG_NAMES2["SELECT"] = "select";
     TAG_NAMES2["SOURCE"] = "source";
@@ -12498,7 +12296,7 @@ var source = (() => {
     TAG_NAMES2["VAR"] = "var";
     TAG_NAMES2["WBR"] = "wbr";
     TAG_NAMES2["XMP"] = "xmp";
-  })(TAG_NAMES = TAG_NAMES || (TAG_NAMES = {}));
+  })(TAG_NAMES || (TAG_NAMES = {}));
   var TAG_ID;
   (function(TAG_ID2) {
     TAG_ID2[TAG_ID2["UNKNOWN"] = 0] = "UNKNOWN";
@@ -12595,36 +12393,37 @@ var source = (() => {
     TAG_ID2[TAG_ID2["RUBY"] = 91] = "RUBY";
     TAG_ID2[TAG_ID2["S"] = 92] = "S";
     TAG_ID2[TAG_ID2["SCRIPT"] = 93] = "SCRIPT";
-    TAG_ID2[TAG_ID2["SECTION"] = 94] = "SECTION";
-    TAG_ID2[TAG_ID2["SELECT"] = 95] = "SELECT";
-    TAG_ID2[TAG_ID2["SOURCE"] = 96] = "SOURCE";
-    TAG_ID2[TAG_ID2["SMALL"] = 97] = "SMALL";
-    TAG_ID2[TAG_ID2["SPAN"] = 98] = "SPAN";
-    TAG_ID2[TAG_ID2["STRIKE"] = 99] = "STRIKE";
-    TAG_ID2[TAG_ID2["STRONG"] = 100] = "STRONG";
-    TAG_ID2[TAG_ID2["STYLE"] = 101] = "STYLE";
-    TAG_ID2[TAG_ID2["SUB"] = 102] = "SUB";
-    TAG_ID2[TAG_ID2["SUMMARY"] = 103] = "SUMMARY";
-    TAG_ID2[TAG_ID2["SUP"] = 104] = "SUP";
-    TAG_ID2[TAG_ID2["TABLE"] = 105] = "TABLE";
-    TAG_ID2[TAG_ID2["TBODY"] = 106] = "TBODY";
-    TAG_ID2[TAG_ID2["TEMPLATE"] = 107] = "TEMPLATE";
-    TAG_ID2[TAG_ID2["TEXTAREA"] = 108] = "TEXTAREA";
-    TAG_ID2[TAG_ID2["TFOOT"] = 109] = "TFOOT";
-    TAG_ID2[TAG_ID2["TD"] = 110] = "TD";
-    TAG_ID2[TAG_ID2["TH"] = 111] = "TH";
-    TAG_ID2[TAG_ID2["THEAD"] = 112] = "THEAD";
-    TAG_ID2[TAG_ID2["TITLE"] = 113] = "TITLE";
-    TAG_ID2[TAG_ID2["TR"] = 114] = "TR";
-    TAG_ID2[TAG_ID2["TRACK"] = 115] = "TRACK";
-    TAG_ID2[TAG_ID2["TT"] = 116] = "TT";
-    TAG_ID2[TAG_ID2["U"] = 117] = "U";
-    TAG_ID2[TAG_ID2["UL"] = 118] = "UL";
-    TAG_ID2[TAG_ID2["SVG"] = 119] = "SVG";
-    TAG_ID2[TAG_ID2["VAR"] = 120] = "VAR";
-    TAG_ID2[TAG_ID2["WBR"] = 121] = "WBR";
-    TAG_ID2[TAG_ID2["XMP"] = 122] = "XMP";
-  })(TAG_ID = TAG_ID || (TAG_ID = {}));
+    TAG_ID2[TAG_ID2["SEARCH"] = 94] = "SEARCH";
+    TAG_ID2[TAG_ID2["SECTION"] = 95] = "SECTION";
+    TAG_ID2[TAG_ID2["SELECT"] = 96] = "SELECT";
+    TAG_ID2[TAG_ID2["SOURCE"] = 97] = "SOURCE";
+    TAG_ID2[TAG_ID2["SMALL"] = 98] = "SMALL";
+    TAG_ID2[TAG_ID2["SPAN"] = 99] = "SPAN";
+    TAG_ID2[TAG_ID2["STRIKE"] = 100] = "STRIKE";
+    TAG_ID2[TAG_ID2["STRONG"] = 101] = "STRONG";
+    TAG_ID2[TAG_ID2["STYLE"] = 102] = "STYLE";
+    TAG_ID2[TAG_ID2["SUB"] = 103] = "SUB";
+    TAG_ID2[TAG_ID2["SUMMARY"] = 104] = "SUMMARY";
+    TAG_ID2[TAG_ID2["SUP"] = 105] = "SUP";
+    TAG_ID2[TAG_ID2["TABLE"] = 106] = "TABLE";
+    TAG_ID2[TAG_ID2["TBODY"] = 107] = "TBODY";
+    TAG_ID2[TAG_ID2["TEMPLATE"] = 108] = "TEMPLATE";
+    TAG_ID2[TAG_ID2["TEXTAREA"] = 109] = "TEXTAREA";
+    TAG_ID2[TAG_ID2["TFOOT"] = 110] = "TFOOT";
+    TAG_ID2[TAG_ID2["TD"] = 111] = "TD";
+    TAG_ID2[TAG_ID2["TH"] = 112] = "TH";
+    TAG_ID2[TAG_ID2["THEAD"] = 113] = "THEAD";
+    TAG_ID2[TAG_ID2["TITLE"] = 114] = "TITLE";
+    TAG_ID2[TAG_ID2["TR"] = 115] = "TR";
+    TAG_ID2[TAG_ID2["TRACK"] = 116] = "TRACK";
+    TAG_ID2[TAG_ID2["TT"] = 117] = "TT";
+    TAG_ID2[TAG_ID2["U"] = 118] = "U";
+    TAG_ID2[TAG_ID2["UL"] = 119] = "UL";
+    TAG_ID2[TAG_ID2["SVG"] = 120] = "SVG";
+    TAG_ID2[TAG_ID2["VAR"] = 121] = "VAR";
+    TAG_ID2[TAG_ID2["WBR"] = 122] = "WBR";
+    TAG_ID2[TAG_ID2["XMP"] = 123] = "XMP";
+  })(TAG_ID || (TAG_ID = {}));
   var TAG_NAME_TO_ID = /* @__PURE__ */ new Map([
     [TAG_NAMES.A, TAG_ID.A],
     [TAG_NAMES.ADDRESS, TAG_ID.ADDRESS],
@@ -12719,6 +12518,7 @@ var source = (() => {
     [TAG_NAMES.RUBY, TAG_ID.RUBY],
     [TAG_NAMES.S, TAG_ID.S],
     [TAG_NAMES.SCRIPT, TAG_ID.SCRIPT],
+    [TAG_NAMES.SEARCH, TAG_ID.SEARCH],
     [TAG_NAMES.SECTION, TAG_ID.SECTION],
     [TAG_NAMES.SELECT, TAG_ID.SELECT],
     [TAG_NAMES.SOURCE, TAG_ID.SOURCE],
@@ -12844,9 +12644,7 @@ var source = (() => {
     [NS.XML]: /* @__PURE__ */ new Set(),
     [NS.XMLNS]: /* @__PURE__ */ new Set()
   };
-  function isNumberedHeader(tn) {
-    return tn === $.H1 || tn === $.H2 || tn === $.H3 || tn === $.H4 || tn === $.H5 || tn === $.H6;
-  }
+  var NUMBERED_HEADERS = /* @__PURE__ */ new Set([$.H1, $.H2, $.H3, $.H4, $.H5, $.H6]);
   var UNESCAPED_TEXT = /* @__PURE__ */ new Set([
     TAG_NAMES.STYLE,
     TAG_NAMES.SCRIPT,
@@ -12861,35 +12659,6 @@ var source = (() => {
   }
 
   // node_modules/parse5/dist/tokenizer/index.js
-  var C1_CONTROLS_REFERENCE_REPLACEMENTS = /* @__PURE__ */ new Map([
-    [128, 8364],
-    [130, 8218],
-    [131, 402],
-    [132, 8222],
-    [133, 8230],
-    [134, 8224],
-    [135, 8225],
-    [136, 710],
-    [137, 8240],
-    [138, 352],
-    [139, 8249],
-    [140, 338],
-    [142, 381],
-    [145, 8216],
-    [146, 8217],
-    [147, 8220],
-    [148, 8221],
-    [149, 8226],
-    [150, 8211],
-    [151, 8212],
-    [152, 732],
-    [153, 8482],
-    [154, 353],
-    [155, 8250],
-    [156, 339],
-    [158, 382],
-    [159, 376]
-  ]);
   var State;
   (function(State3) {
     State3[State3["DATA"] = 0] = "DATA";
@@ -12964,13 +12733,7 @@ var source = (() => {
     State3[State3["CDATA_SECTION_BRACKET"] = 69] = "CDATA_SECTION_BRACKET";
     State3[State3["CDATA_SECTION_END"] = 70] = "CDATA_SECTION_END";
     State3[State3["CHARACTER_REFERENCE"] = 71] = "CHARACTER_REFERENCE";
-    State3[State3["NAMED_CHARACTER_REFERENCE"] = 72] = "NAMED_CHARACTER_REFERENCE";
-    State3[State3["AMBIGUOUS_AMPERSAND"] = 73] = "AMBIGUOUS_AMPERSAND";
-    State3[State3["NUMERIC_CHARACTER_REFERENCE"] = 74] = "NUMERIC_CHARACTER_REFERENCE";
-    State3[State3["HEXADEMICAL_CHARACTER_REFERENCE_START"] = 75] = "HEXADEMICAL_CHARACTER_REFERENCE_START";
-    State3[State3["HEXADEMICAL_CHARACTER_REFERENCE"] = 76] = "HEXADEMICAL_CHARACTER_REFERENCE";
-    State3[State3["DECIMAL_CHARACTER_REFERENCE"] = 77] = "DECIMAL_CHARACTER_REFERENCE";
-    State3[State3["NUMERIC_CHARACTER_REFERENCE_END"] = 78] = "NUMERIC_CHARACTER_REFERENCE_END";
+    State3[State3["AMBIGUOUS_AMPERSAND"] = 72] = "AMBIGUOUS_AMPERSAND";
   })(State || (State = {}));
   var TokenizerMode = {
     DATA: State.DATA,
@@ -12995,26 +12758,28 @@ var source = (() => {
   function isAsciiAlphaNumeric2(cp) {
     return isAsciiLetter(cp) || isAsciiDigit(cp);
   }
-  function isAsciiUpperHexDigit(cp) {
-    return cp >= CODE_POINTS.LATIN_CAPITAL_A && cp <= CODE_POINTS.LATIN_CAPITAL_F;
-  }
-  function isAsciiLowerHexDigit(cp) {
-    return cp >= CODE_POINTS.LATIN_SMALL_A && cp <= CODE_POINTS.LATIN_SMALL_F;
-  }
-  function isAsciiHexDigit(cp) {
-    return isAsciiDigit(cp) || isAsciiUpperHexDigit(cp) || isAsciiLowerHexDigit(cp);
-  }
   function toAsciiLower(cp) {
     return cp + 32;
   }
   function isWhitespace2(cp) {
     return cp === CODE_POINTS.SPACE || cp === CODE_POINTS.LINE_FEED || cp === CODE_POINTS.TABULATION || cp === CODE_POINTS.FORM_FEED;
   }
-  function isEntityInAttributeInvalidEnd2(nextCp) {
-    return nextCp === CODE_POINTS.EQUALS_SIGN || isAsciiAlphaNumeric2(nextCp);
-  }
   function isScriptDataDoubleEscapeSequenceEnd(cp) {
     return isWhitespace2(cp) || cp === CODE_POINTS.SOLIDUS || cp === CODE_POINTS.GREATER_THAN_SIGN;
+  }
+  function getErrorForNumericCharacterReference(code) {
+    if (code === CODE_POINTS.NULL) {
+      return ERR.nullCharacterReference;
+    } else if (code > 1114111) {
+      return ERR.characterReferenceOutsideUnicodeRange;
+    } else if (isSurrogate(code)) {
+      return ERR.surrogateCharacterReference;
+    } else if (isUndefinedCodePoint(code)) {
+      return ERR.noncharacterCharacterReference;
+    } else if (isControlCodePoint(code) || code === CODE_POINTS.CARRIAGE_RETURN) {
+      return ERR.controlCharacterReference;
+    }
+    return null;
   }
   var Tokenizer = class {
     constructor(options, handler) {
@@ -13027,18 +12792,34 @@ var source = (() => {
       this.active = false;
       this.state = State.DATA;
       this.returnState = State.DATA;
-      this.charRefCode = -1;
+      this.entityStartPos = 0;
       this.consumedAfterSnapshot = -1;
       this.currentCharacterToken = null;
       this.currentToken = null;
       this.currentAttr = { name: "", value: "" };
       this.preprocessor = new Preprocessor(handler);
       this.currentLocation = this.getCurrentLocation(-1);
+      this.entityDecoder = new EntityDecoder(decode_data_html_default, (cp, consumed) => {
+        this.preprocessor.pos = this.entityStartPos + consumed - 1;
+        this._flushCodePointConsumedAsCharacterReference(cp);
+      }, handler.onParseError ? {
+        missingSemicolonAfterCharacterReference: () => {
+          this._err(ERR.missingSemicolonAfterCharacterReference, 1);
+        },
+        absenceOfDigitsInNumericCharacterReference: (consumed) => {
+          this._err(ERR.absenceOfDigitsInNumericCharacterReference, this.entityStartPos - this.preprocessor.pos + consumed);
+        },
+        validateNumericCharacterReference: (code) => {
+          const error = getErrorForNumericCharacterReference(code);
+          if (error)
+            this._err(error, 1);
+        }
+      } : void 0);
     }
     //Errors
-    _err(code) {
+    _err(code, cpOffset = 0) {
       var _a2, _b;
-      (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code));
+      (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code, cpOffset));
     }
     // NOTE: `offset` may never run across line boundaries.
     getCurrentLocation(offset) {
@@ -13099,7 +12880,8 @@ var source = (() => {
     //Hibernation
     _ensureHibernation() {
       if (this.preprocessor.endOfChunkHit) {
-        this._unconsume(this.consumedAfterSnapshot);
+        this.preprocessor.retreat(this.consumedAfterSnapshot);
+        this.consumedAfterSnapshot = 0;
         this.active = false;
         return true;
       }
@@ -13109,14 +12891,6 @@ var source = (() => {
     _consume() {
       this.consumedAfterSnapshot++;
       return this.preprocessor.advance();
-    }
-    _unconsume(count) {
-      this.consumedAfterSnapshot -= count;
-      this.preprocessor.retreat(count);
-    }
-    _reconsumeInState(state, cp) {
-      this.state = state;
-      this._callState(cp);
     }
     _advanceBy(count) {
       this.consumedAfterSnapshot += count;
@@ -13283,7 +13057,7 @@ var source = (() => {
       this.active = false;
     }
     //Characters emission
-    //OPTIMIZATION: specification uses only one type of character tokens (one token per character).
+    //OPTIMIZATION: The specification uses only one type of character token (one token per character).
     //This causes a huge memory overhead and a lot of unnecessary parser loops. parse5 uses 3 groups of characters.
     //If we have a sequence of characters that belong to the same group, the parser can process it
     //as a single solid character token.
@@ -13293,13 +13067,13 @@ var source = (() => {
     //3)TokenType.CHARACTER - any character sequence which don't belong to groups 1 and 2 (e.g. 'abcdef1234@@#$%^')
     _appendCharToCurrentCharacterToken(type, ch) {
       if (this.currentCharacterToken) {
-        if (this.currentCharacterToken.type !== type) {
+        if (this.currentCharacterToken.type === type) {
+          this.currentCharacterToken.chars += ch;
+          return;
+        } else {
           this.currentLocation = this.getCurrentLocation(0);
           this._emitCurrentCharacterToken(this.currentLocation);
           this.preprocessor.dropParsedChunk();
-        } else {
-          this.currentCharacterToken.chars += ch;
-          return;
         }
       }
       this._createCharacterToken(type, ch);
@@ -13314,39 +13088,11 @@ var source = (() => {
       this._appendCharToCurrentCharacterToken(TokenType.CHARACTER, ch);
     }
     // Character reference helpers
-    _matchNamedCharacterReference(cp) {
-      let result = null;
-      let excess = 0;
-      let withoutSemicolon = false;
-      for (let i = 0, current = decode_data_html_default[0]; i >= 0; cp = this._consume()) {
-        i = determineBranch(decode_data_html_default, current, i + 1, cp);
-        if (i < 0)
-          break;
-        excess += 1;
-        current = decode_data_html_default[i];
-        const masked = current & BinTrieFlags.VALUE_LENGTH;
-        if (masked) {
-          const valueLength = (masked >> 14) - 1;
-          if (cp !== CODE_POINTS.SEMICOLON && this._isCharacterReferenceInAttribute() && isEntityInAttributeInvalidEnd2(this.preprocessor.peek(1))) {
-            result = [CODE_POINTS.AMPERSAND];
-            i += valueLength;
-          } else {
-            result = valueLength === 0 ? [decode_data_html_default[i] & ~BinTrieFlags.VALUE_LENGTH] : valueLength === 1 ? [decode_data_html_default[++i]] : [decode_data_html_default[++i], decode_data_html_default[++i]];
-            excess = 0;
-            withoutSemicolon = cp !== CODE_POINTS.SEMICOLON;
-          }
-          if (valueLength === 0) {
-            this._consume();
-            break;
-          }
-        }
-      }
-      this._unconsume(excess);
-      if (withoutSemicolon && !this.preprocessor.endOfChunkHit) {
-        this._err(ERR.missingSemicolonAfterCharacterReference);
-      }
-      this._unconsume(1);
-      return result;
+    _startCharacterReference() {
+      this.returnState = this.state;
+      this.state = State.CHARACTER_REFERENCE;
+      this.entityStartPos = this.preprocessor.pos;
+      this.entityDecoder.startEntity(this._isCharacterReferenceInAttribute() ? DecodingMode.Attribute : DecodingMode.Legacy);
     }
     _isCharacterReferenceInAttribute() {
       return this.returnState === State.ATTRIBUTE_VALUE_DOUBLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_SINGLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_UNQUOTED;
@@ -13646,35 +13392,11 @@ var source = (() => {
           break;
         }
         case State.CHARACTER_REFERENCE: {
-          this._stateCharacterReference(cp);
-          break;
-        }
-        case State.NAMED_CHARACTER_REFERENCE: {
-          this._stateNamedCharacterReference(cp);
+          this._stateCharacterReference();
           break;
         }
         case State.AMBIGUOUS_AMPERSAND: {
           this._stateAmbiguousAmpersand(cp);
-          break;
-        }
-        case State.NUMERIC_CHARACTER_REFERENCE: {
-          this._stateNumericCharacterReference(cp);
-          break;
-        }
-        case State.HEXADEMICAL_CHARACTER_REFERENCE_START: {
-          this._stateHexademicalCharacterReferenceStart(cp);
-          break;
-        }
-        case State.HEXADEMICAL_CHARACTER_REFERENCE: {
-          this._stateHexademicalCharacterReference(cp);
-          break;
-        }
-        case State.DECIMAL_CHARACTER_REFERENCE: {
-          this._stateDecimalCharacterReference(cp);
-          break;
-        }
-        case State.NUMERIC_CHARACTER_REFERENCE_END: {
-          this._stateNumericCharacterReferenceEnd(cp);
           break;
         }
         default: {
@@ -13692,8 +13414,7 @@ var source = (() => {
           break;
         }
         case CODE_POINTS.AMPERSAND: {
-          this.returnState = State.DATA;
-          this.state = State.CHARACTER_REFERENCE;
+          this._startCharacterReference();
           break;
         }
         case CODE_POINTS.NULL: {
@@ -13715,8 +13436,7 @@ var source = (() => {
     _stateRcdata(cp) {
       switch (cp) {
         case CODE_POINTS.AMPERSAND: {
-          this.returnState = State.RCDATA;
-          this.state = State.CHARACTER_REFERENCE;
+          this._startCharacterReference();
           break;
         }
         case CODE_POINTS.LESS_THAN_SIGN: {
@@ -14465,8 +14185,7 @@ var source = (() => {
           break;
         }
         case CODE_POINTS.AMPERSAND: {
-          this.returnState = State.ATTRIBUTE_VALUE_DOUBLE_QUOTED;
-          this.state = State.CHARACTER_REFERENCE;
+          this._startCharacterReference();
           break;
         }
         case CODE_POINTS.NULL: {
@@ -14493,8 +14212,7 @@ var source = (() => {
           break;
         }
         case CODE_POINTS.AMPERSAND: {
-          this.returnState = State.ATTRIBUTE_VALUE_SINGLE_QUOTED;
-          this.state = State.CHARACTER_REFERENCE;
+          this._startCharacterReference();
           break;
         }
         case CODE_POINTS.NULL: {
@@ -14525,8 +14243,7 @@ var source = (() => {
           break;
         }
         case CODE_POINTS.AMPERSAND: {
-          this.returnState = State.ATTRIBUTE_VALUE_UNQUOTED;
-          this.state = State.CHARACTER_REFERENCE;
+          this._startCharacterReference();
           break;
         }
         case CODE_POINTS.GREATER_THAN_SIGN: {
@@ -15521,30 +15238,25 @@ var source = (() => {
     }
     // Character reference state
     //------------------------------------------------------------------
-    _stateCharacterReference(cp) {
-      if (cp === CODE_POINTS.NUMBER_SIGN) {
-        this.state = State.NUMERIC_CHARACTER_REFERENCE;
-      } else if (isAsciiAlphaNumeric2(cp)) {
-        this.state = State.NAMED_CHARACTER_REFERENCE;
-        this._stateNamedCharacterReference(cp);
-      } else {
-        this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-        this._reconsumeInState(this.returnState, cp);
-      }
-    }
-    // Named character reference state
-    //------------------------------------------------------------------
-    _stateNamedCharacterReference(cp) {
-      const matchResult = this._matchNamedCharacterReference(cp);
-      if (this._ensureHibernation()) {
-      } else if (matchResult) {
-        for (let i = 0; i < matchResult.length; i++) {
-          this._flushCodePointConsumedAsCharacterReference(matchResult[i]);
+    _stateCharacterReference() {
+      let length = this.entityDecoder.write(this.preprocessor.html, this.preprocessor.pos);
+      if (length < 0) {
+        if (this.preprocessor.lastChunkWritten) {
+          length = this.entityDecoder.end();
+        } else {
+          this.active = false;
+          this.preprocessor.pos = this.preprocessor.html.length - 1;
+          this.consumedAfterSnapshot = 0;
+          this.preprocessor.endOfChunkHit = true;
+          return;
         }
-        this.state = this.returnState;
-      } else {
+      }
+      if (length === 0) {
+        this.preprocessor.pos = this.entityStartPos;
         this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-        this.state = State.AMBIGUOUS_AMPERSAND;
+        this.state = !this._isCharacterReferenceInAttribute() && isAsciiAlphaNumeric2(this.preprocessor.peek(1)) ? State.AMBIGUOUS_AMPERSAND : this.returnState;
+      } else {
+        this.state = this.returnState;
       }
     }
     // Ambiguos ampersand state
@@ -15556,92 +15268,9 @@ var source = (() => {
         if (cp === CODE_POINTS.SEMICOLON) {
           this._err(ERR.unknownNamedCharacterReference);
         }
-        this._reconsumeInState(this.returnState, cp);
-      }
-    }
-    // Numeric character reference state
-    //------------------------------------------------------------------
-    _stateNumericCharacterReference(cp) {
-      this.charRefCode = 0;
-      if (cp === CODE_POINTS.LATIN_SMALL_X || cp === CODE_POINTS.LATIN_CAPITAL_X) {
-        this.state = State.HEXADEMICAL_CHARACTER_REFERENCE_START;
-      } else if (isAsciiDigit(cp)) {
-        this.state = State.DECIMAL_CHARACTER_REFERENCE;
-        this._stateDecimalCharacterReference(cp);
-      } else {
-        this._err(ERR.absenceOfDigitsInNumericCharacterReference);
-        this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-        this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.NUMBER_SIGN);
-        this._reconsumeInState(this.returnState, cp);
-      }
-    }
-    // Hexademical character reference start state
-    //------------------------------------------------------------------
-    _stateHexademicalCharacterReferenceStart(cp) {
-      if (isAsciiHexDigit(cp)) {
-        this.state = State.HEXADEMICAL_CHARACTER_REFERENCE;
-        this._stateHexademicalCharacterReference(cp);
-      } else {
-        this._err(ERR.absenceOfDigitsInNumericCharacterReference);
-        this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-        this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.NUMBER_SIGN);
-        this._unconsume(2);
         this.state = this.returnState;
+        this._callState(cp);
       }
-    }
-    // Hexademical character reference state
-    //------------------------------------------------------------------
-    _stateHexademicalCharacterReference(cp) {
-      if (isAsciiUpperHexDigit(cp)) {
-        this.charRefCode = this.charRefCode * 16 + cp - 55;
-      } else if (isAsciiLowerHexDigit(cp)) {
-        this.charRefCode = this.charRefCode * 16 + cp - 87;
-      } else if (isAsciiDigit(cp)) {
-        this.charRefCode = this.charRefCode * 16 + cp - 48;
-      } else if (cp === CODE_POINTS.SEMICOLON) {
-        this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-      } else {
-        this._err(ERR.missingSemicolonAfterCharacterReference);
-        this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-        this._stateNumericCharacterReferenceEnd(cp);
-      }
-    }
-    // Decimal character reference state
-    //------------------------------------------------------------------
-    _stateDecimalCharacterReference(cp) {
-      if (isAsciiDigit(cp)) {
-        this.charRefCode = this.charRefCode * 10 + cp - 48;
-      } else if (cp === CODE_POINTS.SEMICOLON) {
-        this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-      } else {
-        this._err(ERR.missingSemicolonAfterCharacterReference);
-        this.state = State.NUMERIC_CHARACTER_REFERENCE_END;
-        this._stateNumericCharacterReferenceEnd(cp);
-      }
-    }
-    // Numeric character reference end state
-    //------------------------------------------------------------------
-    _stateNumericCharacterReferenceEnd(cp) {
-      if (this.charRefCode === CODE_POINTS.NULL) {
-        this._err(ERR.nullCharacterReference);
-        this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-      } else if (this.charRefCode > 1114111) {
-        this._err(ERR.characterReferenceOutsideUnicodeRange);
-        this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-      } else if (isSurrogate(this.charRefCode)) {
-        this._err(ERR.surrogateCharacterReference);
-        this.charRefCode = CODE_POINTS.REPLACEMENT_CHARACTER;
-      } else if (isUndefinedCodePoint(this.charRefCode)) {
-        this._err(ERR.noncharacterCharacterReference);
-      } else if (isControlCodePoint(this.charRefCode) || this.charRefCode === CODE_POINTS.CARRIAGE_RETURN) {
-        this._err(ERR.controlCharacterReference);
-        const replacement = C1_CONTROLS_REFERENCE_REPLACEMENTS.get(this.charRefCode);
-        if (replacement !== void 0) {
-          this.charRefCode = replacement;
-        }
-      }
-      this._flushCodePointConsumedAsCharacterReference(this.charRefCode);
-      this._reconsumeInState(this.returnState, cp);
     }
   };
 
@@ -15659,31 +15288,25 @@ var source = (() => {
     TAG_ID.THEAD,
     TAG_ID.TR
   ]);
-  var SCOPING_ELEMENT_NS = /* @__PURE__ */ new Map([
-    [TAG_ID.APPLET, NS.HTML],
-    [TAG_ID.CAPTION, NS.HTML],
-    [TAG_ID.HTML, NS.HTML],
-    [TAG_ID.MARQUEE, NS.HTML],
-    [TAG_ID.OBJECT, NS.HTML],
-    [TAG_ID.TABLE, NS.HTML],
-    [TAG_ID.TD, NS.HTML],
-    [TAG_ID.TEMPLATE, NS.HTML],
-    [TAG_ID.TH, NS.HTML],
-    [TAG_ID.ANNOTATION_XML, NS.MATHML],
-    [TAG_ID.MI, NS.MATHML],
-    [TAG_ID.MN, NS.MATHML],
-    [TAG_ID.MO, NS.MATHML],
-    [TAG_ID.MS, NS.MATHML],
-    [TAG_ID.MTEXT, NS.MATHML],
-    [TAG_ID.DESC, NS.SVG],
-    [TAG_ID.FOREIGN_OBJECT, NS.SVG],
-    [TAG_ID.TITLE, NS.SVG]
+  var SCOPING_ELEMENTS_HTML = /* @__PURE__ */ new Set([
+    TAG_ID.APPLET,
+    TAG_ID.CAPTION,
+    TAG_ID.HTML,
+    TAG_ID.MARQUEE,
+    TAG_ID.OBJECT,
+    TAG_ID.TABLE,
+    TAG_ID.TD,
+    TAG_ID.TEMPLATE,
+    TAG_ID.TH
   ]);
-  var NAMED_HEADERS = [TAG_ID.H1, TAG_ID.H2, TAG_ID.H3, TAG_ID.H4, TAG_ID.H5, TAG_ID.H6];
-  var TABLE_ROW_CONTEXT = [TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML];
-  var TABLE_BODY_CONTEXT = [TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML];
-  var TABLE_CONTEXT = [TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML];
-  var TABLE_CELLS = [TAG_ID.TD, TAG_ID.TH];
+  var SCOPING_ELEMENTS_HTML_LIST = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.OL, TAG_ID.UL]);
+  var SCOPING_ELEMENTS_HTML_BUTTON = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.BUTTON]);
+  var SCOPING_ELEMENTS_MATHML = /* @__PURE__ */ new Set([TAG_ID.ANNOTATION_XML, TAG_ID.MI, TAG_ID.MN, TAG_ID.MO, TAG_ID.MS, TAG_ID.MTEXT]);
+  var SCOPING_ELEMENTS_SVG = /* @__PURE__ */ new Set([TAG_ID.DESC, TAG_ID.FOREIGN_OBJECT, TAG_ID.TITLE]);
+  var TABLE_ROW_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+  var TABLE_BODY_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+  var TABLE_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML]);
+  var TABLE_CELLS = /* @__PURE__ */ new Set([TAG_ID.TD, TAG_ID.TH]);
   var OpenElementStack = class {
     get currentTmplContentOrNode() {
       return this._isInTemplate() ? this.treeAdapter.getTemplateContent(this.current) : this.current;
@@ -15775,7 +15398,7 @@ var source = (() => {
       this.shortenToLength(idx < 0 ? 0 : idx);
     }
     popUntilNumberedHeaderPopped() {
-      this.popUntilPopped(NAMED_HEADERS, NS.HTML);
+      this.popUntilPopped(NUMBERED_HEADERS, NS.HTML);
     }
     popUntilTableCellPopped() {
       this.popUntilPopped(TABLE_CELLS, NS.HTML);
@@ -15786,7 +15409,7 @@ var source = (() => {
     }
     _indexOfTagNames(tagNames, namespace) {
       for (let i = this.stackTop; i >= 0; i--) {
-        if (tagNames.includes(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace) {
+        if (tagNames.has(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace) {
           return i;
         }
       }
@@ -15834,102 +15457,117 @@ var source = (() => {
       return this.stackTop === 0 && this.tagIDs[0] === TAG_ID.HTML;
     }
     //Element in scope
-    hasInScope(tagName) {
+    hasInDynamicScope(tagName, htmlScope) {
       for (let i = this.stackTop; i >= 0; i--) {
         const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (tn === tagName && ns === NS.HTML) {
-          return true;
-        }
-        if (SCOPING_ELEMENT_NS.get(tn) === ns) {
-          return false;
+        switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
+          case NS.HTML: {
+            if (tn === tagName)
+              return true;
+            if (htmlScope.has(tn))
+              return false;
+            break;
+          }
+          case NS.SVG: {
+            if (SCOPING_ELEMENTS_SVG.has(tn))
+              return false;
+            break;
+          }
+          case NS.MATHML: {
+            if (SCOPING_ELEMENTS_MATHML.has(tn))
+              return false;
+            break;
+          }
         }
       }
       return true;
+    }
+    hasInScope(tagName) {
+      return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML);
+    }
+    hasInListItemScope(tagName) {
+      return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML_LIST);
+    }
+    hasInButtonScope(tagName) {
+      return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML_BUTTON);
     }
     hasNumberedHeaderInScope() {
       for (let i = this.stackTop; i >= 0; i--) {
         const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (isNumberedHeader(tn) && ns === NS.HTML) {
-          return true;
-        }
-        if (SCOPING_ELEMENT_NS.get(tn) === ns) {
-          return false;
-        }
-      }
-      return true;
-    }
-    hasInListItemScope(tagName) {
-      for (let i = this.stackTop; i >= 0; i--) {
-        const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (tn === tagName && ns === NS.HTML) {
-          return true;
-        }
-        if ((tn === TAG_ID.UL || tn === TAG_ID.OL) && ns === NS.HTML || SCOPING_ELEMENT_NS.get(tn) === ns) {
-          return false;
-        }
-      }
-      return true;
-    }
-    hasInButtonScope(tagName) {
-      for (let i = this.stackTop; i >= 0; i--) {
-        const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (tn === tagName && ns === NS.HTML) {
-          return true;
-        }
-        if (tn === TAG_ID.BUTTON && ns === NS.HTML || SCOPING_ELEMENT_NS.get(tn) === ns) {
-          return false;
+        switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
+          case NS.HTML: {
+            if (NUMBERED_HEADERS.has(tn))
+              return true;
+            if (SCOPING_ELEMENTS_HTML.has(tn))
+              return false;
+            break;
+          }
+          case NS.SVG: {
+            if (SCOPING_ELEMENTS_SVG.has(tn))
+              return false;
+            break;
+          }
+          case NS.MATHML: {
+            if (SCOPING_ELEMENTS_MATHML.has(tn))
+              return false;
+            break;
+          }
         }
       }
       return true;
     }
     hasInTableScope(tagName) {
       for (let i = this.stackTop; i >= 0; i--) {
-        const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (ns !== NS.HTML) {
+        if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
           continue;
         }
-        if (tn === tagName) {
-          return true;
-        }
-        if (tn === TAG_ID.TABLE || tn === TAG_ID.TEMPLATE || tn === TAG_ID.HTML) {
-          return false;
+        switch (this.tagIDs[i]) {
+          case tagName: {
+            return true;
+          }
+          case TAG_ID.TABLE:
+          case TAG_ID.HTML: {
+            return false;
+          }
         }
       }
       return true;
     }
     hasTableBodyContextInTableScope() {
       for (let i = this.stackTop; i >= 0; i--) {
-        const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (ns !== NS.HTML) {
+        if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
           continue;
         }
-        if (tn === TAG_ID.TBODY || tn === TAG_ID.THEAD || tn === TAG_ID.TFOOT) {
-          return true;
-        }
-        if (tn === TAG_ID.TABLE || tn === TAG_ID.HTML) {
-          return false;
+        switch (this.tagIDs[i]) {
+          case TAG_ID.TBODY:
+          case TAG_ID.THEAD:
+          case TAG_ID.TFOOT: {
+            return true;
+          }
+          case TAG_ID.TABLE:
+          case TAG_ID.HTML: {
+            return false;
+          }
         }
       }
       return true;
     }
     hasInSelectScope(tagName) {
       for (let i = this.stackTop; i >= 0; i--) {
-        const tn = this.tagIDs[i];
-        const ns = this.treeAdapter.getNamespaceURI(this.items[i]);
-        if (ns !== NS.HTML) {
+        if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
           continue;
         }
-        if (tn === tagName) {
-          return true;
-        }
-        if (tn !== TAG_ID.OPTION && tn !== TAG_ID.OPTGROUP) {
-          return false;
+        switch (this.tagIDs[i]) {
+          case tagName: {
+            return true;
+          }
+          case TAG_ID.OPTION:
+          case TAG_ID.OPTGROUP: {
+            break;
+          }
+          default: {
+            return false;
+          }
         }
       }
       return true;
@@ -15959,7 +15597,7 @@ var source = (() => {
   (function(EntryType2) {
     EntryType2[EntryType2["Marker"] = 0] = "Marker";
     EntryType2[EntryType2["Element"] = 1] = "Element";
-  })(EntryType = EntryType || (EntryType = {}));
+  })(EntryType || (EntryType = {}));
   var MARKER = { type: EntryType.Marker };
   var FormattingElementList = class {
     constructor(treeAdapter) {
@@ -16060,13 +15698,6 @@ var source = (() => {
 
   // node_modules/parse5/dist/tree-adapters/default.js
   init_buffer();
-  function createTextNode(value) {
-    return {
-      nodeName: "#text",
-      value,
-      parentNode: null
-    };
-  }
   var defaultTreeAdapter = {
     //Node construction
     createDocument() {
@@ -16096,6 +15727,13 @@ var source = (() => {
       return {
         nodeName: "#comment",
         data: data2,
+        parentNode: null
+      };
+    },
+    createTextNode(value) {
+      return {
+        nodeName: "#text",
+        value,
         parentNode: null
       };
     },
@@ -16153,14 +15791,14 @@ var source = (() => {
           return;
         }
       }
-      defaultTreeAdapter.appendChild(parentNode, createTextNode(text3));
+      defaultTreeAdapter.appendChild(parentNode, defaultTreeAdapter.createTextNode(text3));
     },
     insertTextBefore(parentNode, text3, referenceNode) {
       const prevNode = parentNode.childNodes[parentNode.childNodes.indexOf(referenceNode) - 1];
       if (prevNode && defaultTreeAdapter.isTextNode(prevNode)) {
         prevNode.value += text3;
       } else {
-        defaultTreeAdapter.insertBefore(parentNode, createTextNode(text3), referenceNode);
+        defaultTreeAdapter.insertBefore(parentNode, defaultTreeAdapter.createTextNode(text3), referenceNode);
       }
     },
     adoptAttributes(recipient, attrs) {
@@ -16417,7 +16055,6 @@ var source = (() => {
     ["xlink:show", { prefix: "xlink", name: "show", namespace: NS.XLINK }],
     ["xlink:title", { prefix: "xlink", name: "title", namespace: NS.XLINK }],
     ["xlink:type", { prefix: "xlink", name: "type", namespace: NS.XLINK }],
-    ["xml:base", { prefix: "xml", name: "base", namespace: NS.XML }],
     ["xml:lang", { prefix: "xml", name: "lang", namespace: NS.XML }],
     ["xml:space", { prefix: "xml", name: "space", namespace: NS.XML }],
     ["xmlns", { prefix: "", name: "xmlns", namespace: NS.XMLNS }],
@@ -16671,6 +16308,7 @@ var source = (() => {
       return fragment;
     }
     //Errors
+    /** @internal */
     _err(token, code, beforeToken) {
       var _a2;
       if (!this.onParseError)
@@ -16688,12 +16326,14 @@ var source = (() => {
       this.onParseError(err);
     }
     //Stack events
+    /** @internal */
     onItemPush(node, tid, isTop) {
       var _a2, _b;
       (_b = (_a2 = this.treeAdapter).onItemPush) === null || _b === void 0 ? void 0 : _b.call(_a2, node);
       if (isTop && this.openElements.stackTop > 0)
         this._setContextModes(node, tid);
     }
+    /** @internal */
     onItemPop(node, isTop) {
       var _a2, _b;
       if (this.options.sourceCodeLocationInfo) {
@@ -16717,6 +16357,7 @@ var source = (() => {
       this.currentNotInHTML = !isHTML;
       this.tokenizer.inForeignNode = !isHTML && !this._isIntegrationPoint(tid, current);
     }
+    /** @protected */
     _switchToTextParsing(currentToken, nextTokenizerState) {
       this._insertElement(currentToken, NS.HTML);
       this.tokenizer.state = nextTokenizerState;
@@ -16729,9 +16370,11 @@ var source = (() => {
       this.tokenizer.state = TokenizerMode.PLAINTEXT;
     }
     //Fragment parsing
+    /** @protected */
     _getAdjustedCurrentElement() {
       return this.openElements.stackTop === 0 && this.fragmentContext ? this.fragmentContext : this.openElements.current;
     }
+    /** @protected */
     _findFormInFragmentContext() {
       let node = this.fragmentContext;
       while (node) {
@@ -16773,6 +16416,7 @@ var source = (() => {
       }
     }
     //Tree mutation
+    /** @protected */
     _setDocumentType(token) {
       const name = token.name || "";
       const publicId = token.publicId || "";
@@ -16786,6 +16430,7 @@ var source = (() => {
         }
       }
     }
+    /** @protected */
     _attachElementToTree(element, location) {
       if (this.options.sourceCodeLocationInfo) {
         const loc = location && {
@@ -16801,20 +16446,28 @@ var source = (() => {
         this.treeAdapter.appendChild(parent2, element);
       }
     }
+    /**
+     * For self-closing tags. Add an element to the tree, but skip adding it
+     * to the stack.
+     */
+    /** @protected */
     _appendElement(token, namespaceURI) {
       const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
       this._attachElementToTree(element, token.location);
     }
+    /** @protected */
     _insertElement(token, namespaceURI) {
       const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
       this._attachElementToTree(element, token.location);
       this.openElements.push(element, token.tagID);
     }
+    /** @protected */
     _insertFakeElement(tagName, tagID) {
       const element = this.treeAdapter.createElement(tagName, NS.HTML, []);
       this._attachElementToTree(element, null);
       this.openElements.push(element, tagID);
     }
+    /** @protected */
     _insertTemplate(token) {
       const tmpl = this.treeAdapter.createElement(token.tagName, NS.HTML, token.attrs);
       const content = this.treeAdapter.createDocumentFragment();
@@ -16824,6 +16477,7 @@ var source = (() => {
       if (this.options.sourceCodeLocationInfo)
         this.treeAdapter.setNodeSourceCodeLocation(content, null);
     }
+    /** @protected */
     _insertFakeRootElement() {
       const element = this.treeAdapter.createElement(TAG_NAMES.HTML, NS.HTML, []);
       if (this.options.sourceCodeLocationInfo)
@@ -16831,6 +16485,7 @@ var source = (() => {
       this.treeAdapter.appendChild(this.openElements.current, element);
       this.openElements.push(element, TAG_ID.HTML);
     }
+    /** @protected */
     _appendCommentNode(token, parent2) {
       const commentNode = this.treeAdapter.createCommentNode(token.data);
       this.treeAdapter.appendChild(parent2, commentNode);
@@ -16838,6 +16493,7 @@ var source = (() => {
         this.treeAdapter.setNodeSourceCodeLocation(commentNode, token.location);
       }
     }
+    /** @protected */
     _insertCharacters(token) {
       let parent2;
       let beforeElement;
@@ -16865,12 +16521,14 @@ var source = (() => {
         this.treeAdapter.setNodeSourceCodeLocation(textNode, token.location);
       }
     }
+    /** @protected */
     _adoptNodes(donor, recipient) {
       for (let child = this.treeAdapter.getFirstChild(donor); child; child = this.treeAdapter.getFirstChild(donor)) {
         this.treeAdapter.detachNode(child);
         this.treeAdapter.appendChild(recipient, child);
       }
     }
+    /** @protected */
     _setEndLocation(element, closingToken) {
       if (this.treeAdapter.getNodeSourceCodeLocation(element) && closingToken.location) {
         const ctLoc = closingToken.location;
@@ -16914,6 +16572,7 @@ var source = (() => {
         (token.tagID === TAG_ID.MGLYPH || token.tagID === TAG_ID.MALIGNMARK) && !this._isIntegrationPoint(currentTagId, current, NS.HTML)
       );
     }
+    /** @protected */
     _processToken(token) {
       switch (token.type) {
         case TokenType.CHARACTER: {
@@ -16951,12 +16610,14 @@ var source = (() => {
       }
     }
     //Integration points
+    /** @protected */
     _isIntegrationPoint(tid, element, foreignNS) {
       const ns = this.treeAdapter.getNamespaceURI(element);
       const attrs = this.treeAdapter.getAttrList(element);
       return isIntegrationPoint(tid, ns, attrs, foreignNS);
     }
     //Active formatting elements reconstruction
+    /** @protected */
     _reconstructActiveFormattingElements() {
       const listLength = this.activeFormattingElements.entries.length;
       if (listLength) {
@@ -16970,17 +16631,20 @@ var source = (() => {
       }
     }
     //Close elements
+    /** @protected */
     _closeTableCell() {
       this.openElements.generateImpliedEndTags();
       this.openElements.popUntilTableCellPopped();
       this.activeFormattingElements.clearToLastMarker();
       this.insertionMode = InsertionMode.IN_ROW;
     }
+    /** @protected */
     _closePElement() {
       this.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.P);
       this.openElements.popUntilTagNamePopped(TAG_ID.P);
     }
     //Insertion modes
+    /** @protected */
     _resetInsertionMode() {
       for (let i = this.openElements.stackTop; i >= 0; i--) {
         switch (i === 0 && this.fragmentContext ? this.fragmentContextID : this.openElements.tagIDs[i]) {
@@ -17045,6 +16709,7 @@ var source = (() => {
       }
       this.insertionMode = InsertionMode.IN_BODY;
     }
+    /** @protected */
     _resetInsertionModeForSelect(selectIdx) {
       if (selectIdx > 0) {
         for (let i = selectIdx - 1; i > 0; i--) {
@@ -17060,12 +16725,15 @@ var source = (() => {
       this.insertionMode = InsertionMode.IN_SELECT;
     }
     //Foster parenting
+    /** @protected */
     _isElementCausesFosterParenting(tn) {
       return TABLE_STRUCTURE_TAGS.has(tn);
     }
+    /** @protected */
     _shouldFosterParentOnInsertion() {
       return this.fosterParentingEnabled && this._isElementCausesFosterParenting(this.openElements.currentTagId);
     }
+    /** @protected */
     _findFosterParentingLocation() {
       for (let i = this.openElements.stackTop; i >= 0; i--) {
         const openElement = this.openElements.items[i];
@@ -17088,6 +16756,7 @@ var source = (() => {
       }
       return { parent: this.openElements.items[0], beforeElement: null };
     }
+    /** @protected */
     _fosterParentElement(element) {
       const location = this._findFosterParentingLocation();
       if (location.beforeElement) {
@@ -17097,10 +16766,12 @@ var source = (() => {
       }
     }
     //Special elements
+    /** @protected */
     _isSpecialElement(element, id) {
       const ns = this.treeAdapter.getNamespaceURI(element);
       return SPECIAL_ELEMENTS[ns].has(id);
     }
+    /** @internal */
     onCharacter(token) {
       this.skipNextNewLine = false;
       if (this.tokenizer.inForeignNode) {
@@ -17170,6 +16841,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onNullCharacter(token) {
       this.skipNextNewLine = false;
       if (this.tokenizer.inForeignNode) {
@@ -17226,6 +16898,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onComment(token) {
       this.skipNextNewLine = false;
       if (this.currentNotInHTML) {
@@ -17270,6 +16943,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onDoctype(token) {
       this.skipNextNewLine = false;
       switch (this.insertionMode) {
@@ -17291,6 +16965,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onStartTag(token) {
       this.skipNextNewLine = false;
       this.currentToken = token;
@@ -17308,6 +16983,7 @@ var source = (() => {
      * for nested calls.
      *
      * @param token The token to process.
+     * @protected
      */
     _processStartTag(token) {
       if (this.shouldProcessStartTagTokenInForeignContent(token)) {
@@ -17316,6 +16992,7 @@ var source = (() => {
         this._startTagOutsideForeignContent(token);
       }
     }
+    /** @protected */
     _startTagOutsideForeignContent(token) {
       switch (this.insertionMode) {
         case InsertionMode.INITIAL: {
@@ -17409,6 +17086,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onEndTag(token) {
       this.skipNextNewLine = false;
       this.currentToken = token;
@@ -17418,6 +17096,7 @@ var source = (() => {
         this._endTagOutsideForeignContent(token);
       }
     }
+    /** @protected */
     _endTagOutsideForeignContent(token) {
       switch (this.insertionMode) {
         case InsertionMode.INITIAL: {
@@ -17511,6 +17190,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onEof(token) {
       switch (this.insertionMode) {
         case InsertionMode.INITIAL: {
@@ -17572,6 +17252,7 @@ var source = (() => {
         default:
       }
     }
+    /** @internal */
     onWhitespaceCharacter(token) {
       if (this.skipNextNewLine) {
         this.skipNextNewLine = false;
@@ -18103,7 +17784,7 @@ var source = (() => {
     if (p.openElements.hasInButtonScope(TAG_ID.P)) {
       p._closePElement();
     }
-    if (isNumberedHeader(p.openElements.currentTagId)) {
+    if (NUMBERED_HEADERS.has(p.openElements.currentTagId)) {
       p.openElements.pop();
     }
     p._insertElement(token, NS.HTML);
@@ -18257,7 +17938,7 @@ var source = (() => {
     p.framesetOk = false;
     p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
   }
-  function noembedStartTagInBody(p, token) {
+  function rawTextStartTagInBody(p, token) {
     p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
   }
   function selectStartTagInBody(p, token) {
@@ -18360,6 +18041,7 @@ var source = (() => {
       case TAG_ID.DETAILS:
       case TAG_ID.ADDRESS:
       case TAG_ID.ARTICLE:
+      case TAG_ID.SEARCH:
       case TAG_ID.SECTION:
       case TAG_ID.SUMMARY:
       case TAG_ID.FIELDSET:
@@ -18483,8 +18165,9 @@ var source = (() => {
         optgroupStartTagInBody(p, token);
         break;
       }
-      case TAG_ID.NOEMBED: {
-        noembedStartTagInBody(p, token);
+      case TAG_ID.NOEMBED:
+      case TAG_ID.NOFRAMES: {
+        rawTextStartTagInBody(p, token);
         break;
       }
       case TAG_ID.FRAMESET: {
@@ -18497,7 +18180,7 @@ var source = (() => {
       }
       case TAG_ID.NOSCRIPT: {
         if (p.options.scriptingEnabled) {
-          noembedStartTagInBody(p, token);
+          rawTextStartTagInBody(p, token);
         } else {
           genericStartTagInBody(p, token);
         }
@@ -18663,6 +18346,7 @@ var source = (() => {
       case TAG_ID.ADDRESS:
       case TAG_ID.ARTICLE:
       case TAG_ID.DETAILS:
+      case TAG_ID.SEARCH:
       case TAG_ID.SECTION:
       case TAG_ID.SUMMARY:
       case TAG_ID.LISTING:
@@ -19231,6 +18915,17 @@ var source = (() => {
         p._insertElement(token, NS.HTML);
         break;
       }
+      case TAG_ID.HR: {
+        if (p.openElements.currentTagId === TAG_ID.OPTION) {
+          p.openElements.pop();
+        }
+        if (p.openElements.currentTagId === TAG_ID.OPTGROUP) {
+          p.openElements.pop();
+        }
+        p._appendElement(token, NS.HTML);
+        token.ackSelfClosing = true;
+        break;
+      }
       case TAG_ID.INPUT:
       case TAG_ID.KEYGEN:
       case TAG_ID.TEXTAREA:
@@ -19592,9 +19287,7 @@ var source = (() => {
     let html3 = "";
     for (const attr2 of treeAdapter.getAttrList(node)) {
       html3 += " ";
-      if (!attr2.namespace) {
-        html3 += attr2.name;
-      } else
+      if (attr2.namespace) {
         switch (attr2.namespace) {
           case NS.XML: {
             html3 += `xml:${attr2.name}`;
@@ -19615,6 +19308,9 @@ var source = (() => {
             html3 += `${attr2.prefix}:${attr2.name}`;
           }
         }
+      } else {
+        html3 += attr2.name;
+      }
       html3 += `="${escapeAttribute(attr2.value)}"`;
     }
     return html3;
@@ -19650,9 +19346,6 @@ var source = (() => {
 
   // node_modules/parse5-htmlparser2-tree-adapter/dist/index.js
   init_buffer();
-  function createTextNode2(value) {
-    return new Text2(value);
-  }
   function enquoteDoctypeId(id) {
     const quote = id.includes('"') ? "'" : '"';
     return quote + id + quote;
@@ -19705,6 +19398,9 @@ var source = (() => {
     createCommentNode(data2) {
       return new Comment2(data2);
     },
+    createTextNode(value) {
+      return new Text2(value);
+    },
     //Tree mutation
     appendChild(parentNode, newNode) {
       const prev2 = parentNode.children[parentNode.children.length - 1];
@@ -19742,9 +19438,9 @@ var source = (() => {
         doctypeNode = new ProcessingInstruction("!doctype", data2);
         adapter.appendChild(document, doctypeNode);
       }
-      doctypeNode["x-name"] = name !== null && name !== void 0 ? name : void 0;
-      doctypeNode["x-publicId"] = publicId !== null && publicId !== void 0 ? publicId : void 0;
-      doctypeNode["x-systemId"] = systemId !== null && systemId !== void 0 ? systemId : void 0;
+      doctypeNode["x-name"] = name;
+      doctypeNode["x-publicId"] = publicId;
+      doctypeNode["x-systemId"] = systemId;
     },
     setDocumentMode(document, mode) {
       document["x-mode"] = mode;
@@ -19773,7 +19469,7 @@ var source = (() => {
       if (lastChild && isText(lastChild)) {
         lastChild.data += text3;
       } else {
-        adapter.appendChild(parentNode, createTextNode2(text3));
+        adapter.appendChild(parentNode, adapter.createTextNode(text3));
       }
     },
     insertTextBefore(parentNode, text3, referenceNode) {
@@ -19781,13 +19477,13 @@ var source = (() => {
       if (prevNode && isText(prevNode)) {
         prevNode.data += text3;
       } else {
-        adapter.insertBefore(parentNode, createTextNode2(text3), referenceNode);
+        adapter.insertBefore(parentNode, adapter.createTextNode(text3), referenceNode);
       }
     },
     adoptAttributes(recipient, attrs) {
       for (let i = 0; i < attrs.length; i++) {
         const attrName = attrs[i].name;
-        if (typeof recipient.attribs[attrName] === "undefined") {
+        if (recipient.attribs[attrName] === void 0) {
           recipient.attribs[attrName] = attrs[i].value;
           recipient["x-attribsNamespace"][attrName] = attrs[i].namespace;
           recipient["x-attribsPrefix"][attrName] = attrs[i].prefix;
@@ -19857,14 +19553,14 @@ var source = (() => {
     }
   };
 
-  // node_modules/cheerio/lib/esm/parsers/parse5-adapter.js
+  // node_modules/cheerio/dist/browser/parsers/parse5-adapter.js
   function parseWithParse5(content, options, isDocument2, context) {
-    const opts = {
-      scriptingEnabled: typeof options.scriptingEnabled === "boolean" ? options.scriptingEnabled : true,
-      treeAdapter: adapter,
-      sourceCodeLocationInfo: options.sourceCodeLocationInfo
-    };
-    return isDocument2 ? parse4(content, opts) : parseFragment(context, content, opts);
+    var _a2;
+    (_a2 = options.treeAdapter) !== null && _a2 !== void 0 ? _a2 : options.treeAdapter = adapter;
+    if (options.scriptingEnabled !== false) {
+      options.scriptingEnabled = true;
+    }
+    return isDocument2 ? parse4(content, options) : parseFragment(context, content, options);
   }
   var renderOpts = { treeAdapter: adapter };
   function renderWithParse5(dom) {
@@ -19945,13 +19641,10 @@ var source = (() => {
     State3[State3["InSpecialComment"] = 20] = "InSpecialComment";
     State3[State3["InCommentLike"] = 21] = "InCommentLike";
     State3[State3["BeforeSpecialS"] = 22] = "BeforeSpecialS";
-    State3[State3["SpecialStartSequence"] = 23] = "SpecialStartSequence";
-    State3[State3["InSpecialTag"] = 24] = "InSpecialTag";
-    State3[State3["BeforeEntity"] = 25] = "BeforeEntity";
-    State3[State3["BeforeNumericEntity"] = 26] = "BeforeNumericEntity";
-    State3[State3["InNamedEntity"] = 27] = "InNamedEntity";
-    State3[State3["InNumericEntity"] = 28] = "InNumericEntity";
-    State3[State3["InHexEntity"] = 29] = "InHexEntity";
+    State3[State3["BeforeSpecialT"] = 23] = "BeforeSpecialT";
+    State3[State3["SpecialStartSequence"] = 24] = "SpecialStartSequence";
+    State3[State3["InSpecialTag"] = 25] = "InSpecialTag";
+    State3[State3["InEntity"] = 26] = "InEntity";
   })(State2 || (State2 = {}));
   function isWhitespace3(c) {
     return c === CharCodes2.Space || c === CharCodes2.NewLine || c === CharCodes2.Tab || c === CharCodes2.FormFeed || c === CharCodes2.CarriageReturn;
@@ -19959,14 +19652,8 @@ var source = (() => {
   function isEndOfTagSection(c) {
     return c === CharCodes2.Slash || c === CharCodes2.Gt || isWhitespace3(c);
   }
-  function isNumber2(c) {
-    return c >= CharCodes2.Zero && c <= CharCodes2.Nine;
-  }
   function isASCIIAlpha(c) {
     return c >= CharCodes2.LowerA && c <= CharCodes2.LowerZ || c >= CharCodes2.UpperA && c <= CharCodes2.UpperZ;
-  }
-  function isHexDigit(c) {
-    return c >= CharCodes2.UpperA && c <= CharCodes2.UpperF || c >= CharCodes2.LowerA && c <= CharCodes2.LowerF;
   }
   var QuoteType;
   (function(QuoteType2) {
@@ -19977,12 +19664,30 @@ var source = (() => {
   })(QuoteType || (QuoteType = {}));
   var Sequences = {
     Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]),
+    // CDATA[
     CdataEnd: new Uint8Array([93, 93, 62]),
+    // ]]>
     CommentEnd: new Uint8Array([45, 45, 62]),
+    // `-->`
     ScriptEnd: new Uint8Array([60, 47, 115, 99, 114, 105, 112, 116]),
+    // `<\/script`
     StyleEnd: new Uint8Array([60, 47, 115, 116, 121, 108, 101]),
-    TitleEnd: new Uint8Array([60, 47, 116, 105, 116, 108, 101])
+    // `</style`
+    TitleEnd: new Uint8Array([60, 47, 116, 105, 116, 108, 101]),
     // `</title`
+    TextareaEnd: new Uint8Array([
+      60,
+      47,
+      116,
+      101,
+      120,
+      116,
+      97,
+      114,
+      101,
+      97
+    ])
+    // `</textarea`
   };
   var Tokenizer2 = class {
     constructor({ xmlMode = false, decodeEntities = true }, cbs) {
@@ -19991,19 +19696,16 @@ var source = (() => {
       this.buffer = "";
       this.sectionStart = 0;
       this.index = 0;
+      this.entityStart = 0;
       this.baseState = State2.Text;
       this.isSpecial = false;
       this.running = true;
       this.offset = 0;
       this.currentSequence = void 0;
       this.sequenceIndex = 0;
-      this.trieIndex = 0;
-      this.trieCurrent = 0;
-      this.entityResult = 0;
-      this.entityExcess = 0;
       this.xmlMode = xmlMode;
       this.decodeEntities = decodeEntities;
-      this.entityTrie = xmlMode ? decode_data_xml_default : decode_data_html_default;
+      this.entityDecoder = new EntityDecoder(xmlMode ? decode_data_xml_default : decode_data_html_default, (cp, consumed) => this.emitCodePoint(cp, consumed));
     }
     reset() {
       this.state = State2.Text;
@@ -20033,18 +19735,6 @@ var source = (() => {
         this.parse();
       }
     }
-    /**
-     * The current index within all of the written data.
-     */
-    getIndex() {
-      return this.index;
-    }
-    /**
-     * The start of the current section.
-     */
-    getSectionStart() {
-      return this.sectionStart;
-    }
     stateText(c) {
       if (c === CharCodes2.Lt || !this.decodeEntities && this.fastForwardTo(CharCodes2.Lt)) {
         if (this.index > this.sectionStart) {
@@ -20053,7 +19743,7 @@ var source = (() => {
         this.state = State2.BeforeTagName;
         this.sectionStart = this.index;
       } else if (this.decodeEntities && c === CharCodes2.Amp) {
-        this.state = State2.BeforeEntity;
+        this.startEntity();
       }
     }
     stateSpecialStartSequence(c) {
@@ -20098,7 +19788,7 @@ var source = (() => {
       } else if (this.sequenceIndex === 0) {
         if (this.currentSequence === Sequences.TitleEnd) {
           if (this.decodeEntities && c === CharCodes2.Amp) {
-            this.state = State2.BeforeEntity;
+            this.startEntity();
           }
         } else if (this.fastForwardTo(CharCodes2.Lt)) {
           this.sequenceIndex = 1;
@@ -20189,10 +19879,14 @@ var source = (() => {
       } else if (this.isTagStartChar(c)) {
         const lower = c | 32;
         this.sectionStart = this.index;
-        if (!this.xmlMode && lower === Sequences.TitleEnd[2]) {
-          this.startSpecial(Sequences.TitleEnd, 3);
+        if (this.xmlMode) {
+          this.state = State2.InTagName;
+        } else if (lower === Sequences.ScriptEnd[2]) {
+          this.state = State2.BeforeSpecialS;
+        } else if (lower === Sequences.TitleEnd[2]) {
+          this.state = State2.BeforeSpecialT;
         } else {
-          this.state = !this.xmlMode && lower === Sequences.ScriptEnd[2] ? State2.BeforeSpecialS : State2.InTagName;
+          this.state = State2.InTagName;
         }
       } else if (c === CharCodes2.Slash) {
         this.state = State2.BeforeClosingTagName;
@@ -20229,7 +19923,6 @@ var source = (() => {
     stateAfterClosingTagName(c) {
       if (c === CharCodes2.Gt || this.fastForwardTo(CharCodes2.Gt)) {
         this.state = State2.Text;
-        this.baseState = State2.Text;
         this.sectionStart = this.index + 1;
       }
     }
@@ -20242,7 +19935,6 @@ var source = (() => {
         } else {
           this.state = State2.Text;
         }
-        this.baseState = this.state;
         this.sectionStart = this.index + 1;
       } else if (c === CharCodes2.Slash) {
         this.state = State2.InSelfClosingTag;
@@ -20255,7 +19947,6 @@ var source = (() => {
       if (c === CharCodes2.Gt) {
         this.cbs.onselfclosingtag(this.index);
         this.state = State2.Text;
-        this.baseState = State2.Text;
         this.sectionStart = this.index + 1;
         this.isSpecial = false;
       } else if (!isWhitespace3(c)) {
@@ -20266,7 +19957,7 @@ var source = (() => {
     stateInAttributeName(c) {
       if (c === CharCodes2.Eq || isEndOfTagSection(c)) {
         this.cbs.onattribname(this.sectionStart, this.index);
-        this.sectionStart = -1;
+        this.sectionStart = this.index;
         this.state = State2.AfterAttributeName;
         this.stateAfterAttributeName(c);
       }
@@ -20275,11 +19966,12 @@ var source = (() => {
       if (c === CharCodes2.Eq) {
         this.state = State2.BeforeAttributeValue;
       } else if (c === CharCodes2.Slash || c === CharCodes2.Gt) {
-        this.cbs.onattribend(QuoteType.NoValue, this.index);
+        this.cbs.onattribend(QuoteType.NoValue, this.sectionStart);
+        this.sectionStart = -1;
         this.state = State2.BeforeAttributeName;
         this.stateBeforeAttributeName(c);
       } else if (!isWhitespace3(c)) {
-        this.cbs.onattribend(QuoteType.NoValue, this.index);
+        this.cbs.onattribend(QuoteType.NoValue, this.sectionStart);
         this.state = State2.InAttributeName;
         this.sectionStart = this.index;
       }
@@ -20301,11 +19993,10 @@ var source = (() => {
       if (c === quote || !this.decodeEntities && this.fastForwardTo(quote)) {
         this.cbs.onattribdata(this.sectionStart, this.index);
         this.sectionStart = -1;
-        this.cbs.onattribend(quote === CharCodes2.DoubleQuote ? QuoteType.Double : QuoteType.Single, this.index);
+        this.cbs.onattribend(quote === CharCodes2.DoubleQuote ? QuoteType.Double : QuoteType.Single, this.index + 1);
         this.state = State2.BeforeAttributeName;
       } else if (this.decodeEntities && c === CharCodes2.Amp) {
-        this.baseState = this.state;
-        this.state = State2.BeforeEntity;
+        this.startEntity();
       }
     }
     stateInAttributeValueDoubleQuotes(c) {
@@ -20322,8 +20013,7 @@ var source = (() => {
         this.state = State2.BeforeAttributeName;
         this.stateBeforeAttributeName(c);
       } else if (this.decodeEntities && c === CharCodes2.Amp) {
-        this.baseState = this.state;
-        this.state = State2.BeforeEntity;
+        this.startEntity();
       }
     }
     stateBeforeDeclaration(c) {
@@ -20376,125 +20066,33 @@ var source = (() => {
         this.stateInTagName(c);
       }
     }
-    stateBeforeEntity(c) {
-      this.entityExcess = 1;
-      this.entityResult = 0;
-      if (c === CharCodes2.Number) {
-        this.state = State2.BeforeNumericEntity;
-      } else if (c === CharCodes2.Amp) {
+    stateBeforeSpecialT(c) {
+      const lower = c | 32;
+      if (lower === Sequences.TitleEnd[3]) {
+        this.startSpecial(Sequences.TitleEnd, 4);
+      } else if (lower === Sequences.TextareaEnd[3]) {
+        this.startSpecial(Sequences.TextareaEnd, 4);
       } else {
-        this.trieIndex = 0;
-        this.trieCurrent = this.entityTrie[0];
-        this.state = State2.InNamedEntity;
-        this.stateInNamedEntity(c);
+        this.state = State2.InTagName;
+        this.stateInTagName(c);
       }
     }
-    stateInNamedEntity(c) {
-      this.entityExcess += 1;
-      this.trieIndex = determineBranch(this.entityTrie, this.trieCurrent, this.trieIndex + 1, c);
-      if (this.trieIndex < 0) {
-        this.emitNamedEntity();
-        this.index--;
-        return;
-      }
-      this.trieCurrent = this.entityTrie[this.trieIndex];
-      const masked = this.trieCurrent & BinTrieFlags.VALUE_LENGTH;
-      if (masked) {
-        const valueLength = (masked >> 14) - 1;
-        if (!this.allowLegacyEntity() && c !== CharCodes2.Semi) {
-          this.trieIndex += valueLength;
-        } else {
-          const entityStart = this.index - this.entityExcess + 1;
-          if (entityStart > this.sectionStart) {
-            this.emitPartial(this.sectionStart, entityStart);
-          }
-          this.entityResult = this.trieIndex;
-          this.trieIndex += valueLength;
-          this.entityExcess = 0;
-          this.sectionStart = this.index + 1;
-          if (valueLength === 0) {
-            this.emitNamedEntity();
-          }
-        }
-      }
+    startEntity() {
+      this.baseState = this.state;
+      this.state = State2.InEntity;
+      this.entityStart = this.index;
+      this.entityDecoder.startEntity(this.xmlMode ? DecodingMode.Strict : this.baseState === State2.Text || this.baseState === State2.InSpecialTag ? DecodingMode.Legacy : DecodingMode.Attribute);
     }
-    emitNamedEntity() {
-      this.state = this.baseState;
-      if (this.entityResult === 0) {
-        return;
-      }
-      const valueLength = (this.entityTrie[this.entityResult] & BinTrieFlags.VALUE_LENGTH) >> 14;
-      switch (valueLength) {
-        case 1: {
-          this.emitCodePoint(this.entityTrie[this.entityResult] & ~BinTrieFlags.VALUE_LENGTH);
-          break;
+    stateInEntity() {
+      const length = this.entityDecoder.write(this.buffer, this.index - this.offset);
+      if (length >= 0) {
+        this.state = this.baseState;
+        if (length === 0) {
+          this.index = this.entityStart;
         }
-        case 2: {
-          this.emitCodePoint(this.entityTrie[this.entityResult + 1]);
-          break;
-        }
-        case 3: {
-          this.emitCodePoint(this.entityTrie[this.entityResult + 1]);
-          this.emitCodePoint(this.entityTrie[this.entityResult + 2]);
-        }
-      }
-    }
-    stateBeforeNumericEntity(c) {
-      if ((c | 32) === CharCodes2.LowerX) {
-        this.entityExcess++;
-        this.state = State2.InHexEntity;
       } else {
-        this.state = State2.InNumericEntity;
-        this.stateInNumericEntity(c);
+        this.index = this.offset + this.buffer.length - 1;
       }
-    }
-    emitNumericEntity(strict) {
-      const entityStart = this.index - this.entityExcess - 1;
-      const numberStart = entityStart + 2 + Number(this.state === State2.InHexEntity);
-      if (numberStart !== this.index) {
-        if (entityStart > this.sectionStart) {
-          this.emitPartial(this.sectionStart, entityStart);
-        }
-        this.sectionStart = this.index + Number(strict);
-        this.emitCodePoint(replaceCodePoint(this.entityResult));
-      }
-      this.state = this.baseState;
-    }
-    stateInNumericEntity(c) {
-      if (c === CharCodes2.Semi) {
-        this.emitNumericEntity(true);
-      } else if (isNumber2(c)) {
-        this.entityResult = this.entityResult * 10 + (c - CharCodes2.Zero);
-        this.entityExcess++;
-      } else {
-        if (this.allowLegacyEntity()) {
-          this.emitNumericEntity(false);
-        } else {
-          this.state = this.baseState;
-        }
-        this.index--;
-      }
-    }
-    stateInHexEntity(c) {
-      if (c === CharCodes2.Semi) {
-        this.emitNumericEntity(true);
-      } else if (isNumber2(c)) {
-        this.entityResult = this.entityResult * 16 + (c - CharCodes2.Zero);
-        this.entityExcess++;
-      } else if (isHexDigit(c)) {
-        this.entityResult = this.entityResult * 16 + ((c | 32) - CharCodes2.LowerA + 10);
-        this.entityExcess++;
-      } else {
-        if (this.allowLegacyEntity()) {
-          this.emitNumericEntity(false);
-        } else {
-          this.state = this.baseState;
-        }
-        this.index--;
-      }
-    }
-    allowLegacyEntity() {
-      return !this.xmlMode && (this.baseState === State2.Text || this.baseState === State2.InSpecialTag);
     }
     /**
      * Remove data that has already been consumed from the buffer.
@@ -20594,6 +20192,10 @@ var source = (() => {
             this.stateBeforeSpecialS(c);
             break;
           }
+          case State2.BeforeSpecialT: {
+            this.stateBeforeSpecialT(c);
+            break;
+          }
           case State2.InAttributeValueNq: {
             this.stateInAttributeValueNoQuotes(c);
             break;
@@ -20618,24 +20220,9 @@ var source = (() => {
             this.stateInProcessingInstruction(c);
             break;
           }
-          case State2.InNamedEntity: {
-            this.stateInNamedEntity(c);
+          case State2.InEntity: {
+            this.stateInEntity();
             break;
-          }
-          case State2.BeforeEntity: {
-            this.stateBeforeEntity(c);
-            break;
-          }
-          case State2.InHexEntity: {
-            this.stateInHexEntity(c);
-            break;
-          }
-          case State2.InNumericEntity: {
-            this.stateInNumericEntity(c);
-            break;
-          }
-          default: {
-            this.stateBeforeNumericEntity(c);
           }
         }
         this.index++;
@@ -20643,44 +20230,45 @@ var source = (() => {
       this.cleanup();
     }
     finish() {
-      if (this.state === State2.InNamedEntity) {
-        this.emitNamedEntity();
+      if (this.state === State2.InEntity) {
+        this.entityDecoder.end();
+        this.state = this.baseState;
       }
-      if (this.sectionStart < this.index) {
-        this.handleTrailingData();
-      }
+      this.handleTrailingData();
       this.cbs.onend();
     }
     /** Handle any trailing data. */
     handleTrailingData() {
       const endIndex = this.buffer.length + this.offset;
+      if (this.sectionStart >= endIndex) {
+        return;
+      }
       if (this.state === State2.InCommentLike) {
         if (this.currentSequence === Sequences.CdataEnd) {
           this.cbs.oncdata(this.sectionStart, endIndex, 0);
         } else {
           this.cbs.oncomment(this.sectionStart, endIndex, 0);
         }
-      } else if (this.state === State2.InNumericEntity && this.allowLegacyEntity()) {
-        this.emitNumericEntity(false);
-      } else if (this.state === State2.InHexEntity && this.allowLegacyEntity()) {
-        this.emitNumericEntity(false);
       } else if (this.state === State2.InTagName || this.state === State2.BeforeAttributeName || this.state === State2.BeforeAttributeValue || this.state === State2.AfterAttributeName || this.state === State2.InAttributeName || this.state === State2.InAttributeValueSq || this.state === State2.InAttributeValueDq || this.state === State2.InAttributeValueNq || this.state === State2.InClosingTagName) {
       } else {
         this.cbs.ontext(this.sectionStart, endIndex);
       }
     }
-    emitPartial(start, endIndex) {
+    emitCodePoint(cp, consumed) {
       if (this.baseState !== State2.Text && this.baseState !== State2.InSpecialTag) {
-        this.cbs.onattribdata(start, endIndex);
-      } else {
-        this.cbs.ontext(start, endIndex);
-      }
-    }
-    emitCodePoint(cp) {
-      if (this.baseState !== State2.Text && this.baseState !== State2.InSpecialTag) {
+        if (this.sectionStart < this.entityStart) {
+          this.cbs.onattribdata(this.sectionStart, this.entityStart);
+        }
+        this.sectionStart = this.entityStart + consumed;
+        this.index = this.sectionStart - 1;
         this.cbs.onattribentity(cp);
       } else {
-        this.cbs.ontextentity(cp);
+        if (this.sectionStart < this.entityStart) {
+          this.cbs.ontext(this.sectionStart, this.entityStart);
+        }
+        this.sectionStart = this.entityStart + consumed;
+        this.index = this.sectionStart - 1;
+        this.cbs.ontextentity(cp, this.sectionStart);
       }
     }
   };
@@ -20784,7 +20372,7 @@ var source = (() => {
   var reNameEnd = /\s|\//;
   var Parser2 = class {
     constructor(cbs, options = {}) {
-      var _a2, _b, _c, _d, _e;
+      var _a2, _b, _c, _d, _e, _f;
       this.options = options;
       this.startIndex = 0;
       this.endIndex = 0;
@@ -20794,16 +20382,18 @@ var source = (() => {
       this.attribvalue = "";
       this.attribs = null;
       this.stack = [];
-      this.foreignContext = [];
       this.buffers = [];
       this.bufferOffset = 0;
       this.writeIndex = 0;
       this.ended = false;
       this.cbs = cbs !== null && cbs !== void 0 ? cbs : {};
-      this.lowerCaseTagNames = (_a2 = options.lowerCaseTags) !== null && _a2 !== void 0 ? _a2 : !options.xmlMode;
-      this.lowerCaseAttributeNames = (_b = options.lowerCaseAttributeNames) !== null && _b !== void 0 ? _b : !options.xmlMode;
-      this.tokenizer = new ((_c = options.Tokenizer) !== null && _c !== void 0 ? _c : Tokenizer2)(this.options, this);
-      (_e = (_d = this.cbs).onparserinit) === null || _e === void 0 ? void 0 : _e.call(_d, this);
+      this.htmlMode = !this.options.xmlMode;
+      this.lowerCaseTagNames = (_a2 = options.lowerCaseTags) !== null && _a2 !== void 0 ? _a2 : this.htmlMode;
+      this.lowerCaseAttributeNames = (_b = options.lowerCaseAttributeNames) !== null && _b !== void 0 ? _b : this.htmlMode;
+      this.recognizeSelfClosing = (_c = options.recognizeSelfClosing) !== null && _c !== void 0 ? _c : !this.htmlMode;
+      this.tokenizer = new ((_d = options.Tokenizer) !== null && _d !== void 0 ? _d : Tokenizer2)(this.options, this);
+      this.foreignContext = [!this.htmlMode];
+      (_f = (_e = this.cbs).onparserinit) === null || _f === void 0 ? void 0 : _f.call(_e, this);
     }
     // Tokenizer event handlers
     /** @internal */
@@ -20815,15 +20405,18 @@ var source = (() => {
       this.startIndex = endIndex;
     }
     /** @internal */
-    ontextentity(cp) {
+    ontextentity(cp, endIndex) {
       var _a2, _b;
-      const index2 = this.tokenizer.getSectionStart();
-      this.endIndex = index2 - 1;
+      this.endIndex = endIndex - 1;
       (_b = (_a2 = this.cbs).ontext) === null || _b === void 0 ? void 0 : _b.call(_a2, fromCodePoint(cp));
-      this.startIndex = index2;
+      this.startIndex = endIndex;
     }
+    /**
+     * Checks if the current tag is a void element. Override this if you want
+     * to specify your own additional void elements.
+     */
     isVoidElement(name) {
-      return !this.options.xmlMode && voidElements.has(name);
+      return this.htmlMode && voidElements.has(name);
     }
     /** @internal */
     onopentagname(start, endIndex) {
@@ -20838,19 +20431,21 @@ var source = (() => {
       var _a2, _b, _c, _d;
       this.openTagStart = this.startIndex;
       this.tagname = name;
-      const impliesClose = !this.options.xmlMode && openImpliesClose.get(name);
+      const impliesClose = this.htmlMode && openImpliesClose.get(name);
       if (impliesClose) {
-        while (this.stack.length > 0 && impliesClose.has(this.stack[this.stack.length - 1])) {
-          const element = this.stack.pop();
+        while (this.stack.length > 0 && impliesClose.has(this.stack[0])) {
+          const element = this.stack.shift();
           (_b = (_a2 = this.cbs).onclosetag) === null || _b === void 0 ? void 0 : _b.call(_a2, element, true);
         }
       }
       if (!this.isVoidElement(name)) {
-        this.stack.push(name);
-        if (foreignContextElements.has(name)) {
-          this.foreignContext.push(true);
-        } else if (htmlIntegrationElements.has(name)) {
-          this.foreignContext.push(false);
+        this.stack.unshift(name);
+        if (this.htmlMode) {
+          if (foreignContextElements.has(name)) {
+            this.foreignContext.unshift(true);
+          } else if (htmlIntegrationElements.has(name)) {
+            this.foreignContext.unshift(false);
+          }
         }
       }
       (_d = (_c = this.cbs).onopentagname) === null || _d === void 0 ? void 0 : _d.call(_c, name);
@@ -20877,40 +20472,37 @@ var source = (() => {
     }
     /** @internal */
     onclosetag(start, endIndex) {
-      var _a2, _b, _c, _d, _e, _f;
+      var _a2, _b, _c, _d, _e, _f, _g, _h;
       this.endIndex = endIndex;
       let name = this.getSlice(start, endIndex);
       if (this.lowerCaseTagNames) {
         name = name.toLowerCase();
       }
-      if (foreignContextElements.has(name) || htmlIntegrationElements.has(name)) {
-        this.foreignContext.pop();
+      if (this.htmlMode && (foreignContextElements.has(name) || htmlIntegrationElements.has(name))) {
+        this.foreignContext.shift();
       }
       if (!this.isVoidElement(name)) {
-        const pos = this.stack.lastIndexOf(name);
+        const pos = this.stack.indexOf(name);
         if (pos !== -1) {
-          if (this.cbs.onclosetag) {
-            let count = this.stack.length - pos;
-            while (count--) {
-              this.cbs.onclosetag(this.stack.pop(), count !== 0);
-            }
-          } else
-            this.stack.length = pos;
-        } else if (!this.options.xmlMode && name === "p") {
+          for (let index2 = 0; index2 <= pos; index2++) {
+            const element = this.stack.shift();
+            (_b = (_a2 = this.cbs).onclosetag) === null || _b === void 0 ? void 0 : _b.call(_a2, element, index2 !== pos);
+          }
+        } else if (this.htmlMode && name === "p") {
           this.emitOpenTag("p");
           this.closeCurrentTag(true);
         }
-      } else if (!this.options.xmlMode && name === "br") {
-        (_b = (_a2 = this.cbs).onopentagname) === null || _b === void 0 ? void 0 : _b.call(_a2, "br");
-        (_d = (_c = this.cbs).onopentag) === null || _d === void 0 ? void 0 : _d.call(_c, "br", {}, true);
-        (_f = (_e = this.cbs).onclosetag) === null || _f === void 0 ? void 0 : _f.call(_e, "br", false);
+      } else if (this.htmlMode && name === "br") {
+        (_d = (_c = this.cbs).onopentagname) === null || _d === void 0 ? void 0 : _d.call(_c, "br");
+        (_f = (_e = this.cbs).onopentag) === null || _f === void 0 ? void 0 : _f.call(_e, "br", {}, true);
+        (_h = (_g = this.cbs).onclosetag) === null || _h === void 0 ? void 0 : _h.call(_g, "br", false);
       }
       this.startIndex = endIndex + 1;
     }
     /** @internal */
     onselfclosingtag(endIndex) {
       this.endIndex = endIndex;
-      if (this.options.xmlMode || this.options.recognizeSelfClosing || this.foreignContext[this.foreignContext.length - 1]) {
+      if (this.recognizeSelfClosing || this.foreignContext[0]) {
         this.closeCurrentTag(false);
         this.startIndex = endIndex + 1;
       } else {
@@ -20921,9 +20513,9 @@ var source = (() => {
       var _a2, _b;
       const name = this.tagname;
       this.endOpenTag(isOpenImplied);
-      if (this.stack[this.stack.length - 1] === name) {
+      if (this.stack[0] === name) {
         (_b = (_a2 = this.cbs).onclosetag) === null || _b === void 0 ? void 0 : _b.call(_a2, name, !isOpenImplied);
-        this.stack.pop();
+        this.stack.shift();
       }
     }
     /** @internal */
@@ -20991,7 +20583,7 @@ var source = (() => {
       var _a2, _b, _c, _d, _e, _f, _g, _h, _j, _k;
       this.endIndex = endIndex;
       const value = this.getSlice(start, endIndex - offset);
-      if (this.options.xmlMode || this.options.recognizeCDATA) {
+      if (!this.htmlMode || this.options.recognizeCDATA) {
         (_b = (_a2 = this.cbs).oncdatastart) === null || _b === void 0 ? void 0 : _b.call(_a2);
         (_d = (_c = this.cbs).ontext) === null || _d === void 0 ? void 0 : _d.call(_c, value);
         (_f = (_e = this.cbs).oncdataend) === null || _f === void 0 ? void 0 : _f.call(_e);
@@ -21006,8 +20598,9 @@ var source = (() => {
       var _a2, _b;
       if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
-        for (let index2 = this.stack.length; index2 > 0; this.cbs.onclosetag(this.stack[--index2], true))
-          ;
+        for (let index2 = 0; index2 < this.stack.length; index2++) {
+          this.cbs.onclosetag(this.stack[index2], true);
+        }
       }
       (_b = (_a2 = this.cbs).onend) === null || _b === void 0 ? void 0 : _b.call(_a2);
     }
@@ -21026,6 +20619,8 @@ var source = (() => {
       this.endIndex = 0;
       (_d = (_c = this.cbs).onparserinit) === null || _d === void 0 ? void 0 : _d.call(_c, this);
       this.buffers.length = 0;
+      this.foreignContext.length = 0;
+      this.foreignContext.unshift(!this.htmlMode);
       this.bufferOffset = 0;
       this.writeIndex = 0;
       this.ended = false;
@@ -21133,14 +20728,9 @@ var source = (() => {
     return handler.root;
   }
 
-  // node_modules/cheerio/lib/esm/index.js
-  var parse5 = getParse((content, options, isDocument2, context) => options.xmlMode || options._useHtmlParser2 ? parseDocument(content, options) : parseWithParse5(content, options, isDocument2, context));
-  var load = getLoad(parse5, (dom, options) => options.xmlMode || options._useHtmlParser2 ? esm_default(dom, options) : renderWithParse5(dom));
-  var esm_default2 = load([]);
-  var { contains: contains2 } = static_exports;
-  var { merge: merge2 } = static_exports;
-  var { parseHTML: parseHTML2 } = static_exports;
-  var { root: root2 } = static_exports;
+  // node_modules/cheerio/dist/browser/load-parse.js
+  var parse5 = getParse((content, options, isDocument2, context) => options._useHtmlParser2 ? parseDocument(content, options) : parseWithParse5(content, options, isDocument2, context));
+  var load = getLoad(parse5, (dom, options) => options._useHtmlParser2 ? esm_default(dom, options) : renderWithParse5(dom));
 
   // src/WebtoonsParser.ts
   init_buffer();
@@ -21174,7 +20764,7 @@ var source = (() => {
       return [
         (0, import_types2.Section)("hideStuff", [
           (0, import_types2.ToggleRow)("toggle", {
-            title: "Toggles can hide rows",
+            title: "Show Canvas",
             value: this.settings.canvasWanted,
             onValueChange: Application.Selector(this, "setCanvasWanted")
           })
@@ -21366,8 +20956,8 @@ var source = (() => {
   var WebtoonsInfra = class extends WebtoonsParser {
     constructor(dateFormat, locale, language, BASE_URL2, MOBILE_URL2) {
       super(dateFormat, locale, language, BASE_URL2, MOBILE_URL2);
-      this.cheerio = esm_exports4;
-      this.globalRateLimiter = new import_types4.BasicRateLimiter("rateLimiter", 10, 1);
+      this.cheerio = browser_exports;
+      this.globalRateLimiter = new import_types4.BasicRateLimiter("rateLimiter", { numberOfRequests: 10, bufferInterval: 1, ignoreImages: false });
       this.cookies = {
         "ageGatePass": "true",
         "locale": locale
@@ -21375,7 +20965,6 @@ var source = (() => {
     }
     async initialise() {
       this.registerInterceptors();
-      this.registerDiscoverSections();
       await this.registerSearchFilters();
     }
     registerInterceptors() {
@@ -21456,21 +21045,21 @@ var source = (() => {
         this.parsePopularTitles
       );
     }
-    getTodayTitles(section, metadata) {
+    getTodayTitles(metadata) {
       return this.ExecPagedResultsRequest(
         { url: `${this.BASE_URL}/originals` },
         { page: metadata?.page ?? 0, maxPages: 2 },
         ($2) => this.parseTodayTitles($2, metadata?.page ? true : false)
       );
     }
-    getOngoingTitles(section, metadata) {
+    getOngoingTitles(metadata) {
       return this.ExecPagedResultsRequest(
         { url: `${this.BASE_URL}/originals` },
         { page: metadata?.page ?? 0, maxPages: 2 },
         ($2) => this.parseOngoingTitles($2, metadata?.page ? true : false)
       );
     }
-    getCompletedTitles(section, metadata) {
+    getCompletedTitles(metadata) {
       return this.ExecPagedResultsRequest(
         { url: `${this.BASE_URL}/originals` },
         { page: metadata?.page ?? 0, maxPages: 2 },
@@ -21483,10 +21072,7 @@ var source = (() => {
         this.parseCanvasRecommendedTitles
       );
     }
-    getCanvasPopularTitles(section, metadata) {
-      return this._getCanvasPopularTitles(metadata);
-    }
-    _getCanvasPopularTitles(metadata, genre) {
+    getCanvasPopularTitles(metadata, genre) {
       return this.ExecPagedResultsRequest(
         {
           url: `${this.BASE_URL}/canvas/list`,
@@ -21517,60 +21103,70 @@ var source = (() => {
     }
     getSearchResults(query, metadata) {
       const genre = query.filters[0]?.value ?? "ALL";
-      return genre !== "ALL" ? genre.startsWith("CANVAS$$") ? this._getCanvasPopularTitles(metadata, genre.split("$$")[1]) : this.getTitlesByGenre(genre) : query.title ? this.getTitlesByKeyword(query.title, metadata) : Promise.resolve({ items: [] });
+      return genre !== "ALL" ? genre.startsWith("CANVAS$$") ? this.getCanvasPopularTitles(metadata, genre.split("$$")[1]) : this.getTitlesByGenre(genre) : query.title ? this.getTitlesByKeyword(query.title, metadata) : Promise.resolve({ items: [] });
     }
-    registerDiscoverSections() {
-      if (this.HAVE_TRENDING)
-        Application.registerDiscoverSection(
-          {
-            id: "popular",
-            title: "New & Trending",
-            type: import_types5.DiscoverSectionType.simpleCarousel
-          },
-          Application.Selector(this, "getPopularTitles")
-        );
-      Application.registerDiscoverSection(
+    async getDiscoverSectionItems(section, metadata) {
+      let result = { items: [] };
+      switch (section.id) {
+        case "popular":
+          result = await this.getPopularTitles();
+          break;
+        case "today":
+          result = await this.getTodayTitles(metadata);
+          break;
+        case "ongoing":
+          result = await this.getOngoingTitles(metadata);
+          break;
+        case "completed":
+          result = await this.getCompletedTitles(metadata);
+          break;
+        case "canvas_recommended":
+          result = await this.getCanvasRecommendedTitles();
+          break;
+        case "canvas_popular":
+          result = await this.getCanvasPopularTitles(metadata);
+          break;
+      }
+      return {
+        items: result.items.map((item) => ({ type: "simpleCarouselItem", ...item })),
+        metadata: result.metadata
+      };
+    }
+    getDiscoverSections() {
+      return Promise.resolve([
+        ...this.HAVE_TRENDING ? [{
+          id: "popular",
+          title: "New & Trending",
+          type: import_types5.DiscoverSectionType.simpleCarousel
+        }] : [],
         {
           id: "today",
           title: "Today release",
           type: import_types5.DiscoverSectionType.simpleCarousel
         },
-        Application.Selector(this, "getTodayTitles")
-      );
-      Application.registerDiscoverSection(
         {
           id: "ongoing",
           title: "Ongoing",
           type: import_types5.DiscoverSectionType.simpleCarousel
         },
-        Application.Selector(this, "getOngoingTitles")
-      );
-      Application.registerDiscoverSection(
         {
           id: "completed",
           title: "Completed",
           type: import_types5.DiscoverSectionType.simpleCarousel
         },
-        Application.Selector(this, "getCompletedTitles")
-      );
-      if (this.canvasWanted) {
-        Application.registerDiscoverSection(
+        ...this.canvasWanted ? [
           {
             id: "canvas_recommended",
             title: "Canvas Recommended",
             type: import_types5.DiscoverSectionType.simpleCarousel
           },
-          Application.Selector(this, "getCanvasRecommendedTitles")
-        );
-        Application.registerDiscoverSection(
           {
             id: "canvas_popular",
             title: "Canvas Popular",
             type: import_types5.DiscoverSectionType.simpleCarousel
-          },
-          Application.Selector(this, "getCanvasPopularTitles")
-        );
-      }
+          }
+        ] : []
+      ]);
     }
     async registerSearchFilters() {
       const genres = await this.getSearchTags();
